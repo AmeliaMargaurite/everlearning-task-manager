@@ -15,7 +15,7 @@ define('HOME_URL', IS_LIVE ? '/' : '/task-manager/'); // needs to be '/' when li
 
 include_once(ROOTPATH . '/libs/helpers.php');
 
-define('DB_CONNECTION', ROOTPATH . '/db_connection.php');
+define('DB_CONNECTION', ROOTPATH . '/php/db_connection.php');
 define('DASHBOARD_LINK', ROOTPATH . '/php/dashboard_link.php');
 // UI
 define('HEADER', ROOTPATH . '/php/header.php');
@@ -41,7 +41,7 @@ define('NOTE_REQUESTS', QUERIES . '/note_requests.php');
   // categories
 define('CATEGORY_REQUESTS', QUERIES . '/category_requests.php');
 
-
+define('RENDER_COMPONENTS', ROOTPATH . '/php/renderComponents.php');
 
 include_once(ROOTPATH . '/php/query_helpers.php');
 include_once(ROOTPATH . '/libs/flash.php');
@@ -49,7 +49,7 @@ include_once(ROOTPATH . '/libs/sanitization.php');
 include_once(ROOTPATH . '/libs/validation.php');
 include_once(ROOTPATH . '/libs/filter.php');
 include_once(ROOTPATH . '/libs/auth.php');
-include_once(ROOTPATH . '/get_data.php');
+include_once(ROOTPATH . '/php/get_data.php');
 
 class Project {
   public $name;

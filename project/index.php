@@ -6,7 +6,7 @@ include_once(PROJECT_FUNCTIONS);
 include_once(TASK_FUNCTIONS);
 include_once(NOTE_FUNCTIONS);
 include_once(CATEGORY_REQUESTS);
-include_once('./renderComponents.php');
+include_once(RENDER_COMPONENTS);
 
 
 
