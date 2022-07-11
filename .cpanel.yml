@@ -1,0 +1,17 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home2/ameliama/task-manager.everlearning.com.au
+    - /bin/cp index.php $DEPLOYPATH
+    - /bin/cp config.php $DEPLOYPATH
+    - /bin/cp -R css $DEPLOYPATH
+    - /bin/cp -R dashboard $DEPLOYPATH
+    - /bin/cp -R db-failed $DEPLOYPATH
+    - /bin/cp -R imgs $DEPLOYPATH
+    - /bin/cp -R js $DEPLOYPATH
+    - /bin/cp -R libs $DEPLOYPATH
+    - /bin/cp -R login $DEPLOYPATH
+    - /bin/cp -R logout $DEPLOYPATH
+    - /bin/cp -R php $DEPLOYPATH
+    - /bin/cp -R project $DEPLOYPATH
+    - /bin/cp -R register $DEPLOYPATH
