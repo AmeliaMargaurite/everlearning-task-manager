@@ -105,6 +105,8 @@ include_once(PAGE_START);
 </div>
 
 <script type="module">
+  import {taskRequestURL} from '<?= HOME_URL . "/js/helpers.js" ?>'
+  
   window.editTask = function editTask(task_id) {
     const dialog = document.createElement("edit-task-dialog");
     dialog.setAttribute('task_id', task_id);
@@ -127,7 +129,7 @@ include_once(PAGE_START);
     e.preventDefault();
     const task_id = e.dataTransfer.getData("task_id");
     if (task_id) {
-        const response = await fetch('./php/queries/task_requests.php', {
+        const response = await fetch(taskRequestURL, {
         method: "POST", 
         body: JSON.stringify({
           request: 'update_task_status', 

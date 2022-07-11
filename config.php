@@ -6,7 +6,7 @@ ini_set('html_errors', 1);
 
 define('IS_LIVE', getenv("ENVIRONMENT") === 'production');
 $local = '/task-manager';
-echo dirname(__DIR__, 1);
+
 define('CONFIG_PATH', IS_LIVE ? dirname(__DIR__, 1) . '/.configs/config.ini' : realpath(__DIR__ . '../../.configs/config.ini'));
 define('CONNECTION_TYPE', IS_LIVE ? 'live' : 'local');
 define('ROOTPATH', __DIR__);
