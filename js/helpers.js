@@ -8,11 +8,6 @@ export const projectFuctionsURL = "../php/queries/project_functions.php";
 export const statusFunctionsURL = "../php/queries/status_functions.php";
 export const statusRequestsURL = "../php/queries/status_requests.php";
 
-const live = "/";
-const local = "localhost/task-manager";
-
-export const BASE_URL = live;
-
 export const getProjectIdFromURL = () => {
 	let project_id;
 	if (window && window.location) {

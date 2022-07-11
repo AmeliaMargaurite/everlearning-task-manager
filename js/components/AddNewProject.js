@@ -1,4 +1,4 @@
-import { BASE_URL, projectFuctionsURL } from "../helpers.js";
+import { projectFuctionsURL } from "../helpers.js";
 
 export class AddNewProjectButton extends HTMLElement {
 	constructor() {
