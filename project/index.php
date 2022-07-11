@@ -1,5 +1,5 @@
 <?php 
-include_once './config.php';
+include_once '../config.php';
 require_login();
 include_once(DB_CONNECTION);
 include_once(PROJECT_FUNCTIONS);
