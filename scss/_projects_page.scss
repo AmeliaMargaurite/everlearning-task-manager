@@ -1,0 +1,119 @@
+.projects__wrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 2.4rem;
+	@media (min-width: $small) {
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+	}
+
+	margin-inline: 3.2rem;
+
+	& div.overview__wrapper {
+		display: grid;
+		grid-template-rows: max-content auto;
+		row-gap: 1.6rem;
+	}
+}
+
+.project_tiles {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	column-gap: 1.6rem;
+	row-gap: 1.6rem;
+	// padding-inline: 1.6rem;
+	height: max-content;
+
+	@media (min-width: $small) {
+		flex-direction: row;
+	}
+}
+
+.project_tile {
+	border: 1px solid #00000042;
+	text-decoration: none;
+	color: var(--primary);
+	padding: 0.8rem;
+	border-radius: 0.4rem;
+	flex: 1;
+	cursor: pointer;
+
+	&--content {
+		display: grid;
+		grid-template-rows: max-content auto max-content;
+		height: 100%;
+
+		& p {
+			position: relative;
+			overflow: hidden;
+
+			&::after {
+				position: absolute;
+				content: "";
+				height: 100%;
+				width: 100%;
+				background: linear-gradient(transparent 10%, var(--secondary));
+				top: 0;
+				left: 0;
+			}
+		}
+
+		@media (min-width: $small) {
+			max-height: 14rem;
+			flex: 1 1 20rem;
+		}
+	}
+
+	& div.counts {
+		display: grid;
+		grid-template-columns: repeat(4, max-content);
+		column-gap: 1.6rem;
+		& span {
+			display: grid;
+			grid-template-columns: 2rem max-content;
+			align-items: center;
+			column-gap: 0.4rem;
+		}
+	}
+}
+
+.projects--page__wrapper {
+	display: grid;
+	min-height: 100vh; // needed to allow easy drag/drop for tasks
+	color: var(--primary);
+	grid-template-rows: max-content auto;
+}
+
+.projects__heading {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-block: 1.6rem;
+	margin-inline: 3.2rem;
+	align-items: center;
+	column-gap: 1.6rem;
+
+	& span {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		column-gap: 0.8rem;
+		align-items: center;
+		grid-row: 1;
+		grid-column: 1/-1;
+		justify-self: center;
+	}
+
+	& .dashboard-link {
+		grid-row: 1;
+		grid-column: 1/-1;
+		justify-self: flex-end;
+	}
+
+	@media (min-width: $small) {
+		display: grid;
+		grid-auto-flow: column;
+		justify-content: unset;
+	}
+}

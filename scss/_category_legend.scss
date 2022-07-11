@@ -1,0 +1,60 @@
+.category_legend--wrapper {
+	position: relative;
+	display: flex;
+	column-gap: 0.8rem;
+	row-gap: 0.4rem;
+	flex-wrap: wrap;
+	margin: 0 1.6rem;
+
+	& .category--wrapper {
+		position: relative;
+		border: 1px solid var(--primary);
+		height: max-content;
+		border-radius: 0.4rem;
+		cursor: pointer;
+
+		& .category {
+			position: relative;
+			overflow: hidden;
+			padding: 0.4rem 0.8rem;
+			// to avoid using overflow: hidden on parent (have menu which would be cut off)
+			border-radius: 0.3rem;
+
+			& span {
+				position: absolute;
+				content: "";
+				right: -2rem;
+				top: 0;
+				background: blue;
+				width: 4rem;
+				height: 40%;
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
+
+.category-context-menu__wrapper {
+	position: absolute;
+	z-index: var(--zIndexContextMenu);
+	top: 50%;
+	left: 12.5%;
+	background: white;
+	border: 1px solid var(--primary);
+
+	& button {
+		width: 100%;
+		border: none;
+		border-bottom: 1px solid var(--primary);
+		border-radius: unset;
+		padding: 0.4rem;
+		&:last-child {
+			border: none;
+		}
+
+		&:hover {
+			background: var(--primary);
+			color: var(--secondary);
+		}
+	}
+}

@@ -1,0 +1,49 @@
+:root {
+	--blue100: #0688b4;
+	--blue200: #03698b;
+	--blue300: #025773;
+	--blue400: #01445b;
+	--blue500: #002e3d;
+
+	--orange100: #ff8300;
+	--orange200: #de7200;
+	--orange300: #b85e00;
+	--orange400: #914a00;
+	--orange500: #623200;
+
+	--teal100: #36ffe1;
+	--teal200: #2be6c6;
+	--teal300: #20ceab;
+	--teal400: #12b692;
+	--teal500: #009f7a;
+
+	--black: #000c12;
+	--transp-black-1: #000c12a9;
+	--transp-black-2: #000c1256;
+	--transp-black-3: #000c1210;
+	--grey100: #afb3b5;
+	--grey200: #717679;
+	--grey300: #383f42;
+	--white: #f2f4f5;
+
+	--light: var(--white);
+	--dark: var(--black);
+
+	--primary: var(--dark);
+	--secondary: var(--light);
+	--highlight: var(--blue100);
+
+	--zIndexContextMenu: 100;
+
+	--error: var(--orange500);
+	--success: var(--teal500);
+}
+
+// BREAKPOINTS
+
+$xxsmall: 425px;
+$xsmall: 501px;
+$small: 768px;
+$medium: 1024px;
+$large: 1440px;
+$xlarge: 2560px;

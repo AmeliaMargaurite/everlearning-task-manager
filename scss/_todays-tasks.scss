@@ -1,0 +1,13 @@
+.todays-tasks {
+	// padding-inline: 1.6rem;
+
+	&__title {
+		display: flex;
+		column-gap: 0.8rem;
+		align-items: center;
+
+		& i {
+			cursor: pointer;
+		}
+	}
+}

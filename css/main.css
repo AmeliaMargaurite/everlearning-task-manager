@@ -1,0 +1,1183 @@
+:root {
+  --blue100: #0688b4;
+  --blue200: #03698b;
+  --blue300: #025773;
+  --blue400: #01445b;
+  --blue500: #002e3d;
+  --orange100: #ff8300;
+  --orange200: #de7200;
+  --orange300: #b85e00;
+  --orange400: #914a00;
+  --orange500: #623200;
+  --teal100: #36ffe1;
+  --teal200: #2be6c6;
+  --teal300: #20ceab;
+  --teal400: #12b692;
+  --teal500: #009f7a;
+  --black: #000c12;
+  --transp-black-1: #000c12a9;
+  --transp-black-2: #000c1256;
+  --transp-black-3: #000c1210;
+  --grey100: #afb3b5;
+  --grey200: #717679;
+  --grey300: #383f42;
+  --white: #f2f4f5;
+  --light: var(--white);
+  --dark: var(--black);
+  --primary: var(--dark);
+  --secondary: var(--light);
+  --highlight: var(--blue100);
+  --zIndexContextMenu: 100;
+  --error: var(--orange500);
+  --success: var(--teal500);
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  row-gap: 0.4rem;
+}
+
+form .booboo {
+  display: none;
+}
+
+form .description {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: max-content auto;
+      grid-template-rows: -webkit-max-content auto;
+      grid-template-rows: max-content auto;
+  height: 100%;
+}
+
+form .settings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-column-gap: 0.8rem;
+          column-gap: 0.8rem;
+}
+
+form .settings span {
+  display: -ms-grid;
+  display: grid;
+}
+
+form label.category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 0.8rem;
+          column-gap: 0.8rem;
+}
+
+form label.category i {
+  cursor: pointer;
+}
+
+form:not(.login, .register) button {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding: 0;
+}
+
+button {
+  padding: 0.8rem 1.6rem;
+  background: var(--secondary);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+button.special {
+  background: var(--primary);
+  color: var(--secondary);
+}
+
+button.special:focus-visible {
+  outline-color: var(--secondary);
+  -webkit-box-shadow: 0 0 1px 2px var(--primary);
+          box-shadow: 0 0 1px 2px var(--primary);
+}
+
+button.delete-link {
+  color: var(--orange300);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  justify-self: flex-end;
+  border: none;
+  padding: 0;
+}
+
+button.delete {
+  background: var(--orange300);
+  color: var(--white);
+}
+
+input,
+textarea,
+select {
+  padding: 0.8rem;
+  font-family: inherit;
+  color: var(--primary);
+  width: 100%;
+}
+
+a.back-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 0.8rem;
+          column-gap: 0.8rem;
+  text-decoration: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--primary);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+form.todays-tasks ul {
+  padding: 0;
+}
+
+form.todays-tasks li {
+  list-style: none;
+}
+
+form.todays-tasks li label {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: max-content auto;
+      grid-template-columns: -webkit-max-content auto;
+      grid-template-columns: max-content auto;
+  -webkit-column-gap: 0.8rem;
+          column-gap: 0.8rem;
+  cursor: pointer;
+}
+
+form.todays-tasks input[type="checkbox"] {
+  height: 1.8rem;
+  width: 1.8rem;
+}
+
+.save-new-category__wrapper {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  row-gap: 1.6rem;
+  z-index: calc(var(--zIndexContextMenu) + 10);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 1.6rem;
+          column-gap: 1.6rem;
+  background: var(--primary);
+  color: var(--secondary);
+  padding: 1.6rem;
+}
+
+.save-new-category__wrapper span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+.save-new-category__wrapper span.buttons--wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -webkit-column-gap: 1.6rem;
+          column-gap: 1.6rem;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.save-new-category__wrapper input {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.save-new-category__wrapper .category_color_picker {
+  max-height: 4rem;
+  padding: 0;
+  width: 4rem;
+  height: 100%;
+}
+
+.save-new-category__wrapper button {
+  height: 100%;
+}
+
+.page__wrapper {
+  display: -ms-grid;
+  display: grid;
+  min-height: 100vh;
+  -ms-grid-rows: max-content max-content auto;
+      grid-template-rows: -webkit-max-content -webkit-max-content auto;
+      grid-template-rows: max-content max-content auto;
+}
+
+.title__wrapper {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  padding: 0 1.6rem;
+  margin: 1.6rem 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 1.6rem;
+  -webkit-column-gap: 1.6rem;
+          column-gap: 1.6rem;
+}
+
+.title__wrapper > input {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  justify-self: center;
+  border: none;
+  background: var(--secondary);
+  color: var(--primary);
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 2.4rem;
+  border: 1px solid var(--primary);
+  border-radius: 0.4rem;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+
+.title__wrapper .dashboard-link {
+  justify-self: flex-end;
+}
+
+@media (min-width: 425px) {
+  .title__wrapper > input {
+    grid-row: unset;
+    grid-column: unset;
+  }
+}
+
+.tasks__wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  padding: 0 1.6rem;
+  -webkit-column-gap: 0.8rem;
+          column-gap: 0.8rem;
+}
+
+@media (max-width: 500px) {
+  .tasks__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.task__column--wrapper h3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 0.8rem;
+          column-gap: 0.8rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--primary);
+  width: 100%;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 400;
+  padding: 0.8rem 0;
+}
+
+.task__column--wrapper h3 span {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.task__column--wrapper h3 span i {
+  padding: 0.4rem;
+}
+
+.task__column--wrapper h3 i:hover {
+  color: var(--secondary);
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.task__column {
+  display: -ms-grid;
+  display: grid;
+  row-gap: 1.6rem;
+  height: 100%;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.task__column .task__tile {
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 1.6rem;
+          column-gap: 1.6rem;
+  background: var(--secondary);
+  border: 1px solid var(--primary);
+  border-radius: 0.4rem;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  cursor: pointer;
+}
+
+.task__column .task__tile.current {
+  outline: 2px solid var(--teal100);
+}
+
+.task__column .task__tile div.wrapper {
+  position: relative;
+  overflow: hidden;
+  display: -ms-grid;
+  display: grid;
+  padding: 0.8rem;
+  row-gap: 0.4rem;
+  border-radius: 0.3rem;
+}
+
+.task__column .task__tile div.name {
+  color: var(--primary);
+}
+
+.task__column .task__tile div.description {
+  position: relative;
+  color: var(--primary);
+  font-size: 1.4rem;
+  overflow: hidden;
+  opacity: 0.4;
+  max-height: 0;
+}
+
+.task__column .task__tile div.description::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, transparent), to(var(--secondary)));
+  background: linear-gradient(transparent 60%, var(--secondary));
+  top: 0;
+  left: 0;
+}
+
+.task__column .task__tile div.date {
+  font-size: 1.2rem;
+}
+
+.task__column span.category_color {
+  position: absolute;
+  content: "";
+  right: -2rem;
+  top: -2rem;
+  width: 4rem;
+  height: 4rem;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.task__column.completed {
+  row-gap: 0.4rem;
+}
+
+.task__column.completed .task__tile {
+  opacity: 0.25;
+}
+
+.task__column.current .task__tile .name {
+  font-weight: 600;
+}
+
+.task__column.current .task__tile .description {
+  opacity: 1;
+  max-height: 15rem;
+}
+
+.task__column.current .task__tile .description::after {
+  background: unset;
+}
+
+.task__column.incomplete .task__tile .description {
+  max-height: 5.2rem;
+}
+
+.task__column.notes {
+  row-gap: 0.8rem;
+}
+
+.task__column.notes li {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto max-content;
+      grid-template-columns: auto -webkit-max-content;
+      grid-template-columns: auto max-content;
+  -webkit-column-gap: 0.8rem;
+          column-gap: 0.8rem;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.task__column.notes .icon {
+  cursor: pointer;
+}
+
+form.note-form li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 0.8rem;
+          column-gap: 0.8rem;
+}
+
+form.note-form li input {
+  border: none;
+  border-bottom: 1px solid var(--primary);
+}
+
+.category-sort__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+tile-context-menu {
+  position: absolute;
+  background: var(--primary);
+  width: 90%;
+  top: 70%;
+  z-index: 10;
+  border: 2px solid var(--secondary);
+  left: 5%;
+  color: var(--secondary);
+}
+
+tile-context-menu input:checked + label {
+  background: var(--blue100);
+}
+
+tile-context-menu label {
+  padding: 1.6rem;
+  width: 100%;
+}
+
+tile-context-menu input {
+  display: none;
+}
+
+.projects__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 2.4rem;
+  margin-inline: 3.2rem;
+}
+
+@media (min-width: 768px) {
+  .projects__wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 4fr;
+        grid-template-columns: 1fr 4fr;
+  }
+}
+
+.projects__wrapper div.overview__wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: max-content auto;
+      grid-template-rows: -webkit-max-content auto;
+      grid-template-rows: max-content auto;
+  row-gap: 1.6rem;
+}
+
+.project_tiles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-column-gap: 1.6rem;
+          column-gap: 1.6rem;
+  row-gap: 1.6rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+@media (min-width: 768px) {
+  .project_tiles {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+.project_tile {
+  border: 1px solid #00000042;
+  text-decoration: none;
+  color: var(--primary);
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  cursor: pointer;
+}
+
+.project_tile--content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: max-content auto max-content;
+      grid-template-rows: -webkit-max-content auto -webkit-max-content;
+      grid-template-rows: max-content auto max-content;
+  height: 100%;
+}
+
+.project_tile--content p {
+  position: relative;
+  overflow: hidden;
+}
+
+.project_tile--content p::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, transparent), to(var(--secondary)));
+  background: linear-gradient(transparent 10%, var(--secondary));
+  top: 0;
+  left: 0;
+}
+
+@media (min-width: 768px) {
+  .project_tile--content {
+    max-height: 14rem;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 20rem;
+            flex: 1 1 20rem;
+  }
+}
+
+.project_tile div.counts {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (max-content)[4];
+      grid-template-columns: repeat(4, -webkit-max-content);
+      grid-template-columns: repeat(4, max-content);
+  -webkit-column-gap: 1.6rem;
+          column-gap: 1.6rem;
+}
+
+.project_tile div.counts span {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2rem max-content;
+      grid-template-columns: 2rem -webkit-max-content;
+      grid-template-columns: 2rem max-content;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 0.4rem;
+          column-gap: 0.4rem;
+}
+
+.projects--page__wrapper {
+  display: -ms-grid;
+  display: grid;
+  min-height: 100vh;
+  color: var(--primary);
+  -ms-grid-rows: max-content auto;
+      grid-template-rows: -webkit-max-content auto;
+      grid-template-rows: max-content auto;
+}
+
+.projects__heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-block: 1.6rem;
+  margin-inline: 3.2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 1.6rem;
+          column-gap: 1.6rem;
+}
+
+.projects__heading span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 0.8rem;
+          column-gap: 0.8rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  grid-column: 1/-1;
+  justify-self: center;
+}
+
+.projects__heading .dashboard-link {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  grid-column: 1/-1;
+  justify-self: flex-end;
+}
+
+@media (min-width: 768px) {
+  .projects__heading {
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: column;
+    -webkit-box-pack: unset;
+        -ms-flex-pack: unset;
+            justify-content: unset;
+  }
+}
+
+.overlay {
+  position: fixed;
+  display: -ms-grid;
+  display: grid;
+  inset: 0;
+  place-content: center;
+  background: var(--transp-black-3);
+}
+
+.overlay div.wrapper {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto max-content;
+      grid-template-rows: auto -webkit-max-content;
+      grid-template-rows: auto max-content;
+  row-gap: 0.8rem;
+  padding: 1.6rem;
+  height: calc(100vh - 6.4rem);
+  width: calc(100vw - 6.4rem);
+  overflow-y: auto;
+  background: var(--secondary);
+  border: 1px solid var(--transp-black-1);
+  border-radius: 0.4rem;
+  -webkit-column-gap: 1.6rem;
+          column-gap: 1.6rem;
+}
+
+.overlay div.wrapper.note {
+  width: 50vmin;
+  height: 75vmin;
+}
+
+.overlay div.wrapper.note textarea {
+  height: 100%;
+}
+
+.overlay div.wrapper.statuses {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  background: var(--primary);
+}
+
+.overlay .modal--contents {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+}
+
+.overlay button {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 1;
+  grid-column: 1;
+}
+
+.overlay button:last-child {
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
+@media (min-width: 1024px) {
+  .overlay div.wrapper {
+    width: unset;
+  }
+}
+
+.warning-overlay {
+  position: absolute;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto max-content;
+      grid-template-rows: auto -webkit-max-content;
+      grid-template-rows: auto max-content;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  -webkit-column-gap: 1.6rem;
+          column-gap: 1.6rem;
+  padding: 1.6rem;
+  text-align: center;
+}
+
+.warning-overlay p {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: var(--secondary);
+  font-size: 1.8rem;
+}
+
+.warning-overlay button {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 1;
+  grid-column: 1;
+}
+
+.warning-overlay button:last-child {
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
+.overlay-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  -webkit-filter: opacity(0.85);
+          filter: opacity(0.85);
+}
+
+.todays-tasks__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 0.8rem;
+          column-gap: 0.8rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.todays-tasks__title i {
+  cursor: pointer;
+}
+
+.category_legend--wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 0.8rem;
+          column-gap: 0.8rem;
+  row-gap: 0.4rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 1.6rem;
+}
+
+.category_legend--wrapper .category--wrapper {
+  position: relative;
+  border: 1px solid var(--primary);
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.category_legend--wrapper .category--wrapper .category {
+  position: relative;
+  overflow: hidden;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.3rem;
+}
+
+.category_legend--wrapper .category--wrapper .category span {
+  position: absolute;
+  content: "";
+  right: -2rem;
+  top: 0;
+  background: blue;
+  width: 4rem;
+  height: 40%;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.category-context-menu__wrapper {
+  position: absolute;
+  z-index: var(--zIndexContextMenu);
+  top: 50%;
+  left: 12.5%;
+  background: white;
+  border: 1px solid var(--primary);
+}
+
+.category-context-menu__wrapper button {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  border-radius: unset;
+  padding: 0.4rem;
+}
+
+.category-context-menu__wrapper button:last-child {
+  border: none;
+}
+
+.category-context-menu__wrapper button:hover {
+  background: var(--primary);
+  color: var(--secondary);
+}
+
+.icon-circle__wrapper {
+  border: 1px solid var(--primary);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 0.4rem;
+  border-radius: 50%;
+}
+
+.icon {
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--primary);
+}
+
+.icon.large {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.icon.medium {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.icon.save {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M433.1 129.1l-83.9-83.9C342.3 38.32 327.1 32 316.1 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h320c35.35 0 64-28.65 64-64V163.9C448 152.9 441.7 137.7 433.1 129.1zM224 416c-35.34 0-64-28.66-64-64s28.66-64 64-64s64 28.66 64 64S259.3 416 224 416zM320 208C320 216.8 312.8 224 304 224h-224C71.16 224 64 216.8 64 208v-96C64 103.2 71.16 96 80 96h224C312.8 96 320 103.2 320 112V208z'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M433.1 129.1l-83.9-83.9C342.3 38.32 327.1 32 316.1 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h320c35.35 0 64-28.65 64-64V163.9C448 152.9 441.7 137.7 433.1 129.1zM224 416c-35.34 0-64-28.66-64-64s28.66-64 64-64s64 28.66 64 64S259.3 416 224 416zM320 208C320 216.8 312.8 224 304 224h-224C71.16 224 64 216.8 64 208v-96C64 103.2 71.16 96 80 96h224C312.8 96 320 103.2 320 112V208z'/%3E%3C/svg%3E");
+}
+
+.icon.trash {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM31.1 128H416V448C416 483.3 387.3 512 352 512H95.1C60.65 512 31.1 483.3 31.1 448V128zM111.1 208V432C111.1 440.8 119.2 448 127.1 448C136.8 448 143.1 440.8 143.1 432V208C143.1 199.2 136.8 192 127.1 192C119.2 192 111.1 199.2 111.1 208zM207.1 208V432C207.1 440.8 215.2 448 223.1 448C232.8 448 240 440.8 240 432V208C240 199.2 232.8 192 223.1 192C215.2 192 207.1 199.2 207.1 208zM304 208V432C304 440.8 311.2 448 320 448C328.8 448 336 440.8 336 432V208C336 199.2 328.8 192 320 192C311.2 192 304 199.2 304 208z'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM31.1 128H416V448C416 483.3 387.3 512 352 512H95.1C60.65 512 31.1 483.3 31.1 448V128zM111.1 208V432C111.1 440.8 119.2 448 127.1 448C136.8 448 143.1 440.8 143.1 432V208C143.1 199.2 136.8 192 127.1 192C119.2 192 111.1 199.2 111.1 208zM207.1 208V432C207.1 440.8 215.2 448 223.1 448C232.8 448 240 440.8 240 432V208C240 199.2 232.8 192 223.1 192C215.2 192 207.1 199.2 207.1 208zM304 208V432C304 440.8 311.2 448 320 448C328.8 448 336 440.8 336 432V208C336 199.2 328.8 192 320 192C311.2 192 304 199.2 304 208z'/%3E%3C/svg%3E");
+}
+
+.icon.edit {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M490.3 40.4C512.2 62.27 512.2 97.73 490.3 119.6L460.3 149.7L362.3 51.72L392.4 21.66C414.3-.2135 449.7-.2135 471.6 21.66L490.3 40.4zM172.4 241.7L339.7 74.34L437.7 172.3L270.3 339.6C264.2 345.8 256.7 350.4 248.4 353.2L159.6 382.8C150.1 385.6 141.5 383.4 135 376.1C128.6 370.5 126.4 361 129.2 352.4L158.8 263.6C161.6 255.3 166.2 247.8 172.4 241.7V241.7zM192 63.1C209.7 63.1 224 78.33 224 95.1C224 113.7 209.7 127.1 192 127.1H96C78.33 127.1 64 142.3 64 159.1V416C64 433.7 78.33 448 96 448H352C369.7 448 384 433.7 384 416V319.1C384 302.3 398.3 287.1 416 287.1C433.7 287.1 448 302.3 448 319.1V416C448 469 405 512 352 512H96C42.98 512 0 469 0 416V159.1C0 106.1 42.98 63.1 96 63.1H192z'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M490.3 40.4C512.2 62.27 512.2 97.73 490.3 119.6L460.3 149.7L362.3 51.72L392.4 21.66C414.3-.2135 449.7-.2135 471.6 21.66L490.3 40.4zM172.4 241.7L339.7 74.34L437.7 172.3L270.3 339.6C264.2 345.8 256.7 350.4 248.4 353.2L159.6 382.8C150.1 385.6 141.5 383.4 135 376.1C128.6 370.5 126.4 361 129.2 352.4L158.8 263.6C161.6 255.3 166.2 247.8 172.4 241.7V241.7zM192 63.1C209.7 63.1 224 78.33 224 95.1C224 113.7 209.7 127.1 192 127.1H96C78.33 127.1 64 142.3 64 159.1V416C64 433.7 78.33 448 96 448H352C369.7 448 384 433.7 384 416V319.1C384 302.3 398.3 287.1 416 287.1C433.7 287.1 448 302.3 448 319.1V416C448 469 405 512 352 512H96C42.98 512 0 469 0 416V159.1C0 106.1 42.98 63.1 96 63.1H192z'/%3E%3C/svg%3E");
+}
+
+.icon.plus {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z'/%3E%3C/svg%3E");
+}
+
+.icon.minus {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z'/%3E%3C/svg%3E");
+}
+
+.icon.clipboard {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M320 64h-49.61C262.1 27.48 230.7 0 192 0S121 27.48 113.6 64H64C28.65 64 0 92.66 0 128v320c0 35.34 28.65 64 64 64h256c35.35 0 64-28.66 64-64V128C384 92.66 355.3 64 320 64zM192 48c13.23 0 24 10.77 24 24S205.2 96 192 96S168 85.23 168 72S178.8 48 192 48zM336 448c0 8.82-7.178 16-16 16H64c-8.822 0-16-7.18-16-16V128c0-8.82 7.178-16 16-16h18.26C80.93 117.1 80 122.4 80 128v16C80 152.8 87.16 160 96 160h192c8.836 0 16-7.164 16-16V128c0-5.559-.9316-10.86-2.264-16H320c8.822 0 16 7.18 16 16V448z'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M320 64h-49.61C262.1 27.48 230.7 0 192 0S121 27.48 113.6 64H64C28.65 64 0 92.66 0 128v320c0 35.34 28.65 64 64 64h256c35.35 0 64-28.66 64-64V128C384 92.66 355.3 64 320 64zM192 48c13.23 0 24 10.77 24 24S205.2 96 192 96S168 85.23 168 72S178.8 48 192 48zM336 448c0 8.82-7.178 16-16 16H64c-8.822 0-16-7.18-16-16V128c0-8.82 7.178-16 16-16h18.26C80.93 117.1 80 122.4 80 128v16C80 152.8 87.16 160 96 160h192c8.836 0 16-7.164 16-16V128c0-5.559-.9316-10.86-2.264-16H320c8.822 0 16 7.18 16 16V448z'/%3E%3C/svg%3E");
+}
+
+.icon.tick-square {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M211.8 339.8C200.9 350.7 183.1 350.7 172.2 339.8L108.2 275.8C97.27 264.9 97.27 247.1 108.2 236.2C119.1 225.3 136.9 225.3 147.8 236.2L192 280.4L300.2 172.2C311.1 161.3 328.9 161.3 339.8 172.2C350.7 183.1 350.7 200.9 339.8 211.8L211.8 339.8zM0 96C0 60.65 28.65 32 64 32H384C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96zM48 96V416C48 424.8 55.16 432 64 432H384C392.8 432 400 424.8 400 416V96C400 87.16 392.8 80 384 80H64C55.16 80 48 87.16 48 96z'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M211.8 339.8C200.9 350.7 183.1 350.7 172.2 339.8L108.2 275.8C97.27 264.9 97.27 247.1 108.2 236.2C119.1 225.3 136.9 225.3 147.8 236.2L192 280.4L300.2 172.2C311.1 161.3 328.9 161.3 339.8 172.2C350.7 183.1 350.7 200.9 339.8 211.8L211.8 339.8zM0 96C0 60.65 28.65 32 64 32H384C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96zM48 96V416C48 424.8 55.16 432 64 432H384C392.8 432 400 424.8 400 416V96C400 87.16 392.8 80 384 80H64C55.16 80 48 87.16 48 96z'/%3E%3C/svg%3E");
+}
+
+.icon.open-book {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M144.3 32.04C106.9 31.29 63.7 41.44 18.6 61.29c-11.42 5.026-18.6 16.67-18.6 29.15l0 357.6c0 11.55 11.99 19.55 22.45 14.65c126.3-59.14 219.8 11 223.8 14.01C249.1 478.9 252.5 480 256 480c12.4 0 16-11.38 16-15.98V80.04c0-5.203-2.531-10.08-6.781-13.08C263.3 65.58 216.7 33.35 144.3 32.04zM557.4 61.29c-45.11-19.79-88.48-29.61-125.7-29.26c-72.44 1.312-118.1 33.55-120.9 34.92C306.5 69.96 304 74.83 304 80.04v383.1C304 468.4 307.5 480 320 480c3.484 0 6.938-1.125 9.781-3.328c3.925-3.018 97.44-73.16 223.8-14c10.46 4.896 22.45-3.105 22.45-14.65l.0001-357.6C575.1 77.97 568.8 66.31 557.4 61.29z'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M144.3 32.04C106.9 31.29 63.7 41.44 18.6 61.29c-11.42 5.026-18.6 16.67-18.6 29.15l0 357.6c0 11.55 11.99 19.55 22.45 14.65c126.3-59.14 219.8 11 223.8 14.01C249.1 478.9 252.5 480 256 480c12.4 0 16-11.38 16-15.98V80.04c0-5.203-2.531-10.08-6.781-13.08C263.3 65.58 216.7 33.35 144.3 32.04zM557.4 61.29c-45.11-19.79-88.48-29.61-125.7-29.26c-72.44 1.312-118.1 33.55-120.9 34.92C306.5 69.96 304 74.83 304 80.04v383.1C304 468.4 307.5 480 320 480c3.484 0 6.938-1.125 9.781-3.328c3.925-3.018 97.44-73.16 223.8-14c10.46 4.896 22.45-3.105 22.45-14.65l.0001-357.6C575.1 77.97 568.8 66.31 557.4 61.29z'/%3E%3C/svg%3E");
+}
+
+.icon.coding {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M128 96h384v256h64V80C576 53.63 554.4 32 528 32h-416C85.63 32 64 53.63 64 80V352h64V96zM624 384h-608C7.25 384 0 391.3 0 400V416c0 35.25 28.75 64 64 64h512c35.25 0 64-28.75 64-64v-16C640 391.3 632.8 384 624 384zM365.9 286.2C369.8 290.1 374.9 292 380 292s10.23-1.938 14.14-5.844l48-48c7.812-7.813 7.812-20.5 0-28.31l-48-48c-7.812-7.813-20.47-7.813-28.28 0c-7.812 7.813-7.812 20.5 0 28.31l33.86 33.84l-33.86 33.84C358 265.7 358 278.4 365.9 286.2zM274.1 161.9c-7.812-7.813-20.47-7.813-28.28 0l-48 48c-7.812 7.813-7.812 20.5 0 28.31l48 48C249.8 290.1 254.9 292 260 292s10.23-1.938 14.14-5.844c7.812-7.813 7.812-20.5 0-28.31L240.3 224l33.86-33.84C281.1 182.4 281.1 169.7 274.1 161.9z'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M128 96h384v256h64V80C576 53.63 554.4 32 528 32h-416C85.63 32 64 53.63 64 80V352h64V96zM624 384h-608C7.25 384 0 391.3 0 400V416c0 35.25 28.75 64 64 64h512c35.25 0 64-28.75 64-64v-16C640 391.3 632.8 384 624 384zM365.9 286.2C369.8 290.1 374.9 292 380 292s10.23-1.938 14.14-5.844l48-48c7.812-7.813 7.812-20.5 0-28.31l-48-48c-7.812-7.813-20.47-7.813-28.28 0c-7.812 7.813-7.812 20.5 0 28.31l33.86 33.84l-33.86 33.84C358 265.7 358 278.4 365.9 286.2zM274.1 161.9c-7.812-7.813-20.47-7.813-28.28 0l-48 48c-7.812 7.813-7.812 20.5 0 28.31l48 48C249.8 290.1 254.9 292 260 292s10.23-1.938 14.14-5.844c7.812-7.813 7.812-20.5 0-28.31L240.3 224l33.86-33.84C281.1 182.4 281.1 169.7 274.1 161.9z'/%3E%3C/svg%3E");
+}
+
+.icon.arrow {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M447.1 256C447.1 273.7 433.7 288 416 288H109.3l105.4 105.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448s-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L109.3 224H416C433.7 224 447.1 238.3 447.1 256z'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M447.1 256C447.1 273.7 433.7 288 416 288H109.3l105.4 105.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448s-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L109.3 224H416C433.7 224 447.1 238.3 447.1 256z'/%3E%3C/svg%3E");
+}
+
+.icon.arrow.right {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.icon.arrow.up {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.icon.arrow.down {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.icon.user-home {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.6 483.2 483.9 512 448.5 512H128.1C92.75 512 64.09 483.3 64.09 448V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5H575.8zM288 160C252.7 160 224 188.7 224 224C224 259.3 252.7 288 288 288C323.3 288 352 259.3 352 224C352 188.7 323.3 160 288 160zM256 320C211.8 320 176 355.8 176 400C176 408.8 183.2 416 192 416H384C392.8 416 400 408.8 400 400C400 355.8 364.2 320 320 320H256z'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3C!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.6 483.2 483.9 512 448.5 512H128.1C92.75 512 64.09 483.3 64.09 448V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5H575.8zM288 160C252.7 160 224 188.7 224 224C224 259.3 252.7 288 288 288C323.3 288 352 259.3 352 224C352 188.7 323.3 160 288 160zM256 320C211.8 320 176 355.8 176 400C176 408.8 183.2 416 192 416H384C392.8 416 400 408.8 400 400C400 355.8 364.2 320 320 320H256z'/%3E%3C/svg%3E");
+}
+
+@use "./mixins/outerMostWrappers";
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 10px;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  color: var(--primary);
+  background: var(--secondary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body * {
+  font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+ul {
+  padding-left: 2rem;
+}
+
+.login {
+  width: 100%;
+  -webkit-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+}
+
+@media (min-width: 1440px) {
+  .login {
+    width: 65%;
+  }
+}
+
+@media (min-width: 2560px) {
+  .login {
+    width: 50%;
+  }
+}
+
+.login {
+  margin-inline: auto;
+  padding-inline: 3.2rem;
+}
+
+@media (min-width: 1440px) {
+  .login {
+    padding-inline: 0;
+  }
+}
+
+.register {
+  width: 100%;
+  -webkit-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+}
+
+@media (min-width: 1440px) {
+  .register {
+    width: 65%;
+  }
+}
+
+@media (min-width: 2560px) {
+  .register {
+    width: 50%;
+  }
+}
+
+.register {
+  margin-inline: auto;
+  padding-inline: 3.2rem;
+}
+
+@media (min-width: 1440px) {
+  .register {
+    padding-inline: 0;
+  }
+}
+
+form.login,
+form.register {
+  margin-inline: auto;
+}
+
+form.login legend,
+form.register legend {
+  font-size: 4.8rem;
+  text-align: center;
+  width: 100%;
+}
+
+@media (min-width: 501px) {
+  form.login,
+  form.register {
+    width: 75%;
+  }
+}
+
+@media (min-width: 768px) {
+  form.login,
+  form.register {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  form.login,
+  form.register {
+    max-width: 30rem;
+  }
+}
+
+.error_msg {
+  font-size: 1.4rem;
+  color: var(--orange400);
+  font-style: italic;
+}
+
+.alert-error {
+  color: var(--error);
+}
+
+.alert-success {
+  color: var(--success);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--primary);
+  opacity: 0.1;
+}
+/*# sourceMappingURL=main.css.map */
