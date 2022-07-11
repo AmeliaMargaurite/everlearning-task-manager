@@ -105,7 +105,7 @@ include_once(PAGE_START);
 </div>
 
 <script type="module">
-  import {taskRequestURL} from '<?= HOME_URL . "/js/helpers.js" ?>'
+  import {taskRequestURL} from '<?= HOME_URL . "js/helpers.js" ?>'
   
   window.editTask = function editTask(task_id) {
     const dialog = document.createElement("edit-task-dialog");
