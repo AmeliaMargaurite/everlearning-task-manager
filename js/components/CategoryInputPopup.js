@@ -105,12 +105,11 @@ export class CategoryInputPopup extends HTMLElement {
 		}
 
 		const categories = await this.getCategories(project_id);
-		const lastColorAdded =
-			categories[Object.keys(categories)[Object.keys(categories).length - 1]]
-				.color;
+		const lastColorAdded = categories
+			? categories[Object.keys(categories)[Object.keys(categories).length - 1]]
+					.color
+			: "#7574bb";
 		const suggestedColor = increaseHueOfHex(lastColorAdded);
-		console.log({ suggestedColor });
-		// increase hue on this to set default of colour picker
 
 		this.innerHTML = `
 		
