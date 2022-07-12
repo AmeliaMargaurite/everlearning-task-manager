@@ -105,82 +105,13 @@ include_once(PAGE_START);
 </div>
 
 <script type="module">
-  import {taskRequestURL} from '<?= HOME_URL . "js/helpers.js" ?>'
+  import {editTask, editNote, handleDragStart, handleDrop, handleOnDragOver} from '<?= HOME_URL . "project/functions.js" ?>';
   
-  window.editTask = function editTask(task_id) {
-    const dialog = document.createElement("edit-task-dialog");
-    dialog.setAttribute('task_id', task_id);
-    document.body.appendChild(dialog)
-  }
-
-   window.editNote = function editNote(note_id) {
-    const dialog = document.createElement("edit-note-dialog");
-    dialog.setAttribute('note_id', note_id);
-    document.body.appendChild(dialog)
-  }
-
-  // Drag and drop functions
-
-  window.handleDragStart = function handleDragStart(e, task_id) {
-    e.dataTransfer.setData('task_id', task_id);
-  }
-
-  window.handleDrop = async function handleDrop(e, status) {
-    e.preventDefault();
-    const task_id = e.dataTransfer.getData("task_id");
-    if (task_id) {
-        const response = await fetch(taskRequestURL, {
-        method: "POST", 
-        body: JSON.stringify({
-          request: 'update_task_status', 
-          task_id, 
-          newStatus: status, 
-          project_id: '<?php echo $project_id ?>',
-          })
-        }
-      )
-      location.reload();
-    }
-  }
-
-  window.handleOnDragOver = function handleOnDragOver(e) {
-    e.preventDefault();
-  }
-
- // Mobile touch functions
-  const taskTiles = document.querySelectorAll('.task__tile');
-  for (const tile of taskTiles) {
-    let timeout, longtouch;
-    
-    tile.addEventListener('touchstart', function() {
-      timeout = setTimeout(function() {
-        longtouch = true;
-      }, 300);
-    })
-    tile.addEventListener('touchend', function(e) {
-      if (longtouch) {
-        e.preventDefault()
-        tile.classList.add('mobile-selected');
-        const tileContextMenu = document.createElement('tile-context-menu');
-        tileContextMenu.setAttribute('task_id', tile.getAttribute('task_id'));
-        const currentStatus = tile.parentElement.id;
-        tileContextMenu.setAttribute('current_status', currentStatus )
-        tile.parentElement.append(tileContextMenu);
-      }
-      longtouch = false;
-      clearTimeout(timeout);
-    });
-  }
-
-
-
-
-  // Adding colours to the legend markers
-  const legendMarkers = document.querySelectorAll('.category_color');
-  for (const marker of legendMarkers) {
-    const color = marker.getAttribute('color');
-    marker.style.background = color;
-  }
+  window.editTask = editTask;
+  window.editNote = editNote;
+  window.handleDragStart = handleDragStart;
+  window.handleDrop = handleDrop;
+  window.handleOnDragOver = handleOnDragOver;
 </script>
 <?php 
 include_once(PAGE_END); 
