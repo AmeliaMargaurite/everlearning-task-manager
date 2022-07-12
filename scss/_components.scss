@@ -1,4 +1,4 @@
-form {
+form:not(.todays-tasks) {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
@@ -19,9 +19,16 @@ form {
 		display: flex;
 		flex-wrap: wrap;
 		column-gap: 0.8rem;
+		row-gap: 0.8rem;
 
 		& span {
 			display: grid;
+			flex-grow: 1;
+
+			& > * {
+				display: grid;
+				row-gap: 0.4rem;
+			}
 		}
 	}
 
@@ -42,7 +49,7 @@ form:not(.login, .register) button {
 }
 
 button {
-	padding: 0.8rem 1.6rem;
+	padding: 1.6rem;
 	background: var(--secondary);
 	color: var(--primary);
 	border: 1px solid var(--primary);
@@ -76,6 +83,7 @@ button.delete {
 button.icon-only {
 	padding: 0.8rem;
 	border-radius: 50%;
+	background: transparent;
 
 	&.small {
 		border: none;
@@ -109,7 +117,11 @@ a.back-btn {
 }
 
 form.todays-tasks {
+	display: grid;
+	row-gap: 0.8rem;
 	ul {
+		display: grid;
+		// row-gap: 0.4rem;
 		padding: 0;
 	}
 
@@ -120,13 +132,18 @@ form.todays-tasks {
 			display: grid;
 			grid-template-columns: max-content auto;
 			column-gap: 0.8rem;
+			padding-block: 0.4rem;
 			cursor: pointer;
+
+			&:hover {
+				background: var(--transp-black-3);
+			}
 		}
 	}
 
 	& input[type="checkbox"] {
-		height: 1.8rem;
-		width: 1.8rem;
+		height: 2.4rem;
+		width: 2.4rem;
 	}
 }
 
@@ -169,4 +186,8 @@ form.todays-tasks {
 	& button {
 		height: 100%;
 	}
+}
+
+.dashboard-link {
+	cursor: pointer;
 }

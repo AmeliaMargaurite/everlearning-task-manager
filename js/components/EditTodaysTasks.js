@@ -45,7 +45,8 @@ export class EditTodaysTasksDialog extends HTMLElement {
 			const project_id = projectKeys[i];
 			const title = document.createElement("h5");
 			title.innerHTML = project.name;
-			form.append(title);
+			const wrapper = document.createElement("span");
+			wrapper.append(title);
 			const ul = document.createElement("ul");
 			const tasks = project?.tasks;
 			if (tasks) {
@@ -75,7 +76,8 @@ export class EditTodaysTasksDialog extends HTMLElement {
 				ul.append(p);
 			}
 
-			form.append(ul);
+			wrapper.append(ul);
+			form.append(wrapper);
 		}
 
 		const hiddenInput = document.createElement("input");

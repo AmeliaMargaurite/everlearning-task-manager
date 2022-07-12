@@ -17,14 +17,14 @@
 	--teal400: #12b692;
 	--teal500: #009f7a;
 
-	--black: #000c12;
+	--black: #072534;
 	--transp-black-1: #000c12a9;
 	--transp-black-2: #000c1256;
 	--transp-black-3: #000c1210;
 	--grey100: #afb3b5;
 	--grey200: #717679;
 	--grey300: #383f42;
-	--white: #f2f4f5;
+	--white: #eef1f3;
 
 	--light: var(--white);
 	--dark: var(--black);
@@ -37,6 +37,13 @@
 
 	--error: var(--orange500);
 	--success: var(--teal500);
+
+	--elevation-1: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+	--elevation-2: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;
+	--elevation-3: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px;
+	--elevation-4: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px;
+	--elevation-5: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px;
+	--elevation-6: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
 
 // BREAKPOINTS

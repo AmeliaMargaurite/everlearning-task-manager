@@ -14,14 +14,14 @@
   --teal300: #20ceab;
   --teal400: #12b692;
   --teal500: #009f7a;
-  --black: #000c12;
+  --black: #072534;
   --transp-black-1: #000c12a9;
   --transp-black-2: #000c1256;
   --transp-black-3: #000c1210;
   --grey100: #afb3b5;
   --grey200: #717679;
   --grey300: #383f42;
-  --white: #f2f4f5;
+  --white: #eef1f3;
   --light: var(--white);
   --dark: var(--black);
   --primary: var(--dark);
@@ -30,9 +30,15 @@
   --zIndexContextMenu: 100;
   --error: var(--orange500);
   --success: var(--teal500);
+  --elevation-1: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  --elevation-2: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;
+  --elevation-3: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px;
+  --elevation-4: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px;
+  --elevation-5: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px;
+  --elevation-6: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
 
-form {
+form:not(.todays-tasks) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -44,11 +50,11 @@ form {
   row-gap: 0.4rem;
 }
 
-form .booboo {
+form:not(.todays-tasks) .booboo {
   display: none;
 }
 
-form .description {
+form:not(.todays-tasks) .description {
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: max-content auto;
@@ -57,7 +63,7 @@ form .description {
   height: 100%;
 }
 
-form .settings {
+form:not(.todays-tasks) .settings {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,14 +71,24 @@ form .settings {
       flex-wrap: wrap;
   -webkit-column-gap: 0.8rem;
           column-gap: 0.8rem;
+  row-gap: 0.8rem;
 }
 
-form .settings span {
+form:not(.todays-tasks) .settings span {
   display: -ms-grid;
   display: grid;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
-form label.category {
+form:not(.todays-tasks) .settings span > * {
+  display: -ms-grid;
+  display: grid;
+  row-gap: 0.4rem;
+}
+
+form:not(.todays-tasks) label.category {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -83,7 +99,7 @@ form label.category {
           column-gap: 0.8rem;
 }
 
-form label.category i {
+form:not(.todays-tasks) label.category i {
   cursor: pointer;
 }
 
@@ -94,7 +110,7 @@ form:not(.login, .register) button {
 }
 
 button {
-  padding: 0.8rem 1.6rem;
+  padding: 1.6rem;
   background: var(--secondary);
   color: var(--primary);
   border: 1px solid var(--primary);
@@ -131,6 +147,7 @@ button.delete {
 button.icon-only {
   padding: 0.8rem;
   border-radius: 50%;
+  background: transparent;
 }
 
 button.icon-only.small {
@@ -168,7 +185,15 @@ a.back-btn {
   width: max-content;
 }
 
+form.todays-tasks {
+  display: -ms-grid;
+  display: grid;
+  row-gap: 0.8rem;
+}
+
 form.todays-tasks ul {
+  display: -ms-grid;
+  display: grid;
   padding: 0;
 }
 
@@ -184,12 +209,17 @@ form.todays-tasks li label {
       grid-template-columns: max-content auto;
   -webkit-column-gap: 0.8rem;
           column-gap: 0.8rem;
+  padding-block: 0.4rem;
   cursor: pointer;
 }
 
+form.todays-tasks li label:hover {
+  background: var(--transp-black-3);
+}
+
 form.todays-tasks input[type="checkbox"] {
-  height: 1.8rem;
-  width: 1.8rem;
+  height: 2.4rem;
+  width: 2.4rem;
 }
 
 .save-new-category__wrapper {
@@ -250,6 +280,10 @@ form.todays-tasks input[type="checkbox"] {
   height: 100%;
 }
 
+.dashboard-link {
+  cursor: pointer;
+}
+
 .page__wrapper {
   display: -ms-grid;
   display: grid;
@@ -257,6 +291,7 @@ form.todays-tasks input[type="checkbox"] {
   -ms-grid-rows: max-content max-content auto;
       grid-template-rows: -webkit-max-content -webkit-max-content auto;
       grid-template-rows: max-content max-content auto;
+  row-gap: 1.6rem;
 }
 
 .title__wrapper {
@@ -368,7 +403,6 @@ form.todays-tasks input[type="checkbox"] {
   display: -ms-grid;
   display: grid;
   row-gap: 1.6rem;
-  height: 100%;
   -ms-flex-line-pack: start;
       align-content: flex-start;
 }
@@ -382,8 +416,10 @@ form.todays-tasks input[type="checkbox"] {
           align-items: center;
   -webkit-column-gap: 1.6rem;
           column-gap: 1.6rem;
-  background: var(--secondary);
-  border: 1px solid var(--primary);
+  background: white;
+  border: none;
+  -webkit-box-shadow: var(--elevation-3);
+          box-shadow: var(--elevation-3);
   border-radius: 0.4rem;
   height: 100%;
   width: 100%;
@@ -405,7 +441,7 @@ form.todays-tasks input[type="checkbox"] {
   overflow: hidden;
   display: -ms-grid;
   display: grid;
-  padding: 0.8rem;
+  padding: 1.6rem;
   row-gap: 0.4rem;
   border-radius: 0.3rem;
 }
@@ -486,12 +522,14 @@ form.todays-tasks input[type="checkbox"] {
       grid-template-columns: auto max-content;
   -webkit-column-gap: 0.8rem;
           column-gap: 0.8rem;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-}
-
-.task__column.notes .icon {
+  background: white;
+  padding: 1.6rem;
+  border-radius: 0.4rem;
+  -webkit-box-shadow: var(--elevation-2);
+          box-shadow: var(--elevation-2);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
 }
 
@@ -553,6 +591,8 @@ tile-context-menu input {
       -ms-flex-direction: column;
           flex-direction: column;
   row-gap: 2.4rem;
+  -webkit-column-gap: 3.2rem;
+          column-gap: 3.2rem;
   margin-inline: 3.2rem;
 }
 
@@ -563,6 +603,17 @@ tile-context-menu input {
     -ms-grid-columns: 1fr 4fr;
         grid-template-columns: 1fr 4fr;
   }
+}
+
+.projects__wrapper .todays-tasks {
+  background: white;
+  padding: 1.6rem;
+  -webkit-box-shadow: var(--elevation-2);
+          box-shadow: var(--elevation-2);
+  border-radius: 2rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 .projects__wrapper div.overview__wrapper {
@@ -602,14 +653,17 @@ tile-context-menu input {
 }
 
 .project_tile {
-  border: 1px solid #00000042;
+  border: none;
   text-decoration: none;
   color: var(--primary);
-  padding: 0.8rem;
+  padding: 1.6rem;
   border-radius: 0.4rem;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  -webkit-box-shadow: var(--elevation-3);
+          box-shadow: var(--elevation-3);
+  background: white;
   cursor: pointer;
 }
 
@@ -632,8 +686,8 @@ tile-context-menu input {
   content: "";
   height: 100%;
   width: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, transparent), to(var(--secondary)));
-  background: linear-gradient(transparent 10%, var(--secondary));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, transparent), to(white));
+  background: linear-gradient(transparent 10%, white);
   top: 0;
   left: 0;
 }
@@ -678,6 +732,7 @@ tile-context-menu input {
   -ms-grid-rows: max-content auto;
       grid-template-rows: -webkit-max-content auto;
       grid-template-rows: max-content auto;
+  row-gap: 1.6rem;
 }
 
 .projects__heading {
@@ -744,7 +799,7 @@ tile-context-menu input {
   display: grid;
   inset: 0;
   place-content: center;
-  background: var(--transp-black-3);
+  background: var(--transp-black-2);
 }
 
 .overlay div.wrapper {
@@ -754,13 +809,14 @@ tile-context-menu input {
   -ms-grid-rows: auto max-content;
       grid-template-rows: auto -webkit-max-content;
       grid-template-rows: auto max-content;
-  row-gap: 0.8rem;
+  row-gap: 1.6rem;
   padding: 1.6rem;
   height: calc(100vh - 12.8rem);
   width: calc(100vw - 6.4rem);
   overflow-y: auto;
   background: var(--secondary);
-  border: 1px solid var(--transp-black-1);
+  -webkit-box-shadow: var(--elevation-6);
+          box-shadow: var(--elevation-6);
   border-radius: 0.4rem;
   -webkit-column-gap: 1.6rem;
           column-gap: 1.6rem;
@@ -876,6 +932,22 @@ tile-context-menu input {
   cursor: pointer;
 }
 
+.todays-tasks form {
+  -webkit-column-count: 2;
+          column-count: 2;
+}
+
+.todays-tasks form span {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-column-break-inside: avoid;
+          break-inside: avoid;
+}
+
 .category_legend--wrapper {
   position: relative;
   display: -webkit-box;
@@ -891,7 +963,9 @@ tile-context-menu input {
 
 .category_legend--wrapper .category--wrapper {
   position: relative;
-  border: 1px solid var(--primary);
+  background: white;
+  -webkit-box-shadow: var(--elevation-2);
+          box-shadow: var(--elevation-2);
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
@@ -1069,18 +1143,26 @@ body * {
 
 h1 {
   font-size: 3.2rem;
+  font-weight: 600;
 }
 
 h2 {
   font-size: 2.8rem;
+  font-weight: 600;
 }
 
 h3 {
   font-size: 2.4rem;
+  font-weight: 600;
 }
 
 h4 {
   font-size: 2rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-weight: 600;
 }
 
 ul {

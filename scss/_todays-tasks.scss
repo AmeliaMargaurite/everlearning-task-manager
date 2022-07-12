@@ -10,4 +10,14 @@
 			cursor: pointer;
 		}
 	}
+
+	form {
+		column-count: 2;
+
+		& span {
+			height: max-content;
+			width: max-content;
+			break-inside: avoid;
+		}
+	}
 }

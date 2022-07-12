@@ -2,12 +2,21 @@
 	display: flex;
 	flex-direction: column;
 	row-gap: 2.4rem;
+	column-gap: 3.2rem;
+	margin-inline: 3.2rem;
+
 	@media (min-width: $small) {
 		display: grid;
 		grid-template-columns: 1fr 4fr;
 	}
 
-	margin-inline: 3.2rem;
+	& .todays-tasks {
+		background: white;
+		padding: 1.6rem;
+		box-shadow: var(--elevation-2);
+		border-radius: 2rem;
+		height: max-content;
+	}
 
 	& div.overview__wrapper {
 		display: grid;
@@ -31,12 +40,14 @@
 }
 
 .project_tile {
-	border: 1px solid #00000042;
+	border: none;
 	text-decoration: none;
 	color: var(--primary);
-	padding: 0.8rem;
+	padding: 1.6rem;
 	border-radius: 0.4rem;
 	flex: 1;
+	box-shadow: var(--elevation-3);
+	background: white;
 	cursor: pointer;
 
 	&--content {
@@ -53,7 +64,7 @@
 				content: "";
 				height: 100%;
 				width: 100%;
-				background: linear-gradient(transparent 10%, var(--secondary));
+				background: linear-gradient(transparent 10%, white);
 				top: 0;
 				left: 0;
 			}
@@ -83,6 +94,7 @@
 	min-height: 100vh; // needed to allow easy drag/drop for tasks
 	color: var(--primary);
 	grid-template-rows: max-content auto;
+	row-gap: 1.6rem;
 }
 
 .projects__heading {

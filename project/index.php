@@ -32,6 +32,7 @@ foreach($queries as $query) {
 if (!doesUserOwnProject($project_id)) {
   redirect_to(HOME_URL);
 }
+
 getProjectsTasks($project_id);
 getProjectsNotes($project_id);
 getProjectsCategories($project_id);
@@ -119,13 +120,12 @@ include_once(PAGE_START);
 </div>
 
 <script type="module">
-  import {handleDragStart, handleDrop, handleOnDragOver, editProject} from '<?= HOME_URL . "project/functions.js" ?>';
+  import {handleDragStart, handleDrop, handleOnDragOver} from '<?= HOME_URL . "project/functions.js" ?>';
   
 
   window.handleDragStart = handleDragStart;
   window.handleDrop = handleDrop;
   window.handleOnDragOver = handleOnDragOver;
-  window.editProject = editProject;
 
 </script>
 <?php 

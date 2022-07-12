@@ -43,8 +43,9 @@ export class CategoryContextMenu extends HTMLElement {
 		div.appendChild(deleteBtn);
 		this.append(div);
 
-		const closeMenu = () => {
+		const closeMenu = (e) => {
 			this.parentNode.removeChild(this);
+			e.stopPropagation();
 			document.removeEventListener("click", closeMenu);
 		};
 

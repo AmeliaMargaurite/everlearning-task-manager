@@ -1,4 +1,4 @@
-import { taskRequestURL } from "../js/helpers.js";
+import { taskRequestURL, getProjectIdFromURL } from "../js/helpers.js";
 
 // Drag and drop functions for Desktop
 export function handleDragStart(e, task_id) {
@@ -8,6 +8,7 @@ export function handleDragStart(e, task_id) {
 export async function handleDrop(e, status) {
 	e.preventDefault();
 	const task_id = e.dataTransfer.getData("task_id");
+	const project_id = getProjectIdFromURL();
 	if (task_id) {
 		const response = await fetch(taskRequestURL, {
 			method: "POST",
@@ -15,7 +16,7 @@ export async function handleDrop(e, status) {
 				request: "update_task_status",
 				task_id,
 				newStatus: status,
-				project_id: "<?php echo $project_id ?>",
+				project_id,
 			}),
 		});
 		location.reload();

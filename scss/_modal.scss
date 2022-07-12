@@ -3,19 +3,20 @@
 	display: grid;
 	inset: 0;
 	place-content: center;
-	background: var(--transp-black-3);
+	background: var(--transp-black-2);
 
 	& div.wrapper {
 		position: relative;
 		display: grid;
 		grid-template-rows: auto max-content;
-		row-gap: 0.8rem;
+		row-gap: 1.6rem;
 		padding: 1.6rem;
 		height: calc(100vh - 12.8rem);
 		width: calc(100vw - 6.4rem);
 		overflow-y: auto;
 		background: var(--secondary);
-		border: 1px solid var(--transp-black-1);
+		// border: 1px solid var(--transp-black-1);
+		box-shadow: var(--elevation-6);
 		border-radius: 0.4rem;
 		column-gap: 1.6rem;
 

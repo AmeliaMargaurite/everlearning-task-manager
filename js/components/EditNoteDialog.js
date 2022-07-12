@@ -27,8 +27,9 @@ export class EditNoteDialog extends HTMLElement {
 
 		const form = `
         <form action="${noteFunctionsURL}" method="POST" id="modal-form">
-        
+		
           <button class="delete-link" id="delete-btn" type="button">Delete</button>
+					<label for="note">Note</label>
           <textarea id="note" name="note" autofocus >${data?.note}</textarea>
 					
           <input type="hidden" name="edit_note" value="${project_id}"/>

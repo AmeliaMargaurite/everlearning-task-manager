@@ -8,7 +8,9 @@
 
 	& .category--wrapper {
 		position: relative;
-		border: 1px solid var(--primary);
+		// border: 1px solid var(--primary);
+		background: white;
+		box-shadow: var(--elevation-2);
 		height: max-content;
 		border-radius: 0.4rem;
 		cursor: pointer;
