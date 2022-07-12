@@ -383,6 +383,11 @@ form.todays-tasks input[type="checkbox"] {
   outline: 2px solid var(--teal100);
 }
 
+.task__column .task__tile.todays_task {
+  outline: 2px solid var(--teal400);
+  outline-offset: 2px;
+}
+
 .task__column .task__tile div.wrapper {
   position: relative;
   overflow: hidden;

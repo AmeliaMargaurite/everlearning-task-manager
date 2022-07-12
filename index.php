@@ -11,7 +11,6 @@ include_once(HEADER) ;
 include_once(DB_CONNECTION);
 include_once(PROJECT_FUNCTIONS);
 include_once(RENDER_COMPONENTS);
-
 if ($_SESSION['projects'] == '' || !isset($_SESSION['projects'])) {
     getUsersProjects($_SESSION['users_id']);
 }

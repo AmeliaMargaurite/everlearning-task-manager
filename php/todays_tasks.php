@@ -5,6 +5,7 @@
       if ($project && $project->tasks) { ?>
         
         <?php if ($project->tasks) {
+          print_r($projects->tasks);
           $todays_tasks = array();
           foreach ($project->tasks as $task) {
           if ($task->todays_task == 1) {

@@ -1,12 +1,19 @@
-export const taskRequestURL = "../php/queries/task_requests.php";
-export const taskFunctionsURL = "../php/queries/task_functions.php";
-export const categoryRequestsURL = "../php/queries/category_requests.php";
-export const priorityRequestsURL = "../php/queries/priority_requests.php";
-export const noteRequestsURL = "../php/queries/note_requests.php";
-export const noteFunctionsURL = "../php/queries/note_functions.php";
-export const projectFuctionsURL = "../php/queries/project_functions.php";
-export const statusFunctionsURL = "../php/queries/status_functions.php";
-export const statusRequestsURL = "../php/queries/status_requests.php";
+const BASE_URL =
+	window.location.host === "localhost" ? "/task-manager" : window.location.host;
+
+export const taskRequestURL = BASE_URL + "/php/queries/task_requests.php";
+export const taskFunctionsURL = BASE_URL + "/php/queries/task_functions.php";
+export const categoryRequestsURL =
+	BASE_URL + "/php/queries/category_requests.php";
+export const priorityRequestsURL =
+	BASE_URL + "/php/queries/priority_requests.php";
+export const noteRequestsURL = BASE_URL + "/php/queries/note_requests.php";
+export const noteFunctionsURL = BASE_URL + "/php/queries/note_functions.php";
+export const projectFuctionsURL =
+	BASE_URL + "/php/queries/project_functions.php";
+export const statusFunctionsURL =
+	BASE_URL + "/php/queries/status_functions.php";
+export const statusRequestsURL = BASE_URL + "/php/queries/status_requests.php";
 
 export const getProjectIdFromURL = () => {
 	let project_id;

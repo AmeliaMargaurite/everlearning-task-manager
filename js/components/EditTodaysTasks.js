@@ -14,7 +14,7 @@ export class EditTodaysTasksDialog extends HTMLElement {
 		return await json;
 	}
 
-	async toggleTodayTaskStatus(e, task_id) {
+	async toggleTodayTaskStatus(e, task_id, project_id) {
 		const checked = e.target.checked;
 
 		const response = await fetch(taskRequestURL, {
@@ -22,6 +22,7 @@ export class EditTodaysTasksDialog extends HTMLElement {
 			body: JSON.stringify({
 				request: "toggle_on_todays_task",
 				task_id,
+				project_id,
 				checked,
 			}),
 		});
@@ -41,6 +42,7 @@ export class EditTodaysTasksDialog extends HTMLElement {
 
 		for (let i = 0, n = projectKeys.length; i < n; i++) {
 			const project = allProjects[projectKeys[i]];
+			const project_id = projectKeys[i];
 			const title = document.createElement("h5");
 			title.innerHTML = project.name;
 			form.append(title);
@@ -56,7 +58,7 @@ export class EditTodaysTasksDialog extends HTMLElement {
 					checkbox.type = "checkbox";
 					checkbox.checked = task.todays_task;
 					checkbox.onchange = (e) =>
-						this.toggleTodayTaskStatus(e, task.task_id);
+						this.toggleTodayTaskStatus(e, task.task_id, project_id);
 					const label = document.createElement("label");
 					label.appendChild(checkbox);
 					const p = document.createElement("p");

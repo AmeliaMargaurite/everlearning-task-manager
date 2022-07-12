@@ -155,7 +155,7 @@ function get_all_data_for_todays_tasks() {
 
 function toggle_on_todays_task() {
   global $jsonObj;
-
+  $project_id = $jsonObj->project_id;
   $task_id = $jsonObj->task_id;
   $checked = $jsonObj->checked === true ? 1 : 0;
 
@@ -165,6 +165,7 @@ function toggle_on_todays_task() {
   $stmt->bind_param('ii', $checked, $task_id);
 
   if ($stmt->execute()) {
+    $_SESSION['projects'][$project_id]->tasks[$task_id]->todays_task = $checked;
     echo "success";
     error_log("Successfully toggled task's todays task status", 0);
   } else {
