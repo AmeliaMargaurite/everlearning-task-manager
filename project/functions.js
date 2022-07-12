@@ -51,7 +51,7 @@ for (const tile of taskTiles) {
 		}, 400);
 	});
 
-	tile.addEventListener("touchMove", function () {
+	tile.addEventListener("touchmove", function () {
 		longtouch = false;
 		clearTimeout(timeout);
 	});
