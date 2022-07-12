@@ -11,6 +11,7 @@ export class DueDate extends HTMLElement {
 			body: JSON.stringify({
 				request: "get_due_date",
 				task_id,
+				project_id,
 			}),
 		});
 

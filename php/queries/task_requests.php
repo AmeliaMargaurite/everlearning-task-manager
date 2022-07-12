@@ -6,31 +6,30 @@ include_once(TASK_FUNCTIONS);
 $json = file_get_contents('php://input');
 
 if ($json) {
-$jsonObj = json_decode($json);
-$jsonArray = json_decode($json, true);
-['request' => $request] = $jsonArray;
+  $jsonObj = json_decode($json);
+  $jsonArray = json_decode($json, true);
+  ['request' => $request] = $jsonArray;
 
-switch($request) {
-  case 'get_task_data': get_task_data(); break;
-  case 'delete_task': delete_task(); break;
-  case 'update_task_status': { 
-    global $jsonArray;
-    ['task_id'=> $task_id, 
-    'newStatus' => $newStatus, 
-    'project_id'=> $project_id] = $jsonArray;
-    update_task_status($task_id, $newStatus, $project_id);
-    break;
+  switch($request) {
+    case 'get_task_data': get_task_data(); break;
+    case 'delete_task': delete_task(); break;
+    case 'update_task_status': { 
+      global $jsonArray;
+      ['task_id'=> $task_id, 
+      'newStatus' => $newStatus, 
+      'project_id'=> $project_id] = $jsonArray;
+      update_task_status($task_id, $newStatus, $project_id);
+      break;
+    }
+    case 'get_all_data_for_todays_tasks': {
+      $completedStatusId = getStatusIdFromName('completed');
+      $archivedStatusId = getStatusIdFromName('archived');
+      get_all_data_for_todays_tasks();
+    }; break;
+    case 'toggle_on_todays_task': toggle_on_todays_task(); break;
+    case 'get_due_date': get_due_date(); break;
   }
-  case 'get_all_data_for_todays_tasks': {
-    $completedStatusId = getStatusIdFromName('completed');
-    $archivedStatusId = getStatusIdFromName('archived');
-    get_all_data_for_todays_tasks();
-  }; break;
-  case 'toggle_on_todays_task': toggle_on_todays_task(); break;
-  // case 'remove_from_todays_tasks': remove_from_todays_tasks(); break;
-  case 'get_due_date': get_due_date(); break;
-
-}} 
+} 
    if (isset($_POST['update_task_status'])) {
     error_log($task_id .'--' . $newStatus . '--' . $project_id);
     $task_id = $_POST['task_id']; 
@@ -44,6 +43,7 @@ switch($request) {
 function get_task_data()  {
   global $jsonArray;
   ['task_id' => $task_id, 'project_id' => $project_id] = $jsonArray;
+  
   $task = $_SESSION['projects'][$project_id]->tasks[$task_id];
   echo json_encode($task);
 }
@@ -88,8 +88,8 @@ function update_task_status($task_id, $newStatus, $project_id) {
   }  
   $stmt->close();
 
-$status = getStatusNameFromId($status_id);
-  error_log($status);
+  $status = getStatusNameFromId($status_id);
+  
   if ($status === 'completed' || $status === 'archived') {
     $newStmt = $conn->prepare("UPDATE tasks SET todays_task = ? WHERE task_id = ?");
     $notToday = 0;
@@ -114,12 +114,16 @@ function get_all_data_for_todays_tasks() {
   $projectsData = $_SESSION['projects'];
   $projects = array();
 
-  foreach ($projectsData as $projectData) {
-    $project = new Project;
-    $tasks = array_filter($projectData->tasks, 'completedOrArchived');
-    $project->tasks = $tasks;
-    $project->name = $projectData->name;
-    $projects[$projectData->project_id] = $project;
+  if ($projectsData) {
+    foreach ($projectsData as $projectData) {
+      $project = new Project;
+    if ($projectData->tasks) {
+        $tasks = array_filter($projectData->tasks, 'completedOrArchived');
+        $project->tasks = $tasks;
+      }
+      $project->name = $projectData->name;
+      $projects[$projectData->project_id] = $project;
+    }
   }
   echo json_encode($projects);
 }
@@ -159,18 +163,9 @@ function get_due_date() {
   global $jsonObj;
 
   $task_id = $jsonObj->task_id;
-
-  $conn = OpenConn();
-  $stmt = $conn->prepare("SELECT due_date FROM tasks WHERE task_id = ?");
-  $stmt->bind_param('i', $task_id);
-  $stmt->execute();
-  $result = $stmt->get_result();
-
-  if ($result->num_rows > 0) {
-    echo json_encode($result->fetch_assoc()['due_date']);
-  } else echo json_encode(false);
-  $stmt->close();
-  CloseConn($conn);
+  $project_id = $jsonObj->project_id;
+  
+  echo json_encode($_SESSION['projects'][$project_id]->tasks[$task_id]->due_date);
 }
 
 ?>
