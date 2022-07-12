@@ -464,8 +464,8 @@ form.todays-tasks input[type="checkbox"] {
   content: "";
   height: 100%;
   width: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, transparent), to(var(--secondary)));
-  background: linear-gradient(transparent 60%, var(--secondary));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, transparent), to(white));
+  background: linear-gradient(transparent 60%, white);
   top: 0;
   left: 0;
 }
