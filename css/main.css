@@ -756,7 +756,7 @@ tile-context-menu input {
       grid-template-rows: auto max-content;
   row-gap: 0.8rem;
   padding: 1.6rem;
-  height: calc(100vh - 6.4rem);
+  height: calc(100vh - 12.8rem);
   width: calc(100vw - 6.4rem);
   overflow-y: auto;
   background: var(--secondary);
@@ -801,8 +801,9 @@ tile-context-menu input {
 }
 
 @media (min-width: 1024px) {
-  .overlay div.wrapper {
+  .overlay div.wrapper:not(.note):not(.statuses) {
     width: unset;
+    min-width: 80rem;
   }
 }
 

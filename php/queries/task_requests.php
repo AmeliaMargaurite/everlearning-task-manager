@@ -21,7 +21,11 @@ switch($request) {
     update_task_status($task_id, $newStatus, $project_id);
     break;
   }
-  case 'get_all_data_for_todays_tasks': get_all_data_for_todays_tasks(); break;
+  case 'get_all_data_for_todays_tasks': {
+    $completedStatusId = getStatusIdFromName('completed');
+    $archivedStatusId = getStatusIdFromName('archived');
+    get_all_data_for_todays_tasks();
+  }; break;
   case 'toggle_on_todays_task': toggle_on_todays_task(); break;
   // case 'remove_from_todays_tasks': remove_from_todays_tasks(); break;
   case 'get_due_date': get_due_date(); break;
@@ -107,10 +111,25 @@ $status = getStatusNameFromId($status_id);
 
 function get_all_data_for_todays_tasks() {
   $conn = OpenConn();
-  $projects = $_SESSION['projects'];
+  $projectsData = $_SESSION['projects'];
+  $projects = array();
 
+  foreach ($projectsData as $projectData) {
+    $project = new Project;
+    $tasks = array_filter($projectData->tasks, 'completedOrArchived');
+    $project->tasks = $tasks;
+    $project->name = $projectData->name;
+    $projects[$projectData->project_id] = $project;
+  }
   echo json_encode($projects);
 }
+
+function completedOrArchived($task) {
+    global $completedStatusId, $archivedStatusId;
+    if ((int)$task->status_id === (int)$completedStatusId) {
+      return false;
+    } else {return true;}
+  }
 
 
 function toggle_on_todays_task() {

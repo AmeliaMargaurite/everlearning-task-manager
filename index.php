@@ -16,7 +16,6 @@ if ($_SESSION['projects'] == '' || !isset($_SESSION['projects'])) {
     getUsersProjects($_SESSION['users_id']);
 }
 $projects = $_SESSION['projects'];
-
 ?>
 <div class="projects--page__wrapper">
 <!-- Header of Page, incl light/dark mode switch -->
