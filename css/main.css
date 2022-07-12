@@ -128,6 +128,21 @@ button.delete {
   color: var(--white);
 }
 
+button.icon-only {
+  padding: 0.8rem;
+  border-radius: 50%;
+}
+
+button.icon-only.small {
+  border: none;
+  padding: 0;
+}
+
+button.icon-only:not(.small) .icon {
+  width: 2rem;
+  height: 2rem;
+}
+
 input,
 textarea,
 select {
@@ -258,26 +273,23 @@ form.todays-tasks input[type="checkbox"] {
           column-gap: 1.6rem;
 }
 
-.title__wrapper > input {
-  -ms-grid-row: 2;
-  grid-row: 2;
-  -ms-grid-column-align: center;
-      justify-self: center;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-column: 1/3;
-  justify-self: center;
-  border: none;
-  background: var(--secondary);
-  color: var(--primary);
-  text-align: center;
-  padding: 0.8rem;
-  font-size: 2.4rem;
-  border: 1px solid var(--primary);
-  border-radius: 0.4rem;
+.title__wrapper .project__name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
+  justify-self: center;
+  -webkit-column-gap: 1.6rem;
+          column-gap: 1.6rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.title__wrapper .project__name h1 {
+  font-weight: 400;
 }
 
 .title__wrapper .dashboard-link {
@@ -948,19 +960,19 @@ tile-context-menu input {
           mask-repeat: no-repeat;
   -webkit-mask-position: center;
           mask-position: center;
-  width: 2rem;
-  height: 2rem;
+  width: 1.6rem;
+  height: 1.6rem;
   background-color: var(--primary);
-}
-
-.icon.large {
-  width: 3.2rem;
-  height: 3.2rem;
 }
 
 .icon.medium {
   width: 2.4rem;
   height: 2.4rem;
+}
+
+.icon.large {
+  width: 3.2rem;
+  height: 3.2rem;
 }
 
 .icon.save {

@@ -107,48 +107,8 @@ $status = getStatusNameFromId($status_id);
 
 function get_all_data_for_todays_tasks() {
   $conn = OpenConn();
-  $projectsSql = "SELECT name, project_id FROM `projects` ";
-  $projectsRequest = $conn->query($projectsSql);
+  $projects = $_SESSION['projects'];
 
-
-  $projects = array();
-
-  $completedStatusId = getStatusIdFromName('completed');
-  $archivedStatusId = getStatusIdFromName('archived');
-
-  if ($projectsRequest->num_rows > 0) {
-    while ($projectData = $projectsRequest->fetch_assoc()) {
-      $project_stmt = $conn->prepare(
-        "SELECT name, task_id, todays_task
-        FROM tasks 
-        WHERE project_id = ? && status_id <> ? && status_id <> ? ");
-
-      $project = new Project;
-      foreach ($projectData as $key =>$prop) {
-        $project->$key = $prop;
-      }
-      $project_stmt->bind_param('iii', $project->project_id, $completedStatusId, $archivedStatusId);
-      $project_stmt->execute();
-      $tasksRequest = $project_stmt->get_result();
-      $project_stmt->close();
-
-
-      if ($tasksRequest->num_rows > 0) {
-        while ($taskData = $tasksRequest->fetch_assoc()) {
-          $task = new Task;
-          foreach ($taskData as $key =>$prop) {
-            $task->$key = $prop;
-          }
-
-          $project->tasks[$task->task_id] = $task;
-        }
-      }
-
-      $projects[$project->project_id] = $project;
-    }
-  }
-
-  CloseConn($conn);
   echo json_encode($projects);
 }
 

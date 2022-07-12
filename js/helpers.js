@@ -8,8 +8,11 @@ export const priorityRequestsURL =
 	BASE_URL + "/php/queries/priority_requests.php";
 export const noteRequestsURL = BASE_URL + "/php/queries/note_requests.php";
 export const noteFunctionsURL = BASE_URL + "/php/queries/note_functions.php";
-export const projectFuctionsURL =
+export const projectFunctionsURL =
 	BASE_URL + "/php/queries/project_functions.php";
+export const projectRequestsURL =
+	BASE_URL + "/php/queries/project_requests.php";
+
 export const statusFunctionsURL =
 	BASE_URL + "/php/queries/status_functions.php";
 export const statusRequestsURL = BASE_URL + "/php/queries/status_requests.php";

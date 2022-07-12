@@ -1,27 +1,6 @@
 import { getProjectIdFromURL, taskFunctionsURL } from "../helpers.js";
 
-export class AddNewTaskIcon extends HTMLElement {
-	constructor() {
-		super();
-	}
-
-	connectedCallback() {
-		const handleClick = () => {
-			const dialog = document.createElement("add-new-task-dialog");
-			const body = document.body;
-			body.appendChild(dialog);
-		};
-		const span = document.createElement("span");
-		const icon = document.createElement("div");
-		icon.className = "icon plus";
-		icon.onclick = handleClick;
-
-		span.appendChild(icon);
-		this.append(span);
-	}
-}
-
-class AddNewTaskDialog extends HTMLElement {
+export class AddNewTaskDialog extends HTMLElement {
 	constructor() {
 		super();
 	}
@@ -63,5 +42,3 @@ class AddNewTaskDialog extends HTMLElement {
 		nameInput.focus();
 	}
 }
-
-customElements.define("add-new-task-dialog", AddNewTaskDialog);

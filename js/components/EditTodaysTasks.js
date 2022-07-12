@@ -49,6 +49,7 @@ export class EditTodaysTasksDialog extends HTMLElement {
 			const ul = document.createElement("ul");
 			const tasks = project?.tasks;
 			if (tasks) {
+				console.log({ tasks });
 				const tasksKeys = Object.keys(tasks);
 
 				for (let j = 0, m = tasksKeys.length; j < m; j++) {
@@ -56,7 +57,7 @@ export class EditTodaysTasksDialog extends HTMLElement {
 					const li = document.createElement("li");
 					const checkbox = document.createElement("input");
 					checkbox.type = "checkbox";
-					checkbox.checked = task.todays_task;
+					checkbox.checked = task.todays_task === 1;
 					checkbox.onchange = (e) =>
 						this.toggleTodayTaskStatus(e, task.task_id, project_id);
 					const label = document.createElement("label");

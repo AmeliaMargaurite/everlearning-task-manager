@@ -46,7 +46,12 @@ include_once(PAGE_START);
 <div class="page__wrapper">
   <div class="title__wrapper">
     <a href="<?= HOME_URL ?>" class="back-btn"><div class="icon arrow"></div>back</a>
-    <input type="text" value="<?= $projectName ?>" />
+    <span class="project__name">
+      <h1><?= $projectName ?></h1>
+      <button class="icon-only" onclick="openDialog('edit-project-dialog')">
+        <div class="icon edit"></div>
+      </button>
+    </span>
     <?php include_once(DASHBOARD_LINK) ?>
   </div>
   <div class="category-sort__wrapper">
@@ -67,7 +72,12 @@ include_once(PAGE_START);
   <section class="tasks__wrapper">
   
     <div class="task__column--wrapper" onDragOver="handleOnDragOver(event)" onDrop="handleDrop(event, 'incomplete')">
-      <h3>To do <add-new-task-icon></add-new-task-icon></h3>
+      <h3>
+        To do 
+        <button class="icon-only small" onclick="openDialog('add-new-task-dialog')">
+          <div class="icon plus"></div>
+        </button>
+      </h3>
       <div id="incomplete" class="incomplete task__column" >
         
         <?php renderTaskTiles('incomplete', $project_id); ?>
@@ -90,7 +100,11 @@ include_once(PAGE_START);
     </div>
     
     <div class="task__column--wrapper">
-      <h3>Notes <add-new-note-icon></add-new-note-icon></h3>
+      <h3>Notes 
+        <button class="icon-only small" onclick="openDialog('add-new-note-dialog')">
+          <div class="icon plus"></div>
+        </button>
+      </h3>
       <div class="notes task__column" id="notes_column">
         <?php
         renderNotes($notes);
@@ -105,13 +119,14 @@ include_once(PAGE_START);
 </div>
 
 <script type="module">
-  import {editTask, editNote, handleDragStart, handleDrop, handleOnDragOver} from '<?= HOME_URL . "project/functions.js" ?>';
+  import {handleDragStart, handleDrop, handleOnDragOver, editProject} from '<?= HOME_URL . "project/functions.js" ?>';
   
-  window.editTask = editTask;
-  window.editNote = editNote;
+
   window.handleDragStart = handleDragStart;
   window.handleDrop = handleDrop;
   window.handleOnDragOver = handleOnDragOver;
+  window.editProject = editProject;
+
 </script>
 <?php 
 include_once(PAGE_END); 

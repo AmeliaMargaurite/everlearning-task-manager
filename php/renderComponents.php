@@ -46,7 +46,7 @@ foreach($project->tasks as $task) {
     $todays_task = $task->todays_task === 1 ? 'todays_task': '';
     if ($task->status_id == $status_id) { ?>
       
-       <div class="task__tile <?= $current ?> <?= $todays_task ?>" draggable="true" task_id="<?= $task->task_id ?>" onDragStart="handleDragStart(event, '<?= $task->task_id ?>')" onclick="editTask('<?= $task->task_id ?>')" >
+       <div class="task__tile <?= $current ?> <?= $todays_task ?>" draggable="true" task_id="<?= $task->task_id ?>" onDragStart="handleDragStart(event, '<?= $task->task_id ?>')" onclick="openDialog('edit-task-dialog',{task_id:'<?= $task->task_id ?>'})" >
      
         <div class="wrapper">
            <?php if (isset($task->category_id)) {
@@ -70,7 +70,7 @@ function renderNotes($notes) {
     ?>
     <li id="note_<?=$note->note_id ?>">
       <p><?= $note->note ?></p>
-      <div class="icon edit medium" onclick="editNote('<?=$note->note_id ?>')"></i>
+      <div class="icon edit medium" onclick="openDialog('edit-note-dialog', {note_id: <?=$note->note_id ?>})"></i>
     </li>
     <div class="divider"></div>
     <?php

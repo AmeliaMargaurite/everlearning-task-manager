@@ -9,18 +9,18 @@
 .icon {
 	mask-repeat: no-repeat;
 	mask-position: center;
-	width: 2rem;
-	height: 2rem;
+	width: 1.6rem;
+	height: 1.6rem;
 	background-color: var(--primary);
-
-	&.large {
-		width: 3.2rem;
-		height: 3.2rem;
-	}
 
 	&.medium {
 		width: 2.4rem;
 		height: 2.4rem;
+	}
+
+	&.large {
+		width: 3.2rem;
+		height: 3.2rem;
 	}
 
 	&.save {

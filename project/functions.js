@@ -1,19 +1,5 @@
 import { taskRequestURL } from "../js/helpers.js";
 
-// Opens task dialog when task tile clicked
-export function editTask(task_id) {
-	const dialog = document.createElement("edit-task-dialog");
-	dialog.setAttribute("task_id", task_id);
-	document.body.appendChild(dialog);
-}
-
-// Opens note dialog when note is clicked
-export function editNote(note_id) {
-	const dialog = document.createElement("edit-note-dialog");
-	dialog.setAttribute("note_id", note_id);
-	document.body.appendChild(dialog);
-}
-
 // Drag and drop functions for Desktop
 export function handleDragStart(e, task_id) {
 	e.dataTransfer.setData("task_id", task_id);

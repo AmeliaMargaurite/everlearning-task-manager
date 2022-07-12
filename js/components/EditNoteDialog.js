@@ -5,7 +5,7 @@ import {
 	noteRequestsURL,
 } from "../helpers.js";
 
-export class EditNote extends HTMLElement {
+export class EditNoteDialog extends HTMLElement {
 	constructor() {
 		super();
 	}

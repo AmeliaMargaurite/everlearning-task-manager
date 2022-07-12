@@ -1,27 +1,6 @@
 import { getProjectIdFromURL, noteFunctionsURL } from "../helpers.js";
 
-export class AddNewNoteIcon extends HTMLElement {
-	constructor() {
-		super();
-	}
-
-	connectedCallback() {
-		const handleClick = () => {
-			const dialog = document.createElement("add-new-note-dialog");
-			const body = document.body;
-			body.appendChild(dialog);
-		};
-		const span = document.createElement("span");
-		const icon = document.createElement("div");
-		icon.className = "icon plus";
-		icon.onclick = handleClick;
-
-		span.appendChild(icon);
-		this.append(span);
-	}
-}
-
-class AddNewNoteDialog extends HTMLElement {
+export class AddNewNoteDialog extends HTMLElement {
 	constructor() {
 		super();
 	}
@@ -45,5 +24,3 @@ class AddNewNoteDialog extends HTMLElement {
 		textarea.focus();
 	}
 }
-
-customElements.define("add-new-note-dialog", AddNewNoteDialog);

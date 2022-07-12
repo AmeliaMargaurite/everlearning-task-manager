@@ -13,7 +13,7 @@ function getUsersProjects($user_id): void {
   $projects_stmt->execute();
   $results = $projects_stmt->get_result();
   $projects = array();
-
+  unset($_SESSION['projects']);
   if ($results->num_rows > 0) {
     while ($projectData = $results->fetch_assoc()) {
       if (!empty($projectData)) {

@@ -73,6 +73,21 @@ button.delete {
 	color: var(--white);
 }
 
+button.icon-only {
+	padding: 0.8rem;
+	border-radius: 50%;
+
+	&.small {
+		border: none;
+		padding: 0;
+	}
+
+	&:not(.small) .icon {
+		width: 2rem;
+		height: 2rem;
+	}
+}
+
 input,
 textarea,
 select {

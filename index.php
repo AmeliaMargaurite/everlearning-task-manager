@@ -11,17 +11,21 @@ include_once(HEADER) ;
 include_once(DB_CONNECTION);
 include_once(PROJECT_FUNCTIONS);
 include_once(RENDER_COMPONENTS);
+
 if ($_SESSION['projects'] == '' || !isset($_SESSION['projects'])) {
     getUsersProjects($_SESSION['users_id']);
 }
 $projects = $_SESSION['projects'];
+
 ?>
 <div class="projects--page__wrapper">
 <!-- Header of Page, incl light/dark mode switch -->
     <div class="projects__heading">
         <span>
             <h1>Projects</h1>
-            <add-new-project-button></add-new-project-button>
+            <button class="icon-only" onclick="openDialog('add-new-project-dialog')">
+                <div class="icon plus"></div>
+            </button>        
         </span>
            <?php include_once(DASHBOARD_LINK) ?>
 
@@ -29,7 +33,8 @@ $projects = $_SESSION['projects'];
     <div class="projects__wrapper">
         <div class="todays-tasks">
             <div class="todays-tasks__title">
-                <h3>Todays Tasks</h1><div class="icon edit" onclick="editTodaysTasks()"></div>
+                <h3>Todays Tasks</h1>
+                <button class="icon-only" onclick="openDialog('edit-todays-tasks-dialog')"><div class="icon edit"></div></button>
             </div>
             <?php include_once(TODAYS_TASKS); ?>
         </div>
@@ -41,6 +46,7 @@ $projects = $_SESSION['projects'];
             <div class="project_tiles">
             <?php 
                 foreach($projects as $project) {
+                    
                     // Statuses
                     $incomplete = 0;
                     $current = 0;
@@ -52,7 +58,6 @@ $projects = $_SESSION['projects'];
         </div>
     </div>
 </div>
-
    
 <?php 
 include_once(PAGE_END); 

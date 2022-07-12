@@ -15,12 +15,17 @@
   //   headEl.appendChild(linkEl);
   //     }
 
-      function editTodaysTasks() {
-        const modalPopup = document.createElement('edit-todays-tasks-dialog');
-        document.body.appendChild(modalPopup);
-        const modal = document.getElementById('modal--contents');
-        
-      }
+   function openDialog(type, props) {
+	const dialog = document.createElement(type);
+	if (props) {
+		for (const id in props) {
+			dialog.setAttribute(id, props[id]);
+		}
+	}
+	document.body.appendChild(dialog);
+}
+
+    
 </script>
 
 </body>
