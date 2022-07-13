@@ -1,3 +1,4 @@
+<!-- PROJECT TILES -->
 
 <?php 
 function renderProjectTiles($project) {
@@ -32,19 +33,60 @@ foreach($project->tasks as $task) {
   </div>
 </a>
  <?php } ?>
-
+<!-- TASK TILES -->
  <?php 
+
+/**
+ * 
+ */
+
+ function sortTasks($tasks, $type, $order) {
+  $new_array = array();
+  $sortable_array = array();
+
+  foreach ($tasks as $position=>$task) {
+    foreach ($task as $prop=>$data) {
+      if ($prop == $type) {
+        $sortable_array[$position] = $data;
+      }
+    }
+  }
+
+  switch($order) {
+    case 'asc':
+      asort($sortable_array);
+      break;
+      case 'desc': 
+      arsort($sortable_array);
+      break;
+    } 
+
+  foreach($sortable_array as $position => $product) {
+    $new_array[$position] = $tasks[$position];
+  }
+
+  return $new_array;
+}
+
  function renderTaskTiles($status, $project_id) {
   global $currentTask_id;
-  $tasks = $_SESSION['projects'][$project_id]->tasks;
+  $unsortedTasks = $_SESSION['projects'][$project_id]->tasks;
   $status_id = getStatusIdFromName($status);
   $categories = $_SESSION['projects'][$project_id]->categories;
-  
-  if ($tasks) {
+  $sortOrder = $_SESSION['projects'][$project_id]->sortOrder;
+  $sortParts = explode( '-', $sortOrder);
+
+  $type = $sortParts[0];
+  $order = $sortParts[1];
+
+  if ($unsortedTasks) {
+     $tasks = $sortOrder === 'auto' ? $unsortedTasks : sortTasks($unsortedTasks, $type, $order);
+    
   foreach ($tasks as $task) { 
-    $current = $task->task_id === $currentTask_id ? "current" : "";
-    $todays_task = $task->todays_task === 1 ? 'todays_task': '';
-    if ($task->status_id == $status_id) { ?>
+    if ($task->status_id == $status_id) { 
+      $current = $task->task_id === $currentTask_id ? "current" : "";
+      $todays_task = $task->todays_task === 1 ? 'todays_task': '';
+      ?>
       
        <div class="task__tile <?= $current ?> <?= $todays_task ?>" draggable="true" task_id="<?= $task->task_id ?>" onDragStart="handleDragStart(event, '<?= $task->task_id ?>')" onclick="openDialog('edit-task-dialog',{task_id:'<?= $task->task_id ?>'})" >
      
@@ -63,6 +105,11 @@ foreach($project->tasks as $task) {
 
   }
 }
+?>
+
+<!-- NOTE TILES -->
+<?php
+
 
 function renderNotes($notes) {
   if($notes) {

@@ -59,6 +59,7 @@ class Project {
   public $tasks;
   public $notes;
   public $statues;
+  public $sortOrder;
 }
 
 class Task {

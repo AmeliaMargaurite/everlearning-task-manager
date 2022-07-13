@@ -24,7 +24,8 @@ foreach($queries as $query) {
   } else if ($option[0] === 'task_id') {
     $currentTask_id = $option[1];
   } else if ($option[0] === 'sort_order') {
-    $order = $option[1];
+    $sortOrder = $option[1];
+    $_SESSION['projects'][$project_id]->sortOrder = $sortOrder;
   }
 }
 
@@ -36,11 +37,14 @@ if (!doesUserOwnProject($project_id)) {
 getProjectsTasks($project_id);
 getProjectsNotes($project_id);
 getProjectsCategories($project_id);
- $project = $_SESSION['projects'][$project_id];
+$project = $_SESSION['projects'][$project_id];
 $projectName = $project->name;
 $tasks = $project->tasks;
 $notes = $project->notes;
 
+if (!isset($_SESSION['projects'][$project_id]->sortOrder)) {
+  $_SESSION['projects'][$project_id]->sortOrder = 'last_modified-desc';
+}
 $title = $projectName . ' | Task Manager';
 include_once(PAGE_START); 
 ?>
@@ -57,18 +61,30 @@ include_once(PAGE_START);
   </div>
   <div class="category-sort__wrapper">
     <?php include_once(ROOTPATH .'/php/category_legend.php') ?>
-    <!-- <div class="sort__wrapper">Sort by
-      <select>
-        <option value="">Select</option>
-        <option value="due_date-asc">Due Date - Ascending</option>
-        <option value="due_date-desc">Due Date - Decending</option>
-        <option value="last_modified-asc">Last Modified - Ascending</option>
-        <option value="last_modified-desc">Last Modified - Ascending</option>
-        <option value="date_created-asc">Date Created - Ascending</option>
-        <option value="date_created-desc">Date Created - Decending</option>
+    <!-- SORTING TILES -->
+    <div class="sort__wrapper">Sort by
+      <?php 
 
+       $sortTypes = array(
+        'auto'=> 'Automatically',
+        'due_date-asc'=>'Due Date - Ascending', 
+        'due_date-desc'=>'Due Date - Decending', 
+        'last_modified-asc'=> 'Last Modified - Ascending',
+        'last_modified-desc'=> 'Last Modified - Decending',
+        'date_created-asc'=> 'Date Created - Ascending',
+        'date_created-desc'=> 'Date Created - Decending'
+      );
+      ?>
+      <select id="sort__select">
+      <?php
+        foreach ($sortTypes as $value=>$sort) {
+          $selected = $sortOrder && $sortOrder == $value ? 'selected="selected"' : '';
+      ?>
+          <option value='<?= $value ?>' <?= $selected ?>><?= $sort ?></option>
+      <? } ?>
       </select>
-    </div> -->
+        
+    </div>
   </div>
   <section class="tasks__wrapper">
   

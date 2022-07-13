@@ -64,3 +64,13 @@ for (const marker of legendMarkers) {
 	const color = marker.getAttribute("color");
 	marker.style.background = color;
 }
+
+const sortSelect = document.getElementById("sort__select");
+let url = new URL(window.location.href);
+
+const submitSortChoice = (event) => {
+	const choice = event.target.value;
+	url.searchParams.set("sort_order", choice);
+	window.location = url;
+};
+sortSelect.addEventListener("input", submitSortChoice);
