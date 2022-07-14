@@ -33,8 +33,6 @@ export class CategoryContextMenu extends HTMLElement {
 		const categoryInputPopup = document.createElement("category-input-popup");
 		categoryInputPopup.setAttribute("category_id", category_id);
 
-		editBtn.onclick = () => document.body.appendChild(categoryInputPopup);
-
 		const deleteBtn = document.createElement("button");
 		deleteBtn.innerHTML = "Delete";
 		deleteBtn.onclick = () => this.deleteCategory(project_id, category_id);
@@ -55,6 +53,11 @@ export class CategoryContextMenu extends HTMLElement {
 			overlay.removeEventListener("click", closeMenu);
 		};
 
+		editBtn.onclick = (e) => {
+			closeMenu(e);
+
+			document.body.appendChild(categoryInputPopup);
+		};
 		overlay.addEventListener("click", closeMenu);
 	}
 }
