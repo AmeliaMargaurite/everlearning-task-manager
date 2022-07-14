@@ -24,7 +24,7 @@ include_once(TASK_REQUESTS);
     const markers = document.querySelectorAll('.category_color');
     
     function openCustomMenu(e, category, category_id) {
-      e.preventDefault();
+      // e.preventDefault();
       e.stopPropagation();
       category.removeEventListener('click', () => openCustomMenu(e, category, category_id));
       const contextMenu = document.createElement('category-context-menu');

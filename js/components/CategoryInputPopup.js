@@ -128,11 +128,11 @@ export class CategoryInputPopup extends HTMLElement {
 					}"/>
 					</span>
 				<span class="buttons--wrapper">
-				<button id="category_input--btn">
-					Save
-				</button>
-				<button id="category_popup--close-btn">
+				<button id="category_popup--close-btn" class="btn special">
 					Close
+				</button>
+				<button id="category_input--btn" class="btn">
+					Save
 				</button>
 				</span>
 			</div>

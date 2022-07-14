@@ -41,14 +41,20 @@ export class CategoryContextMenu extends HTMLElement {
 
 		div.appendChild(editBtn);
 		div.appendChild(deleteBtn);
+
+		const overlay = document.createElement("div");
+		overlay.className = "overlay";
+		document.body.append(overlay);
 		this.append(div);
 
 		const closeMenu = (e) => {
+			e.preventDefault();
 			this.parentNode.removeChild(this);
+			document.body.removeChild(overlay);
 			e.stopPropagation();
-			document.removeEventListener("click", closeMenu);
+			overlay.removeEventListener("click", closeMenu);
 		};
 
-		document.addEventListener("click", closeMenu);
+		overlay.addEventListener("click", closeMenu);
 	}
 }

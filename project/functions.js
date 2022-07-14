@@ -32,11 +32,15 @@ const taskTiles = document.querySelectorAll(".task__tile");
 for (const tile of taskTiles) {
 	let timeout, longtouch;
 
-	tile.addEventListener("touchstart", function () {
-		timeout = setTimeout(function () {
-			longtouch = true;
-		}, 400);
-	});
+	tile.addEventListener(
+		"touchstart",
+		function () {
+			timeout = setTimeout(function () {
+				longtouch = true;
+			}, 400);
+		},
+		{ passive: true }
+	);
 
 	tile.addEventListener("touchmove", function () {
 		longtouch = false;

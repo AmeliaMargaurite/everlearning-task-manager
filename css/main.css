@@ -121,6 +121,7 @@ button {
 button.special {
   background: var(--primary);
   color: var(--secondary);
+  border: 1px solid var(--secondary);
 }
 
 button.special:focus-visible {

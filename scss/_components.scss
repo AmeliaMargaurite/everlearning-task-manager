@@ -60,6 +60,7 @@ button {
 button.special {
 	background: var(--primary);
 	color: var(--secondary);
+	border: 1px solid var(--secondary);
 
 	&:focus-visible {
 		outline-color: var(--secondary);
