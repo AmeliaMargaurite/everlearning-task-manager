@@ -1,3 +1,5 @@
+@use "./mixins";
+
 @import "./variables";
 @import "./mixins";
 @import "./components";
@@ -7,7 +9,7 @@
 @import "./todays-tasks";
 @import "./category_legend";
 @import "./icons";
-@use "./mixins/outerMostWrappers";
+@import "./rich-text-editor";
 
 * {
 	margin: 0;

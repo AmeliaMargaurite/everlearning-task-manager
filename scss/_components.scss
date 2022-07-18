@@ -12,6 +12,7 @@ form:not(.todays-tasks) {
 	.description {
 		display: grid;
 		grid-template-rows: max-content auto;
+		row-gap: 0.8rem;
 		height: 100%;
 	}
 

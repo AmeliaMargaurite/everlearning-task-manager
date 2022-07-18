@@ -35,7 +35,7 @@ export class EditTaskDialog extends HTMLElement {
           </div>
           <div class="description">
             <label for="description" >Description</label>
-            <textarea name="description" required >${data.description}</textarea>
+						<rich-text-editor name-to-save="description" data="${data.description}"></rich-text-editor>
           </div>
 					<div class="settings">
 						<span>
@@ -76,6 +76,7 @@ export class EditTaskDialog extends HTMLElement {
 		};
 	}
 }
+// <textarea name="description" required >${data.description}</textarea>
 
 class ConfirmDeleteOverlay extends HTMLElement {
 	constructor() {

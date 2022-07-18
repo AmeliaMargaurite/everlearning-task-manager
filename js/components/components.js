@@ -14,6 +14,7 @@ import { CategoryContextMenu } from "./CategoryContextMenu.js";
 import { PriorityDropdown } from "./PriorityDropdown.js";
 import { TileContextMenu } from "./TileContextMenu.js";
 import { ModalNoButtons } from "./ModalNoButtons.js";
+import { RichTextEditor } from "./RichTextEditor.js";
 
 customElements.define("add-new-project-dialog", AddNewProjectDialog);
 customElements.define("add-new-task-dialog", AddNewTaskDialog);
@@ -31,3 +32,4 @@ customElements.define("category-input-popup", CategoryInputPopup);
 customElements.define("priority-dropdown", PriorityDropdown);
 customElements.define("edit-note-dialog", EditNoteDialog);
 customElements.define("tile-context-menu", TileContextMenu);
+customElements.define("rich-text-editor", RichTextEditor);

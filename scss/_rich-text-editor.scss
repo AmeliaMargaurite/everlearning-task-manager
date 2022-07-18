@@ -1,0 +1,89 @@
+rich-text-editor {
+	display: grid;
+	grid-template-rows: max-content auto;
+	row-gap: 1.6rem;
+
+	& .toolbar {
+		display: flex;
+		column-gap: 1.6rem;
+		& .icon {
+			width: 2rem;
+			height: 2rem;
+			cursor: pointer;
+			&:hover {
+				background: var(--highlight);
+			}
+		}
+
+		& .has-submenu {
+			position: relative;
+			.submenu {
+				position: absolute;
+				display: none;
+				background: var(--primary);
+				padding: 0.8rem;
+				row-gap: 0.8rem;
+				margin-top: 0.4rem;
+				left: calc(50% - 1.8rem);
+				& .icon {
+					background: var(--secondary);
+
+					&:hover {
+						background: var(--highlight);
+					}
+				}
+
+				&.open {
+					display: grid;
+				}
+			}
+		}
+
+		& .editor-btn.active {
+			background: pink;
+		}
+	}
+
+	& .html-view,
+	& .visual-view {
+		height: 100%;
+	}
+
+	& .html-view {
+		display: none;
+	}
+
+	& .visual-view {
+		background: white;
+		border: 1px solid var(--black);
+		border-radius: 0.4rem;
+		padding: 0.8rem;
+	}
+}
+
+create-link-popup {
+	& .link-popup__wrapper {
+		display: flex;
+		flex-direction: column;
+		background: var(--secondary);
+		padding: 1.6rem;
+		border-radius: 0.8rem;
+		row-gap: 0.8rem;
+
+		& .heading--wrapper {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		& label {
+			display: grid;
+			grid-auto-flow: column;
+		}
+
+		& button.icon-only {
+			width: max-content;
+			align-self: flex-end;
+		}
+	}
+}
