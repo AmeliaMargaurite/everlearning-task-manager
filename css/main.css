@@ -272,6 +272,7 @@ form.todays-tasks input[type=checkbox] {
   padding: 0 1.6rem;
   -moz-column-gap: 0.8rem;
        column-gap: 0.8rem;
+  margin-bottom: 3.2rem;
 }
 @media (max-width: 500px) {
   .tasks__wrapper {
@@ -930,12 +931,15 @@ rich-text-editor {
   display: grid;
   grid-template-rows: -webkit-max-content auto;
   grid-template-rows: max-content auto;
+  height: 100%;
   row-gap: 1.6rem;
 }
 rich-text-editor .toolbar {
   display: flex;
+  flex-wrap: wrap;
   -moz-column-gap: 1.6rem;
        column-gap: 1.6rem;
+  row-gap: 0.8rem;
 }
 rich-text-editor .toolbar .icon {
   width: 2rem;
@@ -1045,6 +1049,7 @@ h4 {
 }
 
 h5 {
+  font-size: 1.6rem;
   font-weight: 600;
 }
 

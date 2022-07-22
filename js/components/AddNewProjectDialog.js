@@ -13,7 +13,7 @@ export class AddNewProjectDialog extends HTMLElement {
 					<input name="name" type="text" required autofocus id="name-input" /></div>
 				<div class="description">
 					<label for="description">Description</label>
-					<textarea name="description" required></textarea>
+						<rich-text-editor name-to-save="description" data=""></rich-text-editor>
 				</div>
 				<input type="hidden" name="save_new_project" value="save_new_project"/>
 					

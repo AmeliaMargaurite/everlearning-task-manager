@@ -43,6 +43,7 @@
 	grid-template-columns: repeat(4, 1fr);
 	padding: 0 1.6rem;
 	column-gap: 0.8rem;
+	margin-bottom: 3.2rem;
 
 	@media (max-width: 500px) {
 		display: flex;

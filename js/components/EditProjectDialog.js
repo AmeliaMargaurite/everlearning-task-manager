@@ -34,7 +34,8 @@ export class EditProjectDialog extends HTMLElement {
           </div>
           <div class="description">
             <label for="description" >Description</label>
-            <textarea name="description" required >${data.description}</textarea>
+						<rich-text-editor name-to-save="description" data="${data?.description}"></rich-text-editor>
+
           </div>
           <input type="hidden" name="edit_project" value="${project_id}"/>
           <input type="hidden" name="project_id" value="${project_id}"/>

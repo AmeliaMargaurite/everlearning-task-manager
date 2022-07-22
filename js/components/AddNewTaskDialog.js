@@ -16,7 +16,7 @@ export class AddNewTaskDialog extends HTMLElement {
 				
 				<div class="description">
 					<label for="description">Description</label>
-					<textarea name="description" required tabindex="0" ></textarea>
+						<rich-text-editor name-to-save="description" data=""></rich-text-editor>
 				</div>
 
 				<div class="settings">

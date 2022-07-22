@@ -30,7 +30,9 @@ export class EditNoteDialog extends HTMLElement {
 		
           <button class="delete-link" id="delete-btn" type="button">Delete</button>
 					<label for="note">Note</label>
-          <textarea id="note" name="note" autofocus >${data?.note}</textarea>
+											<rich-text-editor name-to-save="description" data="${data?.note}"></rich-text-editor>
+
+          
 					
           <input type="hidden" name="edit_note" value="${project_id}"/>
           <input type="hidden" name="note_id" value="${note_id}"/>

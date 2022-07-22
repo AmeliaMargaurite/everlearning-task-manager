@@ -10,7 +10,8 @@ export class AddNewNoteDialog extends HTMLElement {
 
 		const form = `
 			<form action="${noteFunctionsURL}" method="POST" id="modal-form">
-				<textarea id="note" name="note"></textarea>
+										<rich-text-editor name-to-save="note" data=""></rich-text-editor>
+
 				<input type="hidden" name="save_new_note" value="${project_id}"/>
 			</form>`;
 

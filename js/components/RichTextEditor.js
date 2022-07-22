@@ -9,24 +9,24 @@ export class RichTextEditor extends HTMLElement {
 		this.id = "editor";
 		this.innerHTML = `
 		<div class="toolbar" id="toolbar">
-			<span class="editor-btn" data-action="bold" data-tag-name="strong" title="Bold">
+			<span class="editor-btn" tabindex="0" data-action="bold" data-tag-name="strong" title="Bold">
 				<div class="icon bold"></div>
 			</span>
-			<span class="editor-btn" data-action="italic" data-tag-name="em" title="Italic">
+			<span class="editor-btn" tabindex="0" data-action="italic" data-tag-name="em" title="Italic">
 				<div class="icon italic"></div>
 			</span>
-			<span class="editor-btn" data-action="underline" data-tag-name="u" title="Underline">
+			<span class="editor-btn" tabindex="0" data-action="underline" data-tag-name="u" title="Underline">
 				<div class="icon underline"></div>
 			</span>
-			<span class="editor-btn" data-action="strikeThrough" data-tag-name="strike" title="Strike through">
+			<span class="editor-btn" tabindex="0" data-action="strikeThrough" data-tag-name="strike" title="Strike through">
 				<div class="icon strike-through"></div>
 			</span>
 
 
-			<span class="editor-btn has-submenu" id="align-button">
+			<span class="editor-btn has-submenu" id="align-button" tabindex="0">
 				<div class="icon align-left" ></div>
 				<div class="submenu" id="align-buttons__wrapper">
-					<span class="editor-btn" data-action="justifyLeft" data-style="textAlign:left" title="Justify left">
+					<span class="editor-btn"  data-action="justifyLeft" data-style="textAlign:left" title="Justify left">
 						<div class="icon align-left"></div>
 					</span>
 					<span class="editor-btn" data-action="justifyCenter" data-style="textAlign:center" title="Justify center">
@@ -41,35 +41,35 @@ export class RichTextEditor extends HTMLElement {
 				</div>
 			</span>
 
-			<span class="editor-btn" data-action="insertOrderedList" data-tag-name="ol" title="Insert ordered list">
+			<span class="editor-btn" tabindex="0" data-action="insertOrderedList" data-tag-name="ol" title="Insert ordered list">
 				<div class="icon ol"></div>
 			</span>
-			<span class="editor-btn" data-action="insertUnorderedList" data-tag-name="ul" title="Insert unordered list">
+			<span class="editor-btn" tabindex="0" data-action="insertUnorderedList" data-tag-name="ul" title="Insert unordered list">
 				<div class="icon ul"></div>			
 			</span>
-			<span class="editor-btn" data-action="outdent" data-required-tag="li" title="Outdent">				
+			<span class="editor-btn" tabindex="0" data-action="outdent" data-required-tag="li" title="Outdent">				
 				<div class="icon outdent"></div>			
 			</span>
-			<span class="editor-btn" data-action="indent" title="Indent">				
+			<span class="editor-btn" tabindex="0" data-action="indent" title="Indent">				
 				<div class="icon indent"></div>			
 			</span>
 
-			<span class="editor-btn" data-action="insertHorizontalRule" title="Insert horizontal rule">
+			<span class="editor-btn" tabindex="0" data-action="insertHorizontalRule" title="Insert horizontal rule">
 				<div class="icon hl"></div>
 			</span>
-			<span class="editor-btn" data-action="undo" title="Undo">
+			<span class="editor-btn" tabindex="0" data-action="undo" title="Undo">
 				<div class="icon undo"></div>
 			</span>
-			<span class="editor-btn" data-action="removeFormat" title="Remove format">
+			<span class="editor-btn" tabindex="0" data-action="removeFormat" title="Remove format">
 				<div class="icon eraser"></div>
 			</span>
-			<span class="editor-btn" data-action="createLink" title="Insert Link">				
+			<span class="editor-btn" tabindex="0" data-action="createLink" title="Insert Link">				
 				<div class="icon link"></div>			
 			</span>
-			<span class="editor-btn" data-action="unlink" data-tag-name="a" title="Unlink">				
+			<span class="editor-btn" tabindex="0" data-action="unlink" data-tag-name="a" title="Unlink">				
 				<div class="icon unlink"></div>			
 			</span>
-			<span class="editor-btn" data-action="toggle-view" title="Show HTML code">
+			<span class="editor-btn" tabindex="0" data-action="toggle-view" title="Show HTML code">
 				<div class="icon code"></div>
 			</span>
 		</div>
@@ -157,6 +157,7 @@ export class RichTextEditor extends HTMLElement {
 
 		// add toolbar button actions
 		for (const button of buttons) {
+			button.tabindex = 0;
 			button.addEventListener("click", function (e) {
 				const action = this.dataset.action;
 				console.log(action);
