@@ -690,6 +690,7 @@ tile-context-menu input {
   -moz-column-gap: 0.8rem;
        column-gap: 0.8rem;
   align-items: center;
+  justify-content: space-between;
 }
 .todays-tasks__title i {
   cursor: pointer;
