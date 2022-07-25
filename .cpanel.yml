@@ -15,4 +15,4 @@ deployment:
     - /bin/cp -R php $DEPLOYPATH
     - /bin/cp -R project $DEPLOYPATH
     - /bin/cp -R register $DEPLOYPATH
-    - /bin/cp  R calendar-view $DEPLOYPATH
+    - /bin/cp -R calendar-view $DEPLOYPATH
