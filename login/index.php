@@ -4,7 +4,6 @@ include_once(DB_CONNECTION);
 
 $title = "Login";
 include_once(PAGE_START);
-include_once(HEADER);
 
 if (is_user_logged_in()) {
   redirect_to(HOME_URL);
@@ -42,7 +41,7 @@ redirect_to(HOME_URL);
 
 
 ?>
-<div >
+<div class="content">
   
   <form class="login" method="POST" id="login-form">
     

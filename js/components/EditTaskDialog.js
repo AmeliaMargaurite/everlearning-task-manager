@@ -20,7 +20,7 @@ export class EditTaskDialog extends HTMLElement {
 	}
 
 	async connectedCallback() {
-		const project_id = getProjectIdFromURL();
+		const project_id = this.getAttribute("project_id");
 		const task_id = this.getAttribute("task_id");
 
 		const data = await this.getTaskData(task_id, project_id);
@@ -40,13 +40,16 @@ export class EditTaskDialog extends HTMLElement {
 					<div class="settings">
 						<span>
 							
-							<category-dropdown task_id="${task_id}"></category-dropdown>
+							<category-dropdown project_id="${project_id}" task_id="${task_id}"></category-dropdown>
 						</span>
 						<span>
-							<due-date task_id="${task_id}"></due-date>
+							<due-date project_id="${project_id}" task_id="${task_id}"></due-date>
 						</span>
 						<span>
-							<priority-dropdown task_id="${task_id}"></priority-dropdown>
+							<priority-dropdown project_id="${project_id}" task_id="${task_id}"></priority-dropdown>
+						</span>
+						<span>
+							<days-allocated-to project_id="${project_id}" task_id="${task_id}"></days-allocated-to>
 						</span>
 					</div>
 					

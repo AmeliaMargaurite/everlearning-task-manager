@@ -28,6 +28,7 @@ if ($json) {
     }; break;
     case 'toggle_on_todays_task': toggle_on_todays_task(); break;
     case 'get_due_date': get_due_date(); break;
+    case 'get_allocated_days': get_allocated_days(); break;
   }
 } 
    if (isset($_POST['update_task_status'])) {
@@ -166,6 +167,16 @@ function get_due_date() {
   $project_id = $jsonObj->project_id;
   
   echo json_encode($_SESSION['projects'][$project_id]->tasks[$task_id]->due_date);
+}
+
+function get_allocated_days() {
+  global $jsonObj;
+
+  $task_id = $jsonObj->task_id;
+  $project_id = $jsonObj->project_id;
+  $date = $_SESSION['projects'][$project_id]->tasks[$task_id]->days_allocated_to;
+  
+  echo $date ? json_encode(date('Y-m-d', strtotime($date))) : json_encode(null);
 }
 
 ?>

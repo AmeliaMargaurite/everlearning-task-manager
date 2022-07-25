@@ -15,6 +15,7 @@ import { PriorityDropdown } from "./PriorityDropdown.js";
 import { TileContextMenu } from "./TileContextMenu.js";
 import { ModalNoButtons } from "./ModalNoButtons.js";
 import { RichTextEditor } from "./RichTextEditor.js";
+import { DaysAllocatedTo } from "./DatesAllocatedTo.js";
 
 customElements.define("add-new-project-dialog", AddNewProjectDialog);
 customElements.define("add-new-task-dialog", AddNewTaskDialog);
@@ -27,6 +28,7 @@ customElements.define("modal-no-buttons", ModalNoButtons);
 customElements.define("category-dropdown", CategoryDropdown);
 customElements.define("modal-overlay", ModalOverlay);
 customElements.define("due-date", DueDate);
+customElements.define("days-allocated-to", DaysAllocatedTo);
 customElements.define("category-context-menu", CategoryContextMenu);
 customElements.define("category-input-popup", CategoryInputPopup);
 customElements.define("priority-dropdown", PriorityDropdown);

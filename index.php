@@ -3,10 +3,6 @@ include_once './config.php';
 require_login();
 $title = "Projects";
 include_once(PAGE_START); 
-
-?>
-
-<?php 
 include_once(HEADER) ;
 include_once(DB_CONNECTION);
 include_once(PROJECT_FUNCTIONS);
@@ -34,6 +30,7 @@ $projects = $_SESSION['projects'];
             <div class="todays-tasks__title">
                 <h3>Todays Tasks</h1>
                 <button class="icon-only" onclick="openDialog('edit-todays-tasks-dialog')"><div class="icon edit"></div></button>
+                <a href="<?= HOME . '/calendar-view' ?>">Calendar View</a>
             </div>
             <?php include_once(TODAYS_TASKS); ?>
         </div>

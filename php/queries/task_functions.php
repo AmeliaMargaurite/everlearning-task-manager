@@ -18,6 +18,7 @@ function saveNewTask() {
   $category_id = $_POST['category'] ? $_POST['category'] : NULL;
   $due_date = $_POST['due_date'] ? $_POST['due_date'] : NULL;
   $priority_id = $_POST['priority'] ? $_POST['priority']: NULL;
+  $days_allocated_to = $_POST['days_allocated_to'] ? $_POST['days_allocated_to']: NULL;
 
   // Standard initial settings
   $date_created = date('Y-m-d');
@@ -26,10 +27,10 @@ function saveNewTask() {
   $conn = OpenConn();
   $stmt = 
     $conn->prepare(
-      "INSERT INTO tasks(name, description, date_created, status_id, project_id, category_id, due_date, priority_id) 
-      VALUES(?,?,?,?,?,?,?,?)");
-  $stmt->bind_param('sssiiisi', 
-    $name, $description, $date_created, $status_id, $project_id, $category_id, $due_date, $priority_id);
+      "INSERT INTO tasks(name, description, date_created, status_id, project_id, category_id, due_date, priority_id, days_allocated_to) 
+      VALUES(?,?,?,?,?,?,?,?,?)");
+  $stmt->bind_param('sssiiisis', 
+    $name, $description, $date_created, $status_id, $project_id, $category_id, $due_date, $priority_id, $days_allocated_to);
 
   if ($stmt->execute() === TRUE) {
     getProjectsTasks($project_id);
@@ -56,14 +57,16 @@ function editTask(): void {
   $category_id = !empty($_POST['category']) ? (int)$_POST['category'] : NULL ;
   $due_date = !empty($_POST['due_date']) ? $_POST['due_date'] : NULL;
   $priority_id = !empty($_POST['priority']) ? (int)$_POST['priority'] : NULL;
+  $days_allocated_to = !empty($_POST['days_allocated_to']) ? $_POST['days_allocated_to']: NULL;
+
   
   $conn = OpenConn();
-  $stmt = $conn->prepare("UPDATE tasks SET name = ?, description = ?, category_id = ?, priority_id = ?, due_date = ? WHERE task_id = ?");
+  $stmt = $conn->prepare("UPDATE tasks SET name = ?, description = ?, category_id = ?, priority_id = ?, due_date = ?, days_allocated_to = ? WHERE task_id = ?");
 
-  $stmt->bind_param('ssiisi', $name, $description, $category_id, $priority_id,  $due_date, $task_id);
+  $stmt->bind_param('ssiissi', $name, $description, $category_id, $priority_id,  $due_date, $days_allocated_to, $task_id);
 
   if ($stmt->execute() === TRUE) {
-    $updates = array('name' => $name, 'description'=>$description, 'category_id' =>$category_id, 'due_date' => $due_date, 'priority_id' => $priority_id);
+    $updates = array('name' => $name, 'description'=>$description, 'category_id' =>$category_id, 'due_date' => $due_date, 'priority_id' => $priority_id, 'days_allocated_to' => $days_allocated_to);
     foreach($updates as $key => $prop) {
       $_SESSION['projects'][$project_id]->tasks[$task_id]->$key = $prop;
     }

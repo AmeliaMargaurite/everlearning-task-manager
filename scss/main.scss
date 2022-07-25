@@ -10,6 +10,7 @@
 @import "./category_legend";
 @import "./icons";
 @import "./rich-text-editor";
+@import "../calendar-view/calendar";
 
 * {
 	margin: 0;
@@ -20,6 +21,7 @@
 
 body {
 	position: relative;
+	display: grid;
 	min-height: 100vh;
 	color: var(--primary);
 	background: var(--secondary);

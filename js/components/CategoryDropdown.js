@@ -20,7 +20,7 @@ export class CategoryDropdown extends HTMLElement {
 	}
 
 	async connectedCallback() {
-		const project_id = getProjectIdFromURL();
+		const project_id = this.getAttribute("project_id");
 		const task_id = this.getAttribute("task_id");
 		const categoryData = await this.getCategoriesData(project_id, task_id);
 		const label = document.createElement("label");

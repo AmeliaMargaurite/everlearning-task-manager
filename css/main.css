@@ -1010,6 +1010,86 @@ create-link-popup .link-popup__wrapper button.icon-only {
   align-self: flex-end;
 }
 
+.content.calendar-view {
+  display: grid;
+  grid-template-rows: -webkit-max-content -webkit-max-content;
+  grid-template-rows: max-content max-content;
+  padding-inline: 3.2rem;
+  text-align: center;
+}
+.content.calendar-view .page__wrapper {
+  grid-template-rows: -webkit-max-content auto;
+  grid-template-rows: max-content auto;
+  row-gap: unset;
+}
+
+.calendar {
+  display: grid;
+  grid-template-rows: -webkit-max-content auto;
+  grid-template-rows: max-content auto;
+  row-gap: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+.calendar .header {
+  display: flex;
+  justify-content: space-between;
+  background: var(--teal500);
+  padding: 1.6rem;
+  color: var(--white);
+  border-radius: 0.4rem;
+}
+.calendar .header a {
+  color: var(--white);
+}
+.calendar .box-content {
+  display: grid;
+  grid-template-rows: -webkit-max-content auto;
+  grid-template-rows: max-content auto;
+  row-gap: 0.8rem;
+}
+.calendar ul {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr;
+}
+.calendar ul.dates {
+  height: 100%;
+}
+.calendar li {
+  list-style: none;
+}
+.calendar li.end {
+  background: var(--transp-black-3);
+}
+.calendar .dates li {
+  display: grid;
+  grid-template-columns: -webkit-max-content auto;
+  grid-template-columns: max-content auto;
+  -moz-column-gap: 0.4rem;
+       column-gap: 0.4rem;
+  row-gap: 0.4rem;
+  text-align: left;
+  padding: 0.4rem;
+  grid-auto-rows: -webkit-max-content;
+  grid-auto-rows: max-content;
+}
+.calendar .dates li span.task {
+  grid-column: 2;
+  padding: 0.2rem;
+  border: 1px solid var(--teal500);
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+.calendar .dates li span.task:hover {
+  background: #a9d3cd;
+}
+.calendar .dates li.today {
+  outline: 2px dotted var(--teal300);
+}
+.calendar .dates li:not(:empty) {
+  border: 1px solid var(--transp-black-3);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -1019,6 +1099,7 @@ create-link-popup .link-popup__wrapper button.icon-only {
 
 body {
   position: relative;
+  display: grid;
   min-height: 100vh;
   color: var(--primary);
   background: var(--secondary);

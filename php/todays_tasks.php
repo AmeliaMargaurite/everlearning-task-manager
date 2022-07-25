@@ -17,9 +17,10 @@
            
           <?php }}
           if (!empty($todays_tasks)) { ?>
-          <h5><?= $project->name ?></h5>
-        <?php } ?>
-        <ul>
+          <h5><?= $project->name ?></h5> 
+          <ul>
+     
+       
 
             <?php foreach($todays_tasks as $task) { ?>
                <li>
@@ -27,11 +28,11 @@
                 <?= $task['task']->name ?>
               </a>
             </li>  
-           <?php }
+           <?php }}
           }
         } ?>
-        </ul>
-        
+       
+         </ul>
        <?php }
       }
    

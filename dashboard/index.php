@@ -9,6 +9,7 @@ include_once(CATEGORY_REQUESTS);
 
 include_once(PAGE_START); 
 ?>
+<div class="content">
 <h1><?= current_user() ?></h1>
 <ul>
   <li>Change password option</li>
@@ -17,7 +18,7 @@ include_once(PAGE_START);
   <li>Stats</li>
 </ul>
 <p class="logout"><a href="<?=  HOME . '/logout'; ?>">Logout</a></p></div>
-
+</div>
 <?php 
 include_once(PAGE_END); 
 ?>
