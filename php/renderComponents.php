@@ -4,6 +4,7 @@
 function renderProjectTiles($project) {
 if ($project->tasks) {
 foreach($project->tasks as $task) {
+
   $status = getStatusNameFromId($task->status_id);
   switch ($status) {
       case 'incomplete': $incomplete++;

@@ -96,9 +96,8 @@ function getProjectsTasks($project_id):void {
     while ($data = $tasksRequest->fetch_assoc()) {
       $task = new Task;
       foreach ($data as $key =>$prop) {
-        if ($key === 'days_allocated_to' ) {
           $task->$key = $prop;
-        }
+        
       }
       $_SESSION['projects'][$project_id]->tasks[$task->task_id] = $task;
     }
