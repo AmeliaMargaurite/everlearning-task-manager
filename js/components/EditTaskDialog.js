@@ -22,7 +22,7 @@ export class EditTaskDialog extends HTMLElement {
 	async connectedCallback() {
 		const project_id = this.getAttribute("project_id");
 		const task_id = this.getAttribute("task_id");
-
+		const url = window.location.href;
 		const data = await this.getTaskData(task_id, project_id);
 
 		const form = `
@@ -55,6 +55,7 @@ export class EditTaskDialog extends HTMLElement {
 					
           <input type="hidden" name="edit_task" value="${project_id}"/>
           <input type="hidden" name="task_id" value="${task_id}"/>
+					<input type="hidden" name="referrer" value="${url}" />
         </form>
 
     `;

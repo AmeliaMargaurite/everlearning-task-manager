@@ -34,9 +34,9 @@ if (!doesUserOwnProject($project_id)) {
   redirect_to(HOME_URL);
 }
 
-getProjectsTasks($project_id);
-getProjectsNotes($project_id);
-getProjectsCategories($project_id);
+// getProjectsTasks($project_id);
+// getProjectsNotes($project_id);
+// getProjectsCategories($project_id);
 $project = $_SESSION['projects'][$project_id];
 $projectName = $project->name;
 $tasks = $project->tasks;

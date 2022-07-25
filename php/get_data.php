@@ -97,16 +97,6 @@ function getProjectsTasks($project_id):void {
       $task = new Task;
       foreach ($data as $key =>$prop) {
         if ($key === 'days_allocated_to' ) {
-          if (!is_null($prop)) {
-          // $date = json_decode($prop);
-          // if ($date) {
-            error_log('date:' . $date, 0);
-            $newDate = date('d-m-Y', strtotime($prop));
-            error_log('date:' . $newDate, 0);
-            $task->$key = $newDate;
-          // }
-        }
-        } else {
           $task->$key = $prop;
         }
       }

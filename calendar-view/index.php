@@ -12,7 +12,6 @@ include_once(RENDER_COMPONENTS);
 if ($_SESSION['projects'] == '' || !isset($_SESSION['projects'])) {
     getUsersProjects($_SESSION['users_id']);
 }
-$projects = $_SESSION['projects'];
 
 include_once('./calendar.php');
 $calendar = new Calendar();

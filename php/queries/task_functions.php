@@ -66,6 +66,7 @@ function editTask(): void {
   $stmt->bind_param('ssiissi', $name, $description, $category_id, $priority_id,  $due_date, $days_allocated_to, $task_id);
 
   if ($stmt->execute() === TRUE) {
+    
     $updates = array('name' => $name, 'description'=>$description, 'category_id' =>$category_id, 'due_date' => $due_date, 'priority_id' => $priority_id, 'days_allocated_to' => $days_allocated_to);
     foreach($updates as $key => $prop) {
       $_SESSION['projects'][$project_id]->tasks[$task_id]->$key = $prop;
@@ -75,8 +76,9 @@ function editTask(): void {
     error_log("Error: " . $request . "<br/>" . $conn->error . "\n Name: " . $name . '\nProject_id: ' . $project_id);
   }
 
+  $redirectUrl = $_POST['referrer'];
   CloseConn($conn);
-  header('Location: ../../project?project_id=' . $project_id); 
+  header("Location: $redirectUrl"); 
 }
 
 

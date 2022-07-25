@@ -105,13 +105,17 @@ class Calendar {
     foreach($_SESSION['projects'] as $project) {
       if ($project->tasks) {
         foreach ($project->tasks as $task) {
-          // print_r($task)  ;
+          
           if ($task->days_allocated_to) {
-            
-            // if (in_array($this->currentDate, $task->days_allocated_to)){
-              // echo $this->currentDate . '===' . $task->days_allocated_to . '<br/>';
-            if ($this->currentDate == $task->days_allocated_to){
-              $content .= "<span class='task' project_id='$project->project_id' task_id='$task->task_id' onclick='openDialog(\"edit-task-dialog\",{task_id:\"$task->task_id\", project_id: \"$project->project_id\"})'>$task->name</span> ";
+            $days_allocated_to_reformatted = date(
+              'd-m-Y', 
+              strtotime($task->days_allocated_to)
+            );
+
+            if ($this->currentDate == $days_allocated_to_reformatted){
+              $content .= "<span class='task' project_id='$project->project_id' task_id='$task->task_id' onclick='openDialog(\"edit-task-dialog\",{task_id:\"$task->task_id\", project_id: \"$project->project_id\"})'>
+              $task->name
+              </span> ";
             }
           }
         }
