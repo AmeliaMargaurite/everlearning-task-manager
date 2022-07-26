@@ -91,7 +91,6 @@ function update_category_data() {
   $stmt->bind_param('ssii', $name, $color, $project_id, $category_id);
   
   if ($stmt->execute()) {
-    unset($_SESSION['projects'][$project_id]->categories);
     $updates = array('name'=>$name, 'color'=>$color);
     foreach($updates as $key => $prop) {
       $_SESSION['projects'][$project_id]->categories[$category_id]->$key = $prop;
