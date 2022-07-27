@@ -21,7 +21,7 @@ export class AddNewTaskDialog extends HTMLElement {
 
 				<div class="settings">
 						<span>
-							<category-dropdown task_id=""></category-dropdown>
+							<category-dropdown task_id="" project_id="${project_id}"></category-dropdown>
 						</span>
 						<span>
 							<due-date task_id=""></due-date>
