@@ -50,8 +50,7 @@
 
 	@media (min-width: $medium) {
 		& div.wrapper:not(.note):not(.statuses) {
-			width: unset;
-			min-width: 80rem;
+			width: 80rem;
 		}
 	}
 }

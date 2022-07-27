@@ -641,8 +641,7 @@ tile-context-menu input {
 }
 @media (min-width: 1024px) {
   .overlay div.wrapper:not(.note):not(.statuses) {
-    width: unset;
-    min-width: 80rem;
+    width: 80rem;
   }
 }
 
