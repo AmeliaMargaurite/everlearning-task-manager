@@ -70,6 +70,9 @@
 				border-radius: 0.8rem;
 				cursor: pointer;
 
+				&.completed {
+					opacity: 0.3;
+				}
 				&:hover {
 					background: #a9d3cd;
 				}

@@ -1081,6 +1081,9 @@ create-link-popup .link-popup__wrapper button.icon-only {
   border-radius: 0.8rem;
   cursor: pointer;
 }
+.calendar .dates li span.task.completed {
+  opacity: 0.3;
+}
 .calendar .dates li span.task:hover {
   background: #a9d3cd;
 }

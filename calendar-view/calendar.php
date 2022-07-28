@@ -112,8 +112,9 @@ class Calendar {
               strtotime($task->days_allocated_to)
             );
 
-            if ($this->currentDate == $days_allocated_to_reformatted){
-              $content .= "<span class='task' project_id='$project->project_id' task_id='$task->task_id' onclick='openDialog(\"edit-task-dialog\",{task_id:\"$task->task_id\", project_id: \"$project->project_id\"})'>
+            if ($this->currentDate == $days_allocated_to_reformatted) {
+              $className = $task->status_id === getStatusIdFromName('completed') || $task->status_id === getStatusIdFromName('archived') ? 'completed' : '';
+              $content .= "<span class='task $className' project_id='$project->project_id' task_id='$task->task_id' onclick='openDialog(\"edit-task-dialog\",{task_id:\"$task->task_id\", project_id: \"$project->project_id\"})'>
               $task->name
               </span> ";
             }
