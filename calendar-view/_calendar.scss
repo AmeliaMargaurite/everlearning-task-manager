@@ -42,6 +42,8 @@
 	}
 
 	ul.dates {
+		display: flex;
+		flex-wrap: wrap;
 		height: 100%;
 	}
 
@@ -62,6 +64,7 @@
 			text-align: left;
 			padding: 0.2rem 0.4rem;
 			grid-auto-rows: max-content;
+			flex-basis: 14.285%; // 100% /7 days
 
 			& span.task {
 				grid-column: 2;

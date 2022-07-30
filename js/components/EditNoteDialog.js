@@ -30,7 +30,7 @@ export class EditNoteDialog extends HTMLElement {
 		
           <button class="delete-link" id="delete-btn" type="button">Delete</button>
 					<label for="note">Note</label>
-											<rich-text-editor name-to-save="description" data="${data?.note}"></rich-text-editor>
+					<rich-text-editor name-to-save="note" data="${data?.note}"></rich-text-editor>
 
           
 					

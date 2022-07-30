@@ -1054,6 +1054,8 @@ create-link-popup .link-popup__wrapper button.icon-only {
   grid-auto-rows: 1fr;
 }
 .calendar ul.dates {
+  display: flex;
+  flex-wrap: wrap;
   height: 100%;
 }
 .calendar li {
@@ -1073,6 +1075,7 @@ create-link-popup .link-popup__wrapper button.icon-only {
   padding: 0.2rem 0.4rem;
   grid-auto-rows: -webkit-max-content;
   grid-auto-rows: max-content;
+  flex-basis: 14.285%;
 }
 .calendar .dates li span.task {
   grid-column: 2;
