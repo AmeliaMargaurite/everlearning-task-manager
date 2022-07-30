@@ -117,7 +117,7 @@ function renderNotes($notes) {
     foreach($notes as $note) {
     ?>
     <li id="note_<?=$note->note_id ?>" onclick="openDialog('edit-note-dialog', {note_id: <?=$note->note_id ?>})"> 
-      <p><?= $note->note ?></p>
+      <?= $note->note ?>
       <div class="icon edit medium" ></i>
     </li>
     <div class="divider"></div>

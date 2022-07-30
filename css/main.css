@@ -400,7 +400,7 @@ form.todays-tasks input[type=checkbox] {
 .task__column.notes {
   row-gap: 0.8rem;
 }
-.task__column.notes li {
+.task__column.notes > li {
   display: grid;
   grid-template-columns: auto -webkit-max-content;
   grid-template-columns: auto max-content;

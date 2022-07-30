@@ -197,7 +197,7 @@
 	&.notes {
 		row-gap: 0.8rem;
 
-		& li {
+		& > li {
 			display: grid;
 			grid-template-columns: auto max-content;
 			column-gap: 0.8rem;
