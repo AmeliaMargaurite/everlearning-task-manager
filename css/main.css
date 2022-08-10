@@ -782,6 +782,7 @@ tile-context-menu input {
 }
 
 .icon {
+  display: inline-block;
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
   -webkit-mask-position: center;
