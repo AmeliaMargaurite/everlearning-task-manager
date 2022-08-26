@@ -1,0 +1,16 @@
+{
+  "name": "walkers-creek",
+  "version": "1.0.0",
+  "description": "change helpers.js, variables.js & main.css to add number\r global search to update these",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://ameliama@ameliamargaurite.com.au:2683/home2/ameliama/walkers-creek.ameliamargaurite.com.au"
+  },
+  "author": "",
+  "license": "ISC"
+}
