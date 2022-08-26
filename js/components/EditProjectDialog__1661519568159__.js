@@ -3,7 +3,7 @@ import {
 	getProjectIdFromURL,
 	projectFunctionsURL,
 	projectRequestsURL,
-} from "../helpers.js";
+} from "../helpers__1661519568159__.js";
 
 export class EditProjectDialog extends HTMLElement {
 	constructor() {
@@ -27,7 +27,7 @@ export class EditProjectDialog extends HTMLElement {
 		const form = `
         <form action="${projectFunctionsURL}" method="POST" id="modal-form">
         
-          <button class="delete-link" id="delete-btn">Delete</button>
+          <button class="btn delete-link" id="delete-btn">Delete</button>
           <div>
             <label for="name">Name</label>
             <input name="name" type="text" required value="${data.name}" autofocus id="name-input"/>

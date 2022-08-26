@@ -1,4 +1,7 @@
-import { getProjectIdFromURL, taskRequestURL } from "../helpers.js";
+import {
+	getProjectIdFromURL,
+	taskRequestURL,
+} from "../helpers__1661519568159__.js";
 
 export class DueDate extends HTMLElement {
 	constructor() {

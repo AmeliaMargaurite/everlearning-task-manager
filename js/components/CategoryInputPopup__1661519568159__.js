@@ -2,7 +2,7 @@ import {
 	getProjectIdFromURL,
 	categoryRequestsURL,
 	increaseHueOfHex,
-} from "../helpers.js";
+} from "../helpers__1661519568159__.js";
 
 export class CategoryInputPopup extends HTMLElement {
 	constructor() {
@@ -128,10 +128,10 @@ export class CategoryInputPopup extends HTMLElement {
 					}"/>
 					</span>
 				<span class="buttons--wrapper">
-				<button id="category_popup--close-btn" class="btn special">
+				<button class="btn" id="category_popup--close-btn" class="btn special">
 					Close
 				</button>
-				<button id="category_input--btn" class="btn">
+				<button class="btn" id="category_input--btn" class="btn">
 					Save
 				</button>
 				</span>

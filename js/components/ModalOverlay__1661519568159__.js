@@ -1,4 +1,4 @@
-import { closeModal } from "../helpers.js";
+import { closeModal } from "../helpers__1661519568159__.js";
 
 export class ModalOverlay extends HTMLElement {
 	constructor() {

@@ -2,7 +2,7 @@ import {
 	getProjectIdFromURL,
 	statusRequestsURL,
 	taskRequestURL,
-} from "../helpers.js";
+} from "../helpers__1661519568159__.js";
 
 export class TileContextMenu extends HTMLElement {
 	constructor() {

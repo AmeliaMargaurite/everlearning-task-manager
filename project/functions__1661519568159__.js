@@ -1,4 +1,7 @@
-import { taskRequestURL, getProjectIdFromURL } from "../js/helpers.js";
+import {
+	taskRequestURL,
+	getProjectIdFromURL,
+} from "../js/helpers__1661519568159__.js";
 
 // Drag and drop functions for Desktop
 export function handleDragStart(e, task_id) {

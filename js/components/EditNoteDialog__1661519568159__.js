@@ -3,7 +3,7 @@ import {
 	getProjectIdFromURL,
 	noteFunctionsURL,
 	noteRequestsURL,
-} from "../helpers.js";
+} from "../helpers__1661519568159__.js";
 
 export class EditNoteDialog extends HTMLElement {
 	constructor() {
@@ -28,7 +28,7 @@ export class EditNoteDialog extends HTMLElement {
 		const form = `
         <form action="${noteFunctionsURL}" method="POST" id="modal-form">
 		
-          <button class="delete-link" id="delete-btn" type="button">Delete</button>
+          <button class="btn delete-link" id="delete-btn" type="button">Delete</button>
 					<label for="note">Note</label>
 					<rich-text-editor name-to-save="note" data="${data?.note}"></rich-text-editor>
 

@@ -1,6 +1,6 @@
-import { closeModal } from "../helpers.js";
+import { closeModal } from "../helpers__1661519568159__.js";
 
-export class Modal extends HTMLElement {
+export class ModalNoButtons extends HTMLElement {
 	constructor() {
 		super();
 	}
@@ -12,14 +12,9 @@ export class Modal extends HTMLElement {
 			<modal-overlay modals_id='${modalsId}'>
         <div class="wrapper" onclick="event.stopPropagation()">
           <div id="modal--contents" class="modal--contents" ></div>
-          <button type="cancel" id="cancel-btn">Cancel</button>
-          <button type="submit" form="modal-form" class="special">Save</button>
-
+         
         </div>
 			</modal-overlay>
     `;
-
-		const cancelBtn = document.getElementById("cancel-btn");
-		cancelBtn.onclick = () => closeModal(modalsId);
 	}
 }

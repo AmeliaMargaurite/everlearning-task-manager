@@ -18,7 +18,7 @@ $projects = $_SESSION['projects'];
     <div class="projects__heading">
         <span>
             <h1>Projects</h1>
-            <button class="icon-only" onclick="openDialog('add-new-project-dialog')">
+            <button class="btn icon-only" onclick="openDialog('add-new-project-dialog')">
                 <div class="icon plus"></div>
             </button>        
         </span>
@@ -29,7 +29,7 @@ $projects = $_SESSION['projects'];
         <div class="todays-tasks">
             <div class="todays-tasks__title">
                 <h3>Todays Tasks</h1>
-                <button class="icon-only" onclick="openDialog('edit-todays-tasks-dialog')"><div class="icon edit"></div></button>
+                <button class="btn icon-only" onclick="openDialog('edit-todays-tasks-dialog')"><div class="icon edit"></div></button>
                 <a href="<?= HOME . '/calendar-view' ?>">Calendar View</a>
             </div>
             <?php include_once(TODAYS_TASKS); ?>

@@ -365,12 +365,12 @@ class CreateLinkPopup extends HTMLElement {
 		 <div class="overlay" id="create-link-popup-overlay">
 			<div class="link-popup__wrapper" onclick="event.stopPropagation()">
 				<div class="heading--wrapper">
-					<h3>Insert link</h3><button class="icon-only" id="close-link-popup">
+					<h3>Insert link</h3><button class="btn icon-only" id="close-link-popup">
 					<div class="icon close"></div></button>
 				</div>
 				<input type="text" id="linkValue" placeholder="www.everlearning.com.au"/>
 				<label for="new-tab"><input type="checkbox" name="new-tab" id="new-tab"/>Open in new tab?</label>
-				<button class="special" id="create-link-save">Save</button> 
+				<button class="btn special" id="create-link-save">Save</button> 
 			</div>
 		 </div>
 		`;

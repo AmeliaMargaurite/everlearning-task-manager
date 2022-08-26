@@ -3,7 +3,7 @@ import {
 	getProjectIdFromURL,
 	taskFunctionsURL,
 	taskRequestURL,
-} from "../helpers.js";
+} from "../helpers__1661519568159__.js";
 
 export class EditTaskDialog extends HTMLElement {
 	constructor() {
@@ -28,7 +28,7 @@ export class EditTaskDialog extends HTMLElement {
 		const form = `
         <form action="${taskFunctionsURL}" method="POST" id="modal-form">
         
-          <button class="delete-link" id="delete-btn">Delete</button>
+          <button class="btn delete-link" id="delete-btn">Delete</button>
           <div>
             <label for="name">Name</label>
             <input name="name" type="text" required value="${data.name}" autofocus id="name-input"/>

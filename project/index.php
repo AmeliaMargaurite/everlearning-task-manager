@@ -53,7 +53,7 @@ include_once(PAGE_START);
     <a href="<?= HOME_URL ?>" class="back-btn"><div class="icon arrow"></div>back</a>
     <span class="project__name">
       <h1><?= $projectName ?></h1>
-      <button class="icon-only" onclick="openDialog('edit-project-dialog')">
+      <button class="btn icon-only" onclick="openDialog('edit-project-dialog')">
         <div class="icon edit"></div>
       </button>
     </span>
@@ -91,7 +91,7 @@ include_once(PAGE_START);
     <div class="task__column--wrapper" onDragOver="handleOnDragOver(event)" onDrop="handleDrop(event, 'incomplete')">
       <h3>
         To do 
-        <button class="icon-only small" onclick="openDialog('add-new-task-dialog')">
+        <button class="btn icon-only small" onclick="openDialog('add-new-task-dialog')">
           <div class="icon plus"></div>
         </button>
       </h3>
@@ -118,7 +118,7 @@ include_once(PAGE_START);
     
     <div class="task__column--wrapper">
       <h3>Notes 
-        <button class="icon-only small" onclick="openDialog('add-new-note-dialog')">
+        <button class="btn icon-only small" onclick="openDialog('add-new-note-dialog')">
           <div class="icon plus"></div>
         </button>
       </h3>
@@ -136,7 +136,7 @@ include_once(PAGE_START);
 </div>
 
 <script type="module">
-  import {handleDragStart, handleDrop, handleOnDragOver} from '<?= HOME_URL . "project/functions.js" ?>';
+  import {handleDragStart, handleDrop, handleOnDragOver} from '<?= HOME_URL . "project/functions__1661519568159__.js" ?>';
   
 
   window.handleDragStart = handleDragStart;
