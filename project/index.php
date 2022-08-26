@@ -136,7 +136,7 @@ include_once(PAGE_START);
 </div>
 
 <script type="module">
-  import {handleDragStart, handleDrop, handleOnDragOver} from '<?= HOME_URL . "project/functions__1661519568159__.js" ?>';
+  import {handleDragStart, handleDrop, handleOnDragOver} from '<?= HOME_URL . "project/functions__1661520306754__.js" ?>';
   
 
   window.handleDragStart = handleDragStart;

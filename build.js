@@ -22,7 +22,7 @@ try {
 			}
 
 			if (file.endsWith(".js") && file !== "build.js") {
-				console.log(file);
+				// console.log(file);
 				if (fileName.length === 2) {
 					// Files which have already been build in this wayy (contain __000___);
 					fs.rename(
@@ -43,7 +43,7 @@ try {
 
 			// Handle CSS files, main.css or previously edited main__000___.css file.
 			if (file.endsWith(".css")) {
-				if (files.includes((f) => f.includes("main.css"))) {
+				if (files.indexOf("main.css") >= 0) {
 					if (fileName.length > 1) {
 						// delete this old file
 						fs.unlinkSync(currentFilePath);
@@ -97,7 +97,6 @@ try {
 	};
 
 	const result = getAllFiles(__dirname);
-	console.log(result);
 } catch (e) {
 	console.log("e: " + e);
 }

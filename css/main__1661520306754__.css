@@ -84,7 +84,7 @@ form:not(.login, .register) button {
   padding: 0;
 }
 
-button {
+.btn {
   padding: 1.6rem;
   background: var(--secondary);
   color: var(--primary);
@@ -93,17 +93,17 @@ button {
   cursor: pointer;
 }
 
-button.special {
+.special {
   background: var(--primary);
   color: var(--secondary);
   border: 1px solid var(--secondary);
 }
-button.special:focus-visible {
+.special:focus-visible {
   outline-color: var(--secondary);
   box-shadow: 0 0 1px 2px var(--primary);
 }
 
-button.delete-link {
+.delete-link {
   color: var(--orange300);
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -113,21 +113,22 @@ button.delete-link {
   padding: 0;
 }
 
-button.delete {
+.delete {
   background: var(--orange300);
   color: var(--white);
 }
 
-button.icon-only {
+.icon-only {
+  display: flex;
   padding: 0.8rem;
   border-radius: 50%;
   background: transparent;
 }
-button.icon-only.small {
+.icon-only.small {
   border: none;
   padding: 0;
 }
-button.icon-only:not(.small) .icon {
+.icon-only:not(.small) .icon {
   width: 2rem;
   height: 2rem;
 }
@@ -427,6 +428,7 @@ form.note-form li input {
 .category-sort__wrapper {
   display: flex;
   justify-content: space-between;
+  margin: 0 1.6rem;
 }
 
 tile-context-menu {
@@ -717,7 +719,6 @@ tile-context-menu input {
        column-gap: 0.8rem;
   row-gap: 0.4rem;
   flex-wrap: wrap;
-  margin: 0 1.6rem;
 }
 .category_legend--wrapper .category--wrapper {
   position: relative;
