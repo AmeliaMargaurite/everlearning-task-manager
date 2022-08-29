@@ -1,7 +1,7 @@
 import {
 	getProjectIdFromURL,
 	noteFunctionsURL,
-} from "../helpers__1661520306754__.js";
+} from "../helpers__1661776228786__.js";
 
 export class AddNewNoteDialog extends HTMLElement {
 	constructor() {

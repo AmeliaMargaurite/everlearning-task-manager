@@ -1,7 +1,7 @@
 import {
 	taskFunctionsURL,
 	taskRequestURL,
-} from "../helpers__1661520306754__.js";
+} from "../helpers__1661776228786__.js";
 
 export class EditTodaysTasksDialog extends HTMLElement {
 	constructor() {

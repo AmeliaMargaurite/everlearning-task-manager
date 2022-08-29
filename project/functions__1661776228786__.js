@@ -1,7 +1,7 @@
 import {
 	taskRequestURL,
 	getProjectIdFromURL,
-} from "../js/helpers__1661520306754__.js";
+} from "../js/helpers__1661776228786__.js";
 
 // Drag and drop functions for Desktop
 export function handleDragStart(e, task_id) {
@@ -63,6 +63,12 @@ for (const tile of taskTiles) {
 		longtouch = false;
 		clearTimeout(timeout);
 	});
+}
+
+export function toggleListVisible(columnName) {
+	console.log("boop");
+	const column = document.querySelector(`.task__column.${columnName}`);
+	column.classList.toggle("open");
 }
 
 // Adding colours to the legend markers

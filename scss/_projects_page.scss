@@ -28,10 +28,8 @@
 .project_tiles {
 	display: flex;
 	flex-wrap: wrap;
-	flex-direction: column;
 	column-gap: 1.6rem;
 	row-gap: 1.6rem;
-	// padding-inline: 1.6rem;
 	height: max-content;
 
 	@media (min-width: $small) {
@@ -48,7 +46,6 @@
 	flex: 1;
 	box-shadow: var(--elevation-3);
 	background: white;
-	max-width: 30rem;
 	cursor: pointer;
 
 	&--content {
@@ -87,6 +84,10 @@
 			align-items: center;
 			column-gap: 0.4rem;
 		}
+	}
+
+	@media (min-width: $medium) {
+		max-width: 30rem;
 	}
 }
 

@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once '../config.php';
 require_login();
 include_once(DB_CONNECTION);
@@ -17,7 +17,7 @@ $currentURL = $_SERVER['REQUEST_URI'];
 $base_urlQueries = parse_url($currentURL, PHP_URL_QUERY);
 $queries = explode('&', $base_urlQueries);
 
-foreach($queries as $query) {
+foreach ($queries as $query) {
   $option = explode('=', $query);
   if ($option[0] === 'project_id') {
     $project_id = $option[1];
@@ -46,11 +46,13 @@ if (!isset($_SESSION['projects'][$project_id]->sortOrder)) {
   $_SESSION['projects'][$project_id]->sortOrder = 'last_modified-desc';
 }
 $title = $projectName . ' | Task Manager';
-include_once(PAGE_START); 
+include_once(PAGE_START);
 ?>
 <div class="page__wrapper">
   <div class="title__wrapper">
-    <a href="<?= HOME_URL ?>" class="back-btn"><div class="icon arrow"></div>back</a>
+    <a href="<?= HOME_URL ?>" class="back-btn">
+      <div class="icon arrow"></div>back
+    </a>
     <span class="project__name">
       <h1><?= $projectName ?></h1>
       <button class="btn icon-only" onclick="openDialog('edit-project-dialog')">
@@ -60,90 +62,112 @@ include_once(PAGE_START);
     <?php include_once(DASHBOARD_LINK) ?>
   </div>
   <div class="category-sort__wrapper">
-    <?php include_once(ROOTPATH .'/php/category_legend.php') ?>
+    <?php include_once(ROOTPATH . '/php/category_legend.php') ?>
     <!-- SORTING TILES -->
     <div class="sort__wrapper">Sort by
-      <?php 
+      <?php
 
-       $sortTypes = array(
-        'auto'=> 'Automatically',
-        'due_date-asc'=>'Due Date - Ascending', 
-        'due_date-desc'=>'Due Date - Decending', 
-        'last_modified-asc'=> 'Last Modified - Ascending',
-        'last_modified-desc'=> 'Last Modified - Decending',
-        'date_created-asc'=> 'Date Created - Ascending',
-        'date_created-desc'=> 'Date Created - Decending'
+      $sortTypes = array(
+        'auto' => 'Automatically',
+        'due_date-asc' => 'Due Date - Ascending',
+        'due_date-desc' => 'Due Date - Decending',
+        'last_modified-asc' => 'Last Modified - Ascending',
+        'last_modified-desc' => 'Last Modified - Decending',
+        'date_created-asc' => 'Date Created - Ascending',
+        'date_created-desc' => 'Date Created - Decending'
       );
       ?>
       <select id="sort__select">
-      <?php
-        foreach ($sortTypes as $value=>$sort) {
+        <?php
+        foreach ($sortTypes as $value => $sort) {
           $selected = $sortOrder && $sortOrder == $value ? 'selected="selected"' : '';
-      ?>
+        ?>
           <option value='<?= $value ?>' <?= $selected ?>><?= $sort ?></option>
-      <? } ?>
+        <? } ?>
       </select>
-        
+
     </div>
   </div>
   <section class="tasks__wrapper">
-  
+
     <div class="task__column--wrapper" onDragOver="handleOnDragOver(event)" onDrop="handleDrop(event, 'incomplete')">
-      <h3>
-        To do 
+      <h3 class="task__column--title" onclick="toggleListVisible('incomplete')">
+        To do
         <button class="btn icon-only small" onclick="openDialog('add-new-task-dialog')">
           <div class="icon plus"></div>
         </button>
+        <span class="task__column--count">
+          <?= getTaskCount('incomplete', $project_id) ?>
+        </span>
       </h3>
-      <div id="incomplete" class="incomplete task__column" >
-        
+      <div id="incomplete" class="incomplete task__column">
+
         <?php renderTaskTiles('incomplete', $project_id); ?>
       </div>
     </div>
 
-    <div  class="task__column--wrapper" onDragOver="handleOnDragOver(event)" onDrop="handleDrop(event, 'current')">
-      <h3>Current</h3>
-      <div id="current" class="current task__column" >
-        
+    <div class="task__column--wrapper" onDragOver="handleOnDragOver(event)" onDrop="handleDrop(event, 'current')">
+      <h3 class="task__column--title" onclick="toggleListVisible('current')">
+        Current
+        <span class="task__column--count">
+          <?= getTaskCount('current', $project_id) ?>
+        </span>
+      </h3>
+      <div id="current" class="current task__column open">
+
         <?php renderTaskTiles('current', $project_id); ?>
       </div>
     </div>
 
-    <div  class="task__column--wrapper" onDragOver="handleOnDragOver(event)" onDrop="handleDrop(event, 'completed')">
-      <h3>Completed</h3>
-      <div id="completed" class="completed task__column" >
-       <?php renderTaskTiles('completed', $project_id); ?>
+    <div class="task__column--wrapper" onDragOver="handleOnDragOver(event)" onDrop="handleDrop(event, 'completed')">
+      <h3 class="task__column--title" onclick="toggleListVisible('completed')">
+        Completed
+        <span class="task__column--count">
+          <?= getTaskCount('completed', $project_id) ?>
+        </span>
+      </h3>
+      <div id="completed" class="completed task__column">
+        <?php renderTaskTiles('completed', $project_id); ?>
       </div>
     </div>
-    
+
     <div class="task__column--wrapper">
-      <h3>Notes 
+      <h3 class="task__column--title" onclick="toggleListVisible('notes')">
+        Notes
         <button class="btn icon-only small" onclick="openDialog('add-new-note-dialog')">
           <div class="icon plus"></div>
         </button>
+        <span class="task__column--count">
+          <?= getNoteCount($project_id) ?>
+        </span>
       </h3>
       <div class="notes task__column" id="notes_column">
         <?php
         renderNotes($notes);
-         ?>
+        ?>
       </div>
     </div>
 
   </section>
   <?php if ($currentTask_id) {
-      echo '<edit-task-dialog task_id="'. $currentTask_id .'"></edit-task-dialog>'; 
-    } ?>
+    echo '<edit-task-dialog task_id="' . $currentTask_id . '"></edit-task-dialog>';
+  } ?>
 </div>
 
 <script type="module">
-  import {handleDragStart, handleDrop, handleOnDragOver} from '<?= HOME_URL . "project/functions__1661520306754__.js" ?>';
-  
+  import {
+    handleDragStart,
+    handleDrop,
+    handleOnDragOver,
+    toggleListVisible
+  } from '<?= HOME_URL . "project/functions__1661776228786__.js" ?>';
+
 
   window.handleDragStart = handleDragStart;
   window.handleDrop = handleDrop;
   window.handleOnDragOver = handleOnDragOver;
-
+  window.toggleListVisible = toggleListVisible;
 </script>
-<?php 
-include_once(PAGE_END); 
+<?php
+include_once(PAGE_END);
 ?>

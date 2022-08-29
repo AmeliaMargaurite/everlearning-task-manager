@@ -268,22 +268,39 @@ form.todays-tasks input[type=checkbox] {
 }
 
 .tasks__wrapper {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-direction: column;
+  grid-auto-rows: -webkit-max-content;
+  grid-auto-rows: max-content;
   padding: 0 1.6rem;
   -moz-column-gap: 0.8rem;
        column-gap: 0.8rem;
+  row-gap: 1.6rem;
   margin-bottom: 3.2rem;
 }
-@media (max-width: 500px) {
+@media (min-width: 768px) {
   .tasks__wrapper {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .tasks__wrapper {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-.task__column--wrapper h3 {
-  display: flex;
+.task__column {
+  height: 0;
+  display: grid;
+  row-gap: 1.6rem;
+  align-content: flex-start;
+  overflow: hidden;
+}
+.task__column--title {
+  display: grid;
+  position: relative;
+  grid-auto-flow: column;
   -moz-column-gap: 0.8rem;
        column-gap: 0.8rem;
   justify-content: center;
@@ -294,27 +311,48 @@ form.todays-tasks input[type=checkbox] {
   font-size: 1.8rem;
   font-weight: 400;
   padding: 0.8rem 0;
-}
-.task__column--wrapper h3 span {
-  display: grid;
-  place-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
-}
-.task__column--wrapper h3 span i {
-  padding: 0.4rem;
-}
-.task__column--wrapper h3 i:hover {
-  color: var(--secondary);
-  background: var(--primary);
-  border-radius: 50%;
   cursor: pointer;
 }
-
-.task__column {
+.task__column--title:hover {
+  background: var(--primary);
+  color: var(--secondary);
+}
+.task__column--title:hover .icon {
+  background-color: var(--secondary);
+}
+.task__column--title:hover .task__column--count {
+  background: var(--secondary);
+  color: var(--primary);
+}
+.task__column--count {
+  position: absolute;
+  justify-self: flex-end;
+  right: 0.8rem;
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+}
+.task__column--wrapper {
   display: grid;
-  row-gap: 1.6rem;
-  align-content: flex-start;
+  grid-auto-rows: -webkit-max-content;
+  grid-auto-rows: max-content;
+  border: 1px solid var(--grey100);
+  padding: 1.6rem;
+  border-radius: 0.8rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+.task__column.open {
+  height: 100%;
+  overflow: unset;
+  margin-top: 1.6rem;
 }
 .task__column .task__tile {
   display: grid;
@@ -377,6 +415,16 @@ form.todays-tasks input[type=checkbox] {
   width: 4rem;
   height: 4rem;
   transform: rotate(45deg);
+}
+@media (min-width: 1024px) {
+  .task__column {
+    height: auto;
+    overflow: unset;
+  }
+  .task__column--title {
+    cursor: initial;
+    pointer-events: none;
+  }
 }
 
 .task__column.completed {
@@ -485,7 +533,6 @@ tile-context-menu input {
 .project_tiles {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
   -moz-column-gap: 1.6rem;
        column-gap: 1.6rem;
   row-gap: 1.6rem;
@@ -508,7 +555,6 @@ tile-context-menu input {
   flex: 1;
   box-shadow: var(--elevation-3);
   background: white;
-  max-width: 30rem;
   cursor: pointer;
 }
 .project_tile--content {
@@ -550,6 +596,11 @@ tile-context-menu input {
   align-items: center;
   -moz-column-gap: 0.4rem;
        column-gap: 0.4rem;
+}
+@media (min-width: 1024px) {
+  .project_tile {
+    max-width: 30rem;
+  }
 }
 
 .projects--page__wrapper {
