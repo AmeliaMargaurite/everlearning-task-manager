@@ -156,7 +156,7 @@ function renderNotes($notes)
 function getNoteCount($project_id)
 {
   $notes = $_SESSION['projects'][$project_id]->notes;
-  return count($notes);
+  return $notes ? count($notes) : 0;
 }
 
 ?>
