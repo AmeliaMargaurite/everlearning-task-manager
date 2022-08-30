@@ -521,6 +521,8 @@ tile-context-menu input {
   }
 }
 .projects__wrapper .calendar-link {
+  display: grid;
+  row-gap: 0.8rem;
   background: white;
   padding: 1.6rem;
   box-shadow: var(--elevation-2);
@@ -530,13 +532,20 @@ tile-context-menu input {
   height: max-content;
 }
 .projects__wrapper .calendar-link .title {
-  display: block;
+  display: flex;
   text-align: center;
+  width: 100%;
+  justify-content: center;
+  -moz-column-gap: 1.6rem;
+       column-gap: 1.6rem;
 }
 .projects__wrapper .calendar-link .title a {
   color: var(--teal500);
   font-weight: 600;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
+}
+.projects__wrapper .calendar-link .title .icon {
+  background-color: var(--teal500);
 }
 .projects__wrapper .calendar-link li {
   list-style: circle;
@@ -983,9 +992,13 @@ tile-context-menu input {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 352 512'%3E%3C!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --%3E%3Cpath d='M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z'/%3E%3C/svg%3E");
           mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 352 512'%3E%3C!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --%3E%3Cpath d='M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z'/%3E%3C/svg%3E");
 }
-.icon.table {
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --%3E%3Cpath d='M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64v-96h160v96zm0-160H64v-96h160v96zm224 160H288v-96h160v96zm0-160H288v-96h160v96z'/%3E%3C/svg%3E");
-          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --%3E%3Cpath d='M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64v-96h160v96zm0-160H64v-96h160v96zm224 160H288v-96h160v96zm0-160H288v-96h160v96z'/%3E%3C/svg%3E");
+.icon.calendar {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --%3E%3Cpath d='M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --%3E%3Cpath d='M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z'/%3E%3C/svg%3E");
+}
+.icon.briefcase {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --%3E%3Cpath d='M320 336c0 8.84-7.16 16-16 16h-96c-8.84 0-16-7.16-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --%3E%3Cpath d='M320 336c0 8.84-7.16 16-16 16h-96c-8.84 0-16-7.16-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z'/%3E%3C/svg%3E");
 }
 
 rich-text-editor {
@@ -1083,31 +1096,31 @@ create-link-popup .link-popup__wrapper button.icon-only {
   row-gap: unset;
 }
 
-.calendar {
+div.calendar {
   display: grid;
   grid-template-rows: -webkit-max-content auto;
   grid-template-rows: max-content auto;
   row-gap: 1.6rem;
   margin-bottom: 3.2rem;
 }
-.calendar .header {
+div.calendar .header {
   display: flex;
   justify-content: space-between;
   background: var(--teal500);
   padding: 1.6rem;
   color: var(--white);
 }
-.calendar .header a {
+div.calendar .header a {
   display: flex;
   align-items: center;
   -moz-column-gap: 0.8rem;
        column-gap: 0.8rem;
   color: var(--white);
 }
-.calendar .header a .icon {
+div.calendar .header a .icon {
   background-color: var(--white);
 }
-.calendar .box-content {
+div.calendar .box-content {
   position: relative;
   display: grid;
   grid-template-columns: -webkit-max-content auto;
@@ -1117,26 +1130,26 @@ create-link-popup .link-popup__wrapper button.icon-only {
   -moz-column-gap: 1.6rem;
        column-gap: 1.6rem;
 }
-.calendar ul {
+div.calendar ul {
   display: grid;
   grid-auto-rows: 1fr;
   padding: 0;
 }
-.calendar .label .title {
+div.calendar .label .title {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.calendar li {
+div.calendar li {
   list-style: none;
 }
-.calendar li.end {
+div.calendar li.end {
   background: var(--transp-black-3);
 }
-.calendar .dates {
+div.calendar .dates {
   grid-template-rows: repeat(7, 1fr);
 }
-.calendar .dates li {
+div.calendar .dates li {
   display: none;
   grid-template-columns: -webkit-max-content auto;
   grid-template-columns: max-content auto;
@@ -1149,33 +1162,33 @@ create-link-popup .link-popup__wrapper button.icon-only {
   grid-auto-rows: max-content;
   flex-basis: 14.285%;
 }
-.calendar .dates li.open {
+div.calendar .dates li.open {
   display: grid;
 }
-.calendar .dates li span.task {
+div.calendar .dates li span.task {
   grid-column: 2;
   padding: 0.2rem;
   border: 1px solid var(--teal500);
   border-radius: 0.8rem;
   cursor: pointer;
 }
-.calendar .dates li span.task.completed {
+div.calendar .dates li span.task.completed {
   opacity: 0.3;
 }
-.calendar .dates li span.task:hover {
+div.calendar .dates li span.task:hover {
   background: #a9d3cd;
 }
-.calendar .dates li.today {
+div.calendar .dates li.today {
   outline: 2px dotted var(--teal300);
 }
-.calendar .dates li.mask {
+div.calendar .dates li.mask {
   background: repeating-linear-gradient(45deg, var(--grey100) 1px, var(--grey100) 2px, transparent 2px, transparent 20px), repeating-linear-gradient(135deg, var(--grey100) 1px, var(--grey100) 2px, transparent 2px, transparent 20px);
   opacity: 0.5;
 }
-.calendar .dates li:not(:empty) {
+div.calendar .dates li:not(:empty) {
   border: 1px solid var(--transp-black-3);
 }
-.calendar .week {
+div.calendar .week {
   --height: 40vh;
   position: fixed;
   background: var(--transp-black-3);
@@ -1195,27 +1208,27 @@ create-link-popup .link-popup__wrapper button.icon-only {
   box-shadow: 0 0 16px -6px var(--primary), 0 0 8px -4px var(--teal500);
   cursor: pointer;
 }
-.calendar .week.next {
+div.calendar .week.next {
   transform: rotate(360deg);
   right: 0;
   left: unset;
 }
 @media (min-width: 1024px) {
-  .calendar ul {
+  div.calendar ul {
     grid-template-columns: repeat(7, 1fr);
   }
-  .calendar .dates {
+  div.calendar .dates {
     grid-template-rows: unset;
   }
-  .calendar .dates li {
+  div.calendar .dates li {
     display: grid;
   }
-  .calendar .box-content {
+  div.calendar .box-content {
     grid-template-rows: -webkit-max-content auto;
     grid-template-rows: max-content auto;
     grid-template-columns: unset;
   }
-  .calendar .week {
+  div.calendar .week {
     display: none;
   }
 }

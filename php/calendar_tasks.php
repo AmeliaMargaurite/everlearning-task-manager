@@ -1,6 +1,7 @@
 <div>
   <?php
   if ($projects) :
+    $tasks_allocated = false;
     foreach ($projects as $project) :
       if ($project && $project->tasks) :
         if ($project->tasks) :
@@ -13,8 +14,8 @@
             if (
               $task->days_allocated_to
               && $task->days_allocated_to === $today
-              && $task->status !== $archivedStatus
-              && $task->status !== $completedStatus
+              && $task->status_id !== $archivedStatus
+              && $task->status_id !== $completedStatus
             ) {
 
               $queryArray = array(
@@ -41,11 +42,17 @@
               endforeach;
               ?>
             </ul>
-  <?php
+      <?php
+            $tasks_allocated = true;
+
           endif;
         endif;
       endif;
     endforeach;
+    if (!$tasks_allocated) : ?>
+      <p>No tasks allocated for today</p>
+  <?php
+    endif;
   endif;
   ?>
 </div>

@@ -27,7 +27,8 @@ $projects = $_SESSION['projects'];
 
         <div class="calendar-link">
             <span class="title">
-                <a href="<?= HOME . '/calendar-view' ?>">Calendar View</a>
+                <a href="<?= HOME . '/calendar-view' ?>">Calendar View </a>
+                <span class="icon calendar large"></span>
             </span>
             <div class="tasks">
                 <h5>Tasks allocated to today:</h5>

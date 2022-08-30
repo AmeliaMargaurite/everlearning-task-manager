@@ -3,7 +3,7 @@ import {
 	getProjectIdFromURL,
 	taskFunctionsURL,
 	taskRequestURL,
-} from "../helpers__1661869629422__.js";
+} from "../helpers__1661871678850__.js";
 
 export class EditTaskDialog extends HTMLElement {
 	constructor() {
@@ -118,12 +118,12 @@ class ConfirmDeleteOverlay extends HTMLElement {
 			"Are you sure you want to delete this task? This action cannot be undone.";
 
 		const cancelBtn = document.createElement("button");
-		cancelBtn.className = "cancel-btn";
+		cancelBtn.className = "cancel-btn btn";
 		cancelBtn.innerHTML = "Cancel";
 		cancelBtn.onclick = () => this.cancelDelete();
 		cancelBtn.autofocus = true;
 		const deleteBtn = document.createElement("button");
-		deleteBtn.className = "delete";
+		deleteBtn.className = "delete btn";
 		deleteBtn.innerHTML = "Delete";
 		deleteBtn.onclick = () => this.deleteTask(task_id, project_id);
 

@@ -11,6 +11,8 @@
 	}
 
 	& .calendar-link {
+		display: grid;
+		row-gap: 0.8rem;
 		background: white;
 		padding: 1.6rem;
 		box-shadow: var(--elevation-2);
@@ -18,12 +20,20 @@
 		height: max-content;
 
 		& .title {
-			display: block;
+			display: flex;
 			text-align: center;
-			a {
+			width: 100%;
+			justify-content: center;
+			column-gap: 1.6rem;
+
+			& a {
 				color: var(--teal500);
 				font-weight: 600;
-				font-size: 1.8rem;
+				font-size: 2.4rem;
+			}
+
+			& .icon {
+				background-color: var(--teal500);
 			}
 		}
 

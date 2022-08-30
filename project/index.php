@@ -47,7 +47,7 @@ include_once(PAGE_START);
 <div class="page__wrapper">
   <div class="title__wrapper">
     <a href="<?= HOME_URL ?>" class="link">
-      <div class="icon table"></div>Projects
+      <div class="icon briefcase"></div>Projects
     </a>
     <span class="project__name">
       <h1><?= $projectName ?></h1>
@@ -156,7 +156,7 @@ include_once(PAGE_START);
     handleDrop,
     handleOnDragOver,
     toggleListVisible
-  } from '<?= HOME_URL . "project/functions__1661869629422__.js" ?>';
+  } from '<?= HOME_URL . "project/functions__1661871678850__.js" ?>';
 
 
   window.handleDragStart = handleDragStart;
