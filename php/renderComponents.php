@@ -111,10 +111,9 @@ function renderTaskTiles($status, $project_id)
     foreach ($tasks as $task) {
       if ($task->status_id == $status_id) {
         $current = $task->task_id === $currentTask_id ? "current" : "";
-        $todays_task = $task->todays_task === 1 ? 'todays_task' : '';
 ?>
 
-        <div class="task__tile <?= $current ?> <?= $todays_task ?>" draggable="true" task_id="<?= $task->task_id ?>" onDragStart="handleDragStart(event, '<?= $task->task_id ?>')" onclick="openDialog('edit-task-dialog',{task_id:'<?= $task->task_id ?>', project_id: '<?= $project_id ?>'})" project_id="<?= $project_id ?>">
+        <div class="task__tile <?= $current ?>" draggable="true" task_id="<?= $task->task_id ?>" onDragStart="handleDragStart(event, '<?= $task->task_id ?>')" onclick="openDialog('edit-task-dialog',{task_id:'<?= $task->task_id ?>', project_id: '<?= $project_id ?>'})" project_id="<?= $project_id ?>">
 
           <div class="wrapper">
             <?php if (isset($task->category_id)) {

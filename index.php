@@ -1,9 +1,9 @@
-<?php 
+<?php
 include_once './config.php';
 require_login();
 $title = "Projects";
-include_once(PAGE_START); 
-include_once(HEADER) ;
+include_once(PAGE_START);
+include_once(HEADER);
 include_once(DB_CONNECTION);
 include_once(PROJECT_FUNCTIONS);
 include_once(RENDER_COMPONENTS);
@@ -14,47 +14,49 @@ if ($_SESSION['projects'] == '' || !isset($_SESSION['projects'])) {
 $projects = $_SESSION['projects'];
 ?>
 <div class="projects--page__wrapper">
-<!-- Header of Page, incl light/dark mode switch -->
+    <!-- Header of Page, incl light/dark mode switch -->
     <div class="projects__heading">
         <span>
             <h1>Projects</h1>
-            <button class="btn icon-only" onclick="openDialog('add-new-project-dialog')">
-                <div class="icon plus"></div>
-            </button>        
+
         </span>
-           <?php include_once(DASHBOARD_LINK) ?>
+        <?php include_once(DASHBOARD_LINK) ?>
 
     </div>
     <div class="projects__wrapper">
-        <div class="todays-tasks">
-            <div class="todays-tasks__title">
-                <h3>Todays Tasks</h1>
-                <button class="btn icon-only" onclick="openDialog('edit-todays-tasks-dialog')"><div class="icon edit"></div></button>
+
+        <div class="calendar-link">
+            <span class="title">
                 <a href="<?= HOME . '/calendar-view' ?>">Calendar View</a>
+            </span>
+            <div class="tasks">
+                <h5>Tasks allocated to today:</h5>
+                <?php include_once(CALENDAR_TASKS); ?>
             </div>
-            <?php include_once(TODAYS_TASKS); ?>
         </div>
-        
-    <!-- Todays Tasks -->
+
         <div class="overview__wrapper">
-        <!-- List all Project Tiles -->
-        
+            <!-- List all Project Tiles -->
+
             <div class="project_tiles">
-            <?php 
-                foreach($projects as $project) {
-                    
+                <?php
+                foreach ($projects as $project) {
+
                     // Statuses
                     $incomplete = 0;
                     $current = 0;
                     $completed = 0;
                     renderProjectTiles($project);
                 }
-            ?>
+                ?>
             </div>
+            <button class="btn add-new-project special" onclick="openDialog('add-new-project-dialog')">Add new project
+                <span class="icon plus"></span>
+            </button>
         </div>
     </div>
 </div>
-   
-<?php 
-include_once(PAGE_END); 
+
+<?php
+include_once(PAGE_END);
 ?>

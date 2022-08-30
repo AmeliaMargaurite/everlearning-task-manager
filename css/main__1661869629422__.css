@@ -38,44 +38,44 @@
   --elevation-6: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
 
-form:not(.todays-tasks) {
+form {
   display: flex;
   flex-direction: column;
   height: 100%;
   row-gap: 0.4rem;
 }
-form:not(.todays-tasks) .booboo {
+form .booboo {
   display: none;
 }
-form:not(.todays-tasks) .description {
+form .description {
   display: grid;
   grid-template-rows: -webkit-max-content auto;
   grid-template-rows: max-content auto;
   row-gap: 0.8rem;
   height: 100%;
 }
-form:not(.todays-tasks) .settings {
+form .settings {
   display: flex;
   flex-wrap: wrap;
   -moz-column-gap: 0.8rem;
        column-gap: 0.8rem;
   row-gap: 0.8rem;
 }
-form:not(.todays-tasks) .settings span {
+form .settings span {
   display: grid;
   flex-grow: 1;
 }
-form:not(.todays-tasks) .settings span > * {
+form .settings span > * {
   display: grid;
   row-gap: 0.4rem;
 }
-form:not(.todays-tasks) label.category {
+form label.category {
   display: flex;
   align-items: center;
   -moz-column-gap: 0.8rem;
        column-gap: 0.8rem;
 }
-form:not(.todays-tasks) label.category i {
+form label.category i {
   cursor: pointer;
 }
 
@@ -85,6 +85,11 @@ form:not(.login, .register) button {
 }
 
 .btn {
+  display: flex;
+  -moz-column-gap: 0.8rem;
+       column-gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
   padding: 1.6rem;
   background: var(--secondary);
   color: var(--primary);
@@ -97,6 +102,9 @@ form:not(.login, .register) button {
   background: var(--primary);
   color: var(--secondary);
   border: 1px solid var(--secondary);
+}
+.special .icon {
+  background-color: var(--secondary);
 }
 .special:focus-visible {
   outline-color: var(--secondary);
@@ -132,6 +140,14 @@ form:not(.login, .register) button {
   width: 2rem;
   height: 2rem;
 }
+.icon-only.special {
+  border-radius: 0.4rem;
+  background: var(--primary);
+  color: var(--secondary);
+}
+.icon-only.special .icon {
+  background-color: var(--secondary);
+}
 
 input,
 textarea,
@@ -164,34 +180,6 @@ a.link {
 }
 a.link .icon {
   background-color: var(--teal500);
-}
-
-form.todays-tasks {
-  display: grid;
-  row-gap: 0.8rem;
-}
-form.todays-tasks ul {
-  display: grid;
-  padding: 0;
-}
-form.todays-tasks li {
-  list-style: none;
-}
-form.todays-tasks li label {
-  display: grid;
-  grid-template-columns: -webkit-max-content auto;
-  grid-template-columns: max-content auto;
-  -moz-column-gap: 0.8rem;
-       column-gap: 0.8rem;
-  padding-block: 0.4rem;
-  cursor: pointer;
-}
-form.todays-tasks li label:hover {
-  background: var(--transp-black-3);
-}
-form.todays-tasks input[type=checkbox] {
-  height: 2.4rem;
-  width: 2.4rem;
 }
 
 .save-new-category__wrapper {
@@ -235,6 +223,10 @@ form.todays-tasks input[type=checkbox] {
 }
 
 .dashboard-link {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  justify-self: flex-end;
   cursor: pointer;
 }
 
@@ -268,9 +260,7 @@ form.todays-tasks input[type=checkbox] {
 }
 .title__wrapper .project__name h1 {
   font-weight: 400;
-}
-.title__wrapper .dashboard-link {
-  justify-self: flex-end;
+  text-align: center;
 }
 @media (min-width: 425px) {
   .title__wrapper > input {
@@ -299,6 +289,7 @@ form.todays-tasks input[type=checkbox] {
 @media (min-width: 1024px) {
   .tasks__wrapper {
     grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: unset;
   }
 }
 
@@ -437,6 +428,9 @@ form.todays-tasks input[type=checkbox] {
     cursor: initial;
     pointer-events: none;
   }
+  .task__column--wrapper {
+    height: 100%;
+  }
 }
 
 .task__column.completed {
@@ -520,13 +514,13 @@ tile-context-menu input {
        column-gap: 3.2rem;
   margin-inline: 3.2rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .projects__wrapper {
     display: grid;
     grid-template-columns: 1fr 4fr;
   }
 }
-.projects__wrapper .todays-tasks {
+.projects__wrapper .calendar-link {
   background: white;
   padding: 1.6rem;
   box-shadow: var(--elevation-2);
@@ -535,11 +529,33 @@ tile-context-menu input {
   height: -moz-max-content;
   height: max-content;
 }
+.projects__wrapper .calendar-link .title {
+  display: block;
+  text-align: center;
+}
+.projects__wrapper .calendar-link .title a {
+  color: var(--teal500);
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+.projects__wrapper .calendar-link li {
+  list-style: circle;
+  text-align: left;
+}
 .projects__wrapper div.overview__wrapper {
   display: grid;
   grid-template-rows: -webkit-max-content auto;
   grid-template-rows: max-content auto;
   row-gap: 1.6rem;
+}
+.projects__wrapper div.overview__wrapper button.add-new-project {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  justify-self: flex-end;
 }
 
 .project_tiles {
@@ -625,6 +641,7 @@ tile-context-menu input {
 }
 
 .projects__heading {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -633,6 +650,10 @@ tile-context-menu input {
   align-items: center;
   -moz-column-gap: 1.6rem;
        column-gap: 1.6rem;
+}
+.projects__heading .dashboard-link {
+  position: absolute;
+  right: 0;
 }
 .projects__heading span {
   display: flex;
@@ -644,11 +665,6 @@ tile-context-menu input {
   grid-row: 1;
   grid-column: 1/-1;
   justify-self: center;
-}
-.projects__heading .dashboard-link {
-  grid-row: 1;
-  grid-column: 1/-1;
-  justify-self: flex-end;
 }
 @media (min-width: 768px) {
   .projects__heading {
@@ -748,31 +764,6 @@ tile-context-menu input {
   height: 100%;
   background: var(--primary);
   filter: opacity(0.85);
-}
-
-.todays-tasks__title {
-  display: flex;
-  -moz-column-gap: 0.8rem;
-       column-gap: 0.8rem;
-  align-items: center;
-  justify-content: space-between;
-}
-.todays-tasks__title i {
-  cursor: pointer;
-}
-.todays-tasks form {
-  -moz-column-count: 2;
-       column-count: 2;
-}
-.todays-tasks form span {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -moz-column-break-inside: avoid;
-       break-inside: avoid;
 }
 
 .category_legend--wrapper {

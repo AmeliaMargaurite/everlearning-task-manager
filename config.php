@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ini_set('display_errors', 1);
 ini_set('track_errors', 1);
@@ -22,24 +22,24 @@ define('DASHBOARD_LINK', ROOTPATH . '/php/dashboard_link.php');
 define('HEADER', ROOTPATH . '/php/header.php');
 define('PAGE_START', ROOTPATH . '/php/page_start.php');
 define('PAGE_END', ROOTPATH . '/php/page_end.php');
-define('TODAYS_TASKS', ROOTPATH . '/php/todays_tasks.php');
+define('CALENDAR_TASKS', ROOTPATH . '/php/calendar_tasks.php');
 
 // QUERIES
 define('QUERIES', ROOTPATH . '/php/queries/');
 
-  // tasks
+// tasks
 define('TASK_FUNCTIONS', QUERIES . '/task_functions.php');
 define('TASK_REQUESTS', QUERIES . '/task_requests.php');
 
-  // projects
+// projects
 define('PROJECT_FUNCTIONS', QUERIES . '/project_functions.php');
 define('PROJECT_REQUESTS', QUERIES . '/project_requests.php');
 
-  // notes
+// notes
 define('NOTE_FUNCTIONS', QUERIES . '/note_functions.php');
 define('NOTE_REQUESTS', QUERIES . '/note_requests.php');
 
-  // categories
+// categories
 define('CATEGORY_REQUESTS', QUERIES . '/category_requests.php');
 
 define('RENDER_COMPONENTS', ROOTPATH . '/php/renderComponents.php');
@@ -52,7 +52,8 @@ include_once(ROOTPATH . '/libs/filter.php');
 include_once(ROOTPATH . '/libs/auth.php');
 include_once(ROOTPATH . '/php/get_data.php');
 
-class Project {
+class Project
+{
   public $name;
   public $description;
   public $project_id;
@@ -62,7 +63,8 @@ class Project {
   public $sortOrder;
 }
 
-class Task {
+class Task
+{
   public $task_id;
   public $name;
   public $description;
@@ -75,15 +77,16 @@ class Task {
   public $due_date;
   public $priority_id;
   public $category_id;
-  public $todays_task;
 }
 
-class Note {
+class Note
+{
   public $note_id;
   public $note;
 }
 
-class Category {
+class Category
+{
   public $name;
   public $value;
   public $category_id;
@@ -91,8 +94,8 @@ class Category {
   public $this_task;
 }
 
-class Status {
+class Status
+{
   public $name;
   public $status_id;
 }
-?>

@@ -1,7 +1,7 @@
 import {
 	getProjectIdFromURL,
 	categoryRequestsURL,
-} from "../helpers__1661864048886__.js";
+} from "../helpers__1661869629422__.js";
 
 export class CategoryDropdown extends HTMLElement {
 	constructor() {

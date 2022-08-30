@@ -29,14 +29,10 @@ foreach ($queries as $query) {
   }
 }
 
-// need to check if this project_id belongs to user_id
 if (!doesUserOwnProject($project_id)) {
   redirect_to(HOME_URL);
 }
 
-// getProjectsTasks($project_id);
-// getProjectsNotes($project_id);
-// getProjectsCategories($project_id);
 $project = $_SESSION['projects'][$project_id];
 $projectName = $project->name;
 $tasks = $project->tasks;
@@ -50,14 +46,14 @@ include_once(PAGE_START);
 ?>
 <div class="page__wrapper">
   <div class="title__wrapper">
-    <a href="<?= HOME_URL ?>" class="back-btn">
-      <div class="icon arrow"></div>back
+    <a href="<?= HOME_URL ?>" class="link">
+      <div class="icon table"></div>Projects
     </a>
     <span class="project__name">
       <h1><?= $projectName ?></h1>
-      <button class="btn icon-only" onclick="openDialog('edit-project-dialog')">
+      <!-- <button class="btn icon-only" onclick="openDialog('edit-project-dialog')">
         <div class="icon edit"></div>
-      </button>
+      </button> -->
     </span>
     <?php include_once(DASHBOARD_LINK) ?>
   </div>
@@ -160,7 +156,7 @@ include_once(PAGE_START);
     handleDrop,
     handleOnDragOver,
     toggleListVisible
-  } from '<?= HOME_URL . "project/functions__1661864048886__.js" ?>';
+  } from '<?= HOME_URL . "project/functions__1661869629422__.js" ?>';
 
 
   window.handleDragStart = handleDragStart;

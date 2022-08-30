@@ -23,11 +23,8 @@
 
 		& h1 {
 			font-weight: 400;
+			text-align: center;
 		}
-	}
-
-	& .dashboard-link {
-		justify-self: flex-end;
 	}
 
 	@media (min-width: $xxsmall) {
@@ -54,6 +51,7 @@
 
 	@media (min-width: $medium) {
 		grid-template-columns: repeat(4, 1fr);
+		grid-auto-rows: unset;
 	}
 }
 
@@ -201,6 +199,10 @@
 		&--title {
 			cursor: initial;
 			pointer-events: none;
+		}
+
+		&--wrapper {
+			height: 100%;
 		}
 	}
 }
