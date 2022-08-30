@@ -101,8 +101,8 @@ class Calendar
       $this->currentDate = null;
       $cellContent = null;
     }
-    $timezone = date_default_timezone_get();
-    echo $timezone;
+
+
     $weekMarkersClass = ($cellNumber % 7 == 1 ? 'start' : ($cellNumber % 7 == 0  || $cellNumber % 7 === 6  ? 'end' : ''));
     $maskClass = $this->currentDate ? '' : 'mask';
     $todayClass = $this->currentDate === date('d-m-Y', time()) ? 'today' : '';
