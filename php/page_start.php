@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="<?= HOME?>/css/<?= IS_LIVE ? 'main__1661776228786__.css' : 'main.css' ?>" />
+  <link rel="stylesheet" href="<?= HOME?>/css/<?= IS_LIVE ? 'main__1661861941141__.css' : 'main.css' ?>" />
   <script
-    src="<?= HOME?>/js/components/components__1661776228786__.js"
+    src="<?= HOME?>/js/components/components__1661861941141__.js"
     type="module"
   ></script>
   <link rel="apple-touch-icon" sizes="180x180" href="<?= HOME?>/imgs/apple-touch-icon.png">

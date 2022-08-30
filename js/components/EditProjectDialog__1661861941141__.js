@@ -3,7 +3,7 @@ import {
 	getProjectIdFromURL,
 	projectFunctionsURL,
 	projectRequestsURL,
-} from "../helpers__1661776228786__.js";
+} from "../helpers__1661861941141__.js";
 
 export class EditProjectDialog extends HTMLElement {
 	constructor() {

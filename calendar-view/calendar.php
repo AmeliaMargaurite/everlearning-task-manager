@@ -1,13 +1,15 @@
 <?php
 
-class Calendar {
+class Calendar
+{
   // https://startutorial.com/view/how-to-build-a-web-calendar-in-php
 
   /**
    * Constructor
    */
 
-  public function __construct() {
+  public function __construct()
+  {
     $this->naviHref = htmlentities($_SERVER['PHP_SELF']);
   }
 
@@ -26,16 +28,17 @@ class Calendar {
    * print out calendar
    */
 
-  public function show() {
+  public function show()
+  {
     $year = null;
     $month = null;
-    
+
     if (null === $year && isset($_GET['year'])) {
       $year = $_GET['year'];
     } else if (null === $year) {
       $year = date('Y', time());
     }
-  
+
     if (null === $month && isset($_GET['month'])) {
       $month = $_GET['month'];
     } else if (null === $month) {
@@ -49,66 +52,71 @@ class Calendar {
     $content = "
       <div id='calendar' class='calendar'>
         <div class='box'>" .
-        $this->_createNavi()
-      ."</div>
+      $this->_createNavi()
+      . "</div>
         <div class='box-content'>
-          <ul class='label'>".
-            $this->_createLabels()
-        ."</ul>
+          <ul class='label'>" .
+      $this->_createLabels()
+      . "</ul>
+        <span class='week previous' id='previousWeekBtn' data-type='previous'>Previous</span>
+        <span class='week next' id='nextWeekBtn' data-type='next'>Next</span>
         <ul class='dates'>";
-        $weeksInMonth = $this->_weeksInMonth($month, $year);
-        
-        // Create weeks in a month
-        for ($w = 0; $w < $weeksInMonth; $w++) {
-          // Create days in week
-          for ($d = 1; $d <= 7; $d++) {
-            $content.= $this->_showDay($w * 7 + $d);
-          }
-        }
+    $weeksInMonth = $this->_weeksInMonth($month, $year);
 
-        $content.="</ul>
+    // Create weeks in a month
+    for ($w = 0; $w < $weeksInMonth; $w++) {
+      // Create days in week
+      for ($d = 1; $d <= 7; $d++) {
+        $content .= $this->_showDay($w * 7 + $d);
+      }
+    }
+
+    $content .= "</ul>
         </div>
       </div>";
 
-  return $content;
-}
+    return $content;
+  }
 
-/* Private /*
+  /* Private /*
 
 /**
  * Create the li element for ul
  */
 
- private function _showDay($cellNumber) {
-  if ($this->currentDay === 0) {
-    $firstDayOfTheWeek = date('N', strtotime($this->currentYear . '-'. $this->currentMonth . '-01'));
-    if(intval($cellNumber) === intval($firstDayOfTheWeek)) {
-      $this->currentDay = 1;
+  private function _showDay($cellNumber)
+  {
+    if ($this->currentDay === 0) {
+      $firstDayOfTheWeek = date('N', strtotime($this->currentYear . '-' . $this->currentMonth . '-01'));
+      if (intval($cellNumber) === intval($firstDayOfTheWeek)) {
+        $this->currentDay = 1;
+      }
     }
-  }
 
-  if ($this->currentDay !== 0 && $this->currentDay <= $this->daysInMonth) {
-    $this->currentDate = date('d-m-Y', strtotime($this->currentYear . '-' . $this->currentMonth . '-' . $this->currentDay));
-    $cellContent = $this->currentDay;
-    $this->currentDay++;
-  } else {
-    $this->currentDate = null;
-    $cellContent = null;
-  }
+    if ($this->currentDay !== 0 && $this->currentDay <= $this->daysInMonth) {
+      $this->currentDate = date('d-m-Y', strtotime($this->currentYear . '-' . $this->currentMonth . '-' . $this->currentDay));
+      $cellContent = $this->currentDay;
+      $this->currentDay++;
+    } else {
+      $this->currentDate = null;
+      $cellContent = null;
+    }
 
-  $weekMarkersClass = ($cellNumber % 7 == 1 ? 'start' :( $cellNumber % 7 == 0  || $cellNumber % 7 === 6  ? 'end': ''));
-  $maskClass = $cellNumber == null ? 'mask': '';
-  $todayClass = $this->currentDate === date('d-m-Y', time()) ? 'today' : '';
+    $weekMarkersClass = ($cellNumber % 7 == 1 ? 'start' : ($cellNumber % 7 == 0  || $cellNumber % 7 === 6  ? 'end' : ''));
+    $maskClass = $this->currentDate ? '' : 'mask';
+    $todayClass = $this->currentDate === date('d-m-Y', time()) ? 'today' : '';
+    $firstWeek = $cellNumber <= 7 ? 'open' : '';
 
-  $content = "<li id='li-$this->currentDate' class='$weekMarkersClass $maskClass $todayClass'><span class='cell-number'>$cellContent</span>";
-  
-    foreach($_SESSION['projects'] as $project) {
+
+    $content = "<li id='li-$this->currentDate' class='$weekMarkersClass $maskClass $todayClass $firstWeek'><span class='cell-number'>$cellContent</span>";
+
+    foreach ($_SESSION['projects'] as $project) {
       if ($project->tasks) {
         foreach ($project->tasks as $task) {
-          
+
           if ($task->days_allocated_to) {
             $days_allocated_to_reformatted = date(
-              'd-m-Y', 
+              'd-m-Y',
               strtotime($task->days_allocated_to)
             );
 
@@ -122,29 +130,41 @@ class Calendar {
         }
       }
     }
-  
-  $content .= "</li>";
-  return $content;
- }
 
- /**
-  * Create navigation
-  */
+    $content .= "</li>";
+    return $content;
+  }
 
-  private function _createNavi() {
+  /**
+   * Create navigation
+   */
+
+  private function _createNavi()
+  {
     $nextMonth = $this->currentMonth === 12 ? 1 : intval($this->currentMonth) + 1;
     $nextYear = $this->currentMonth === 12 ? intval($this->currentYear) + 1 : $this->currentYear;
-    $preMonth = $this->currentMonth === 1 ? 12 : intval($this->currentMonth) - 1;
+    $prevMonth = $this->currentMonth === 1 ? 12 : intval($this->currentMonth) - 1;
     $preYear = $this->currentMonth === 1 ? intval($this->currentYear) - 1 : $this->currentYear;
 
-    $prevHref = $this->naviHref . '?month=' . sprintf('%02d', $preMonth) . '&year=' . $preYear;
+    $prevHref = $this->naviHref . '?month=' . sprintf('%02d', $prevMonth) . '&year=' . $preYear;
     $nextHref = $this->naviHref . '?month=' . sprintf('%02d', $nextMonth) . '&year=' . $nextYear;
-    $displayDate = date('F Y', strtotime($this->currentYear . '-' . $this->currentMonth . '-01' ));
+    $displayDate = date('F Y', strtotime($this->currentYear . '-' . $this->currentMonth . '-01'));
+
+    $displayPrevMonth = DateTime::createFromFormat('!m', $prevMonth)->format('F');
+    $displayNextMonth =
+      DateTime::createFromFormat('!m', $nextMonth)->format('F');
+
     return "
       <div class='header'>
-        <a class='prev' href='$prevHref'>Prev</a>
+        <a class='prev' href='$prevHref'>
+          <span class='icon arrow left invert '></span>
+          $displayPrevMonth
+        </a>
           <span class='title'>$displayDate</span>
-        <a class='next' href='$nextHref'>Next</a>
+        <a class='next' href='$nextHref'>
+          $displayNextMonth
+          <span class='icon arrow right invert '></span>
+          </a>
       </div>
     ";
   }
@@ -153,10 +173,11 @@ class Calendar {
    * Create calendar week labels
    */
 
-   private function _createLabels() {
+  private function _createLabels()
+  {
     $content = '';
 
-    foreach($this->dayLabels as $index => $label) {
+    foreach ($this->dayLabels as $index => $label) {
       $class = $label === 6 ? 'end title' : $label === 0 ? 'start title' : 'title';
       $content .= "<li class='$class'>$label</li>";
     }
@@ -168,7 +189,8 @@ class Calendar {
    * Calculate number of weeks in a particular month
    */
 
-   private function _weeksInMonth($month = null, $year = null) {
+  private function _weeksInMonth($month = null, $year = null)
+  {
     if (null === $year) {
       $year = date('Y', time());
     }
@@ -188,22 +210,22 @@ class Calendar {
     }
 
     return $numOfWeeks;
-   }
+  }
 
-   /**
-    *  Calculate number of days in a particular month
-    */
+  /**
+   *  Calculate number of days in a particular month
+   */
 
-    private function _daysInMonth($month = null, $year = null) {
-      if (null === $year) {
-        $year = date('Y', time());
-      }
-
-      if (null === $month) {
-        $month = date('m', time());
-      }
-
-      return date('t', strtotime($year . '-' . $month . '-01'));
+  private function _daysInMonth($month = null, $year = null)
+  {
+    if (null === $year) {
+      $year = date('Y', time());
     }
+
+    if (null === $month) {
+      $month = date('m', time());
+    }
+
+    return date('t', strtotime($year . '-' . $month . '-01'));
+  }
 }
-?>
