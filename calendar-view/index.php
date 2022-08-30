@@ -36,7 +36,7 @@ $calendar = new Calendar();
     <!-- Have ability to move back and forward through the months -->
     <?= $calendar->show() ?>
   </div>
-  <script src="./functions.js"></script>
+  <script src="./functions__1661861941141__.js"></script>
   <?php
   include_once(PAGE_END);
   ?>
