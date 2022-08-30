@@ -1,7 +1,7 @@
 import {
 	getProjectIdFromURL,
 	categoryRequestsURL,
-} from "../helpers__1661872787419__.js";
+} from "../helpers__1661878736011__.js";
 
 export class CategoryContextMenu extends HTMLElement {
 	constructor() {

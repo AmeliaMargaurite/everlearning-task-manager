@@ -705,7 +705,6 @@ tile-context-menu input {
   border-radius: 0.4rem;
   -moz-column-gap: 1.6rem;
        column-gap: 1.6rem;
-  padding-bottom: 6.9rem;
 }
 .overlay div.wrapper.note {
   width: 50vmin;
@@ -726,6 +725,11 @@ tile-context-menu input {
   grid-column: 1/3;
   -moz-column-gap: 1.6rem;
        column-gap: 1.6rem;
+}
+.overlay div.wrapper:not(.note):not(.statuses) {
+  padding-bottom: 6.9rem;
+}
+.overlay div.wrapper:not(.note):not(.statuses) .modal-buttons {
   position: fixed;
   bottom: 0;
   width: 100%;

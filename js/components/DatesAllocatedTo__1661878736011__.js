@@ -1,18 +1,18 @@
 import {
 	getProjectIdFromURL,
 	taskRequestURL,
-} from "../helpers__1661872787419__.js";
+} from "../helpers__1661878736011__.js";
 
-export class DueDate extends HTMLElement {
+export class DaysAllocatedTo extends HTMLElement {
 	constructor() {
 		super();
 	}
 
-	async getDueDate(project_id, task_id) {
+	async getAllocatedDays(project_id, task_id) {
 		const response = await fetch(taskRequestURL, {
 			method: "POST",
 			body: JSON.stringify({
-				request: "get_due_date",
+				request: "get_allocated_days",
 				task_id,
 				project_id,
 			}),
@@ -24,16 +24,15 @@ export class DueDate extends HTMLElement {
 	async connectedCallback() {
 		const project_id = this.getAttribute("project_id");
 		const task_id = this.getAttribute("task_id");
-		let due_date = null;
+		let allocatedDays = null;
 
 		if (task_id) {
-			console.log("beep");
-			due_date = await this.getDueDate(project_id, task_id);
+			allocatedDays = await this.getAllocatedDays(project_id, task_id);
 		}
 
 		this.innerHTML = `<label>
-        Due date
+        Allocated Days
       </label>
-      <input type="date" name="due_date" value="${due_date}"/>`;
+      <input type="date" name="days_allocated_to" value="${allocatedDays}"/>`;
 	}
 }
