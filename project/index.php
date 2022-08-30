@@ -160,7 +160,7 @@ include_once(PAGE_START);
     handleDrop,
     handleOnDragOver,
     toggleListVisible
-  } from '<?= HOME_URL . "project/functions__1661861941141__.js" ?>';
+  } from '<?= HOME_URL . "project/functions__1661863577507__.js" ?>';
 
 
   window.handleDragStart = handleDragStart;

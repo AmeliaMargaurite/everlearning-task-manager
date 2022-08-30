@@ -119,6 +119,18 @@ a.back-btn {
 	width: max-content;
 }
 
+a.link {
+	display: flex;
+	column-gap: 0.4rem;
+	align-items: center;
+	color: var(--teal500);
+	font-weight: 600;
+
+	& .icon {
+		background-color: var(--teal500);
+	}
+}
+
 form.todays-tasks {
 	display: grid;
 	row-gap: 0.8rem;

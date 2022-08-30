@@ -1,7 +1,7 @@
 import {
 	getProjectIdFromURL,
 	taskRequestURL,
-} from "../helpers__1661861941141__.js";
+} from "../helpers__1661863577507__.js";
 
 export class DaysAllocatedTo extends HTMLElement {
 	constructor() {

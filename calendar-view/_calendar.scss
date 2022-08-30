@@ -1,7 +1,7 @@
 .content.calendar-view {
 	display: grid;
 	grid-template-rows: max-content max-content;
-	padding-inline: 3.2rem;
+	// padding-inline: 3.2rem;
 	text-align: center;
 
 	& .page__wrapper {
@@ -22,7 +22,7 @@
 		background: var(--teal500);
 		padding: 1.6rem;
 		color: var(--white);
-		border-radius: 0.4rem;
+		// border-radius: 0.4rem;
 
 		& a {
 			display: flex;
@@ -41,6 +41,8 @@
 		display: grid;
 		grid-template-columns: max-content auto;
 		row-gap: 0.8rem;
+		padding-inline: 4rem;
+		column-gap: 1.6rem;
 	}
 
 	ul {
@@ -127,19 +129,25 @@
 	// Next/previous week buttons
 	.week {
 		position: absolute;
-		background: var(--primary);
-		color: var(--secondary);
+		background: var(--transp-black-3);
+		color: var(--primary);
+		-ms-writing-mode: tb-rl;
 		writing-mode: vertical-rl;
 		transform: rotate(180deg);
 		height: 100%;
-		left: -3.2rem;
+		left: 0;
 		border-bottom-left-radius: 0.8rem;
 		border-top-left-radius: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.4rem;
+		font-weight: 600;
+		padding: 0 0.4rem;
+		box-shadow: 0 0 16px -6px var(--primary), 0 0 8px -4px var(--teal500);
 		cursor: pointer;
 
 		&.next {
 			transform: rotate(360deg);
-			right: -3.2rem;
+			right: 0;
 			left: unset;
 		}
 	}

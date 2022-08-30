@@ -20,8 +20,8 @@ $calendar = new Calendar();
 
   <div class="page__wrapper">
     <div class="title__wrapper">
-      <a href="<?= HOME_URL ?>" class="back-btn">
-        <div class="icon arrow"></div>back
+      <a href="<?= HOME_URL ?>" class="link">
+        <span class="icon table"></span>Projects
       </a>
       <span>
         <h1>Calendar</h1>
@@ -36,7 +36,7 @@ $calendar = new Calendar();
     <!-- Have ability to move back and forward through the months -->
     <?= $calendar->show() ?>
   </div>
-  <script src="./functions__1661861941141__.js"></script>
+  <script src="./functions__1661863577507__.js"></script>
   <?php
   include_once(PAGE_END);
   ?>
