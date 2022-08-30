@@ -3,7 +3,7 @@ import {
 	getProjectIdFromURL,
 	noteFunctionsURL,
 	noteRequestsURL,
-} from "../helpers__1661871678850__.js";
+} from "../helpers__1661872787419__.js";
 
 export class EditNoteDialog extends HTMLElement {
 	constructor() {

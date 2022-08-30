@@ -1,4 +1,4 @@
-import { closeModal } from "../helpers__1661871678850__.js";
+import { closeModal } from "../helpers__1661872787419__.js";
 
 export class Modal extends HTMLElement {
 	constructor() {
@@ -12,9 +12,10 @@ export class Modal extends HTMLElement {
 			<modal-overlay modals_id='${modalsId}'>
         <div class="wrapper" onclick="event.stopPropagation()">
           <div id="modal--contents" class="modal--contents" ></div>
-          <button class="btn" type="cancel" id="cancel-btn">Cancel</button>
-          <button class="btn special" type="submit" form="modal-form" >Save</button>
-
+					<span class="modal-buttons">
+						<button class="btn" type="cancel" id="cancel-btn">Cancel</button>
+						<button class="btn special" type="submit" form="modal-form" >Save</button>
+					</span>
         </div>
 			</modal-overlay>
     `;
