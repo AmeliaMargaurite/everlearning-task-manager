@@ -1,4 +1,4 @@
-import { projectFunctionsURL } from "../helpers__1661863577507__.js";
+import { projectFunctionsURL } from "../helpers__1661864048886__.js";
 
 export class AddNewProjectDialog extends HTMLElement {
 	constructor() {

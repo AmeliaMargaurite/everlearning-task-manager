@@ -1185,13 +1185,15 @@ create-link-popup .link-popup__wrapper button.icon-only {
   border: 1px solid var(--transp-black-3);
 }
 .calendar .week {
-  position: absolute;
+  --height: 40vh;
+  position: fixed;
   background: var(--transp-black-3);
   color: var(--primary);
   -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  height: 100%;
+  height: var(--height);
+  top: calc(50% - var(--height) / 2);
   left: 0;
   border-bottom-left-radius: 0.8rem;
   border-top-left-radius: 0.8rem;

@@ -58,8 +58,8 @@ class Calendar
           <ul class='label'>" .
       $this->_createLabels()
       . "</ul>
-        <span class='week previous' id='previousWeekBtn' data-type='previous'>Previous</span>
-        <span class='week next' id='nextWeekBtn' data-type='next'>Next</span>
+        <span class='week previous' id='previousWeekBtn' data-type='previous'>Previous week</span>
+        <span class='week next' id='nextWeekBtn' data-type='next'>Next week</span>
         <ul class='dates'>";
     $weeksInMonth = $this->_weeksInMonth($month, $year);
 
