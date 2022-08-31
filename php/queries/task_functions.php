@@ -18,10 +18,11 @@ function saveNewTask()
   $due_date = $_POST['due_date'] ? $_POST['due_date'] : NULL;
   $priority_id = $_POST['priority'] ? $_POST['priority'] : NULL;
   $days_allocated_to = $_POST['days_allocated_to'] ? $_POST['days_allocated_to'] : NULL;
+  $status_id = !empty($_POST['status']) ? (int)$_POST['status'] : 'incomplete';
+
 
   // Standard initial settings
   $date_created = date('Y-m-d');
-  $status_id = getStatusIdFromName('incomplete');
 
   $conn = OpenConn();
   $stmt =
@@ -69,16 +70,17 @@ function editTask(): void
   $due_date = !empty($_POST['due_date']) ? $_POST['due_date'] : NULL;
   $priority_id = !empty($_POST['priority']) ? (int)$_POST['priority'] : NULL;
   $days_allocated_to = !empty($_POST['days_allocated_to']) ? $_POST['days_allocated_to'] : NULL;
+  $status_id = !empty($_POST['status']) ? (int)$_POST['status'] : 'incomplete';
 
 
   $conn = OpenConn();
-  $stmt = $conn->prepare("UPDATE tasks SET name = ?, description = ?, category_id = ?, priority_id = ?, due_date = ?, days_allocated_to = ? WHERE task_id = ?");
+  $stmt = $conn->prepare("UPDATE tasks SET name = ?, description = ?, category_id = ?, priority_id = ?, due_date = ?, days_allocated_to = ?, status_id = ? WHERE task_id = ?");
 
-  $stmt->bind_param('ssiissi', $name, $description, $category_id, $priority_id,  $due_date, $days_allocated_to, $task_id);
+  $stmt->bind_param('ssiissii', $name, $description, $category_id, $priority_id,  $due_date, $days_allocated_to, $status_id, $task_id);
 
   if ($stmt->execute() === TRUE) {
 
-    $updates = array('name' => $name, 'description' => $description, 'category_id' => $category_id, 'due_date' => $due_date, 'priority_id' => $priority_id, 'days_allocated_to' => $days_allocated_to);
+    $updates = array('name' => $name, 'description' => $description, 'category_id' => $category_id, 'due_date' => $due_date, 'priority_id' => $priority_id, 'days_allocated_to' => $days_allocated_to, 'status_id' => $status_id);
     foreach ($updates as $key => $prop) {
       $_SESSION['projects'][$project_id]->tasks[$task_id]->$key = $prop;
     }

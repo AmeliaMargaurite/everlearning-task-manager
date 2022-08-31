@@ -1,7 +1,7 @@
 import {
 	getProjectIdFromURL,
 	taskFunctionsURL,
-} from "../helpers__1661953135998__.js";
+} from "../helpers__1661955658102__.js";
 
 export class AddNewTaskDialog extends HTMLElement {
 	constructor() {
@@ -34,6 +34,10 @@ export class AddNewTaskDialog extends HTMLElement {
 						</span>
 						<span>
 							<days-allocated-to task_id=""></days-allocated-to>
+						</span>
+						<span>
+							<status-dropdown data-project_id="${project_id}" data-task_id="">
+							</status-dropdown>
 						</span>
 					</div>
 				<input type="hidden" name="save_new_task" value="${project_id}"/>

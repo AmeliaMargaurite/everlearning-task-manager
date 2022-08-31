@@ -720,6 +720,7 @@ tile-context-menu input {
   height: 100%;
 }
 .overlay div.wrapper.statuses {
+  position: static;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;

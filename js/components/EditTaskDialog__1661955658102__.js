@@ -3,7 +3,7 @@ import {
 	getProjectIdFromURL,
 	taskFunctionsURL,
 	taskRequestURL,
-} from "../helpers__1661953135998__.js";
+} from "../helpers__1661955658102__.js";
 
 export class EditTaskDialog extends HTMLElement {
 	constructor() {
@@ -39,17 +39,24 @@ export class EditTaskDialog extends HTMLElement {
           </div>
 					<div class="settings">
 						<span>
-							
-							<category-dropdown project_id="${project_id}" task_id="${task_id}"></category-dropdown>
+							<category-dropdown project_id="${project_id}" task_id="${task_id}">
+							</category-dropdown>
 						</span>
 						<span>
-							<due-date project_id="${project_id}" task_id="${task_id}"></due-date>
+							<due-date project_id="${project_id}" task_id="${task_id}">
+							</due-date>
 						</span>
 						<span>
-							<priority-dropdown project_id="${project_id}" task_id="${task_id}"></priority-dropdown>
+							<priority-dropdown project_id="${project_id}" task_id="${task_id}">
+							</priority-dropdown>
 						</span>
 						<span>
-							<days-allocated-to project_id="${project_id}" task_id="${task_id}"></days-allocated-to>
+							<days-allocated-to project_id="${project_id}" task_id="${task_id}">
+							</days-allocated-to>
+						</span>
+						<span>
+							<status-dropdown data-project_id="${project_id}" data-task_id="${task_id}">
+							</status-dropdown>
 						</span>
 					</div>
 					

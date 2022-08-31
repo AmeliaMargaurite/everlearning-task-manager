@@ -1,4 +1,4 @@
-import { closeModal } from "../helpers__1661953135998__.js";
+import { closeModal } from "../helpers__1661955658102__.js";
 
 export class Modal extends HTMLElement {
 	constructor() {
