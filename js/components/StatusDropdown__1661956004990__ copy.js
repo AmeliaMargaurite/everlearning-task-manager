@@ -1,7 +1,7 @@
 import {
 	getProjectIdFromURL,
 	statusRequestsURL,
-} from "../helpers__1661955658102__.js";
+} from "../helpers__1661956004990__.js";
 
 export class StatusDropdown extends HTMLElement {
 	constructor() {
@@ -37,7 +37,7 @@ export class StatusDropdown extends HTMLElement {
 		select.name = "status";
 		select.id = "status_select";
 
-		let statuses = '<option value="">Select status</option>';
+		let statuses = "";
 
 		// OPTION ELEMENTS
 		for (let id in statusData) {

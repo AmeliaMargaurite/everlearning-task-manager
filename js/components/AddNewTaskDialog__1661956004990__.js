@@ -1,7 +1,7 @@
 import {
 	getProjectIdFromURL,
 	taskFunctionsURL,
-} from "../helpers__1661955658102__.js";
+} from "../helpers__1661956004990__.js";
 
 export class AddNewTaskDialog extends HTMLElement {
 	constructor() {
