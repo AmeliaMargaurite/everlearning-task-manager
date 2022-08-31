@@ -62,6 +62,10 @@ rich-text-editor {
 		border-radius: 0.4rem;
 		padding: 0.8rem;
 	}
+
+	& .content-area {
+		min-height: 20rem;
+	}
 }
 
 create-link-popup {

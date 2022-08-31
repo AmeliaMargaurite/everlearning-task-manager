@@ -5,6 +5,7 @@ ini_set('track_errors', 1);
 ini_set('html_errors', 1);
 
 define('IS_LIVE', getenv("ENVIRONMENT") === 'production');
+error_log($_SESSION['HTTP_HOST']);
 $local = '/task-manager';
 // @todo have this as a editable choice in user profile
 date_default_timezone_set('Europe/Brussels');

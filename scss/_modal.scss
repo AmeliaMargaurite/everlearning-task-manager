@@ -6,24 +6,22 @@
 	background: var(--transp-black-2);
 
 	& div.wrapper {
-		position: relative;
+		position: absolute;
 		display: grid;
 		grid-template-rows: auto max-content;
 		row-gap: 1.6rem;
 		padding: 1.6rem;
-		height: 100vh;
 		width: 100vw;
 		overflow-y: auto;
 		background: var(--secondary);
-		// border: 1px solid var(--transp-black-1);
 		box-shadow: var(--elevation-6);
 		border-radius: 0.4rem;
 		column-gap: 1.6rem;
+		top: 0;
+		border-radius: 0;
+		height: calc(100% - 7rem);
 
 		&.note {
-			width: 50vmin;
-			height: 75vmin;
-
 			& textarea {
 				height: 100%;
 			}
@@ -41,9 +39,7 @@
 			column-gap: 1.6rem;
 		}
 
-		&:not(.note):not(.statuses) {
-			padding-bottom: 6.9rem; // height of button wrapper plus gap;
-
+		&:not(.statuses) {
 			.modal-buttons {
 				position: fixed;
 				bottom: 0;
@@ -70,9 +66,9 @@
 	}
 
 	@media (min-width: $small) {
-		& div.wrapper:not(.note):not(.statuses) {
-			width: 80rem;
-			height: calc(100vh - 12.8rem);
+		& div.wrapper:not(.statuses) {
+			position: static;
+			height: 100vh;
 			padding-bottom: 1.6rem; // accounting for padding for buttons on mobile
 
 			& .modal-buttons {
@@ -80,6 +76,13 @@
 				padding: 0;
 				border: none;
 			}
+		}
+	}
+
+	@media (min-width: $medium) {
+		& div.wrapper:not(.statuses) {
+			width: 80rem;
+			height: calc(100vh - 12.8rem);
 		}
 	}
 }

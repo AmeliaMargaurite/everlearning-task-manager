@@ -699,13 +699,12 @@ tile-context-menu input {
   background: var(--transp-black-2);
 }
 .overlay div.wrapper {
-  position: relative;
+  position: absolute;
   display: grid;
   grid-template-rows: auto -webkit-max-content;
   grid-template-rows: auto max-content;
   row-gap: 1.6rem;
   padding: 1.6rem;
-  height: 100vh;
   width: 100vw;
   overflow-y: auto;
   background: var(--secondary);
@@ -713,10 +712,9 @@ tile-context-menu input {
   border-radius: 0.4rem;
   -moz-column-gap: 1.6rem;
        column-gap: 1.6rem;
-}
-.overlay div.wrapper.note {
-  width: 50vmin;
-  height: 75vmin;
+  top: 0;
+  border-radius: 0;
+  height: calc(100% - 7rem);
 }
 .overlay div.wrapper.note textarea {
   height: 100%;
@@ -734,10 +732,7 @@ tile-context-menu input {
   -moz-column-gap: 1.6rem;
        column-gap: 1.6rem;
 }
-.overlay div.wrapper:not(.note):not(.statuses) {
-  padding-bottom: 6.9rem;
-}
-.overlay div.wrapper:not(.note):not(.statuses) .modal-buttons {
+.overlay div.wrapper:not(.statuses) .modal-buttons {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -757,15 +752,21 @@ tile-context-menu input {
   grid-column: 2;
 }
 @media (min-width: 768px) {
-  .overlay div.wrapper:not(.note):not(.statuses) {
-    width: 80rem;
-    height: calc(100vh - 12.8rem);
+  .overlay div.wrapper:not(.statuses) {
+    position: static;
+    height: 100vh;
     padding-bottom: 1.6rem;
   }
-  .overlay div.wrapper:not(.note):not(.statuses) .modal-buttons {
+  .overlay div.wrapper:not(.statuses) .modal-buttons {
     position: static;
     padding: 0;
     border: none;
+  }
+}
+@media (min-width: 1024px) {
+  .overlay div.wrapper:not(.statuses) {
+    width: 80rem;
+    height: calc(100vh - 12.8rem);
   }
 }
 
@@ -848,7 +849,7 @@ tile-context-menu input {
   position: absolute;
   z-index: var(--zIndexContextMenu);
   top: 50%;
-  left: 12.5%;
+  left: 35%;
   background: white;
   border: 1px solid var(--primary);
 }
@@ -857,7 +858,7 @@ tile-context-menu input {
   border: none;
   border-bottom: 1px solid var(--primary);
   border-radius: unset;
-  padding: 0.4rem;
+  padding: 0.8rem 1.6rem;
 }
 .category-context-menu__wrapper button:last-child {
   border: none;
@@ -1092,6 +1093,9 @@ rich-text-editor .visual-view {
   border: 1px solid var(--black);
   border-radius: 0.4rem;
   padding: 0.8rem;
+}
+rich-text-editor .content-area {
+  min-height: 20rem;
 }
 
 create-link-popup .link-popup__wrapper {

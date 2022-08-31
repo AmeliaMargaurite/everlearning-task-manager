@@ -43,6 +43,7 @@ if (!isset($_SESSION['projects'][$project_id]->sortOrder)) {
 }
 $title = $projectName . ' | Task Manager';
 include_once(PAGE_START);
+
 ?>
 <div class="page__wrapper">
   <div class="title__wrapper">
@@ -85,7 +86,6 @@ include_once(PAGE_START);
     </div>
   </div>
   <section class="tasks__wrapper">
-
     <div class="task__column--wrapper" onDragOver="handleOnDragOver(event)" onDrop="handleDrop(event, 'incomplete')">
 
       <h3 class="task__column--title" onclick="toggleListVisible('incomplete')">
@@ -157,7 +157,7 @@ include_once(PAGE_START);
     handleDrop,
     handleOnDragOver,
     toggleListVisible
-  } from '<?= HOME_URL . "project/functions__1661949306215__.js" ?>';
+  } from '<?= HOME_URL . "project/functions__1661953135998__.js" ?>';
 
 
   window.handleDragStart = handleDragStart;

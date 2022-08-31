@@ -1,5 +1,9 @@
-const BASE_URL = window.location.host === "localhost" ? "/task-manager" : "";
-
+const BASE_URL =
+	window.location.pathname.split("/").length === 4
+		? window.location.origin + "/task-manager"
+		: "";
+console.log(window.location);
+console.log(BASE_URL);
 export const taskRequestURL = BASE_URL + "/php/queries/task_requests.php";
 export const taskFunctionsURL = BASE_URL + "/php/queries/task_functions.php";
 export const categoryRequestsURL =
