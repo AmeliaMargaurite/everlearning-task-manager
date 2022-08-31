@@ -88,7 +88,6 @@ include_once(PAGE_START);
 
     <div class="task__column--wrapper" onDragOver="handleOnDragOver(event)" onDrop="handleDrop(event, 'incomplete')">
 
-      <!-- On desktop view, toggle onclick/the h3 stops further clicking to add new -->
       <h3 class="task__column--title" onclick="toggleListVisible('incomplete')">
         To do
         <button class="btn icon-only small" onclick="openDialog('add-new-task-dialog')">
@@ -158,7 +157,7 @@ include_once(PAGE_START);
     handleDrop,
     handleOnDragOver,
     toggleListVisible
-  } from '<?= HOME_URL . "project/functions__1661878736011__.js" ?>';
+  } from '<?= HOME_URL . "project/functions__1661949306215__.js" ?>';
 
 
   window.handleDragStart = handleDragStart;

@@ -2,7 +2,7 @@ import {
 	getProjectIdFromURL,
 	categoryRequestsURL,
 	increaseHueOfHex,
-} from "../helpers__1661878736011__.js";
+} from "../helpers__1661949306215__.js";
 
 export class CategoryInputPopup extends HTMLElement {
 	constructor() {

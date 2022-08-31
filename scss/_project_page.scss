@@ -198,7 +198,15 @@
 
 		&--title {
 			cursor: initial;
-			pointer-events: none;
+			&:hover {
+				background: var(--secondary);
+				color: var(--primary);
+				& .task__column--count,
+				.icon {
+					background-color: var(--primary);
+					color: var(--secondary);
+				}
+			}
 		}
 
 		&--wrapper {

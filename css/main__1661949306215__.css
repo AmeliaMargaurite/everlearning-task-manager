@@ -426,7 +426,15 @@ a.link .icon {
   }
   .task__column--title {
     cursor: initial;
-    pointer-events: none;
+  }
+  .task__column--title:hover {
+    background: var(--secondary);
+    color: var(--primary);
+  }
+  .task__column--title:hover .task__column--count,
+.task__column--title:hover .icon {
+    background-color: var(--primary);
+    color: var(--secondary);
   }
   .task__column--wrapper {
     height: 100%;
