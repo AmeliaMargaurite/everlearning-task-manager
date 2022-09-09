@@ -7,8 +7,8 @@ export class RichTextEditor extends HTMLElement {
 		const nameToSave = this.getAttribute("name-to-save");
 		const savedData = this.getAttribute("data");
 		this.id = "editor";
-		this.innerHTML = `
-		<div class="toolbar" id="toolbar">
+
+		const taskbar = `<div class="toolbar" id="toolbar">
 			<span class="editor-btn" tabindex="0" data-action="bold" data-tag-name="strong" title="Bold">
 				<div class="icon bold"></div>
 			</span>
@@ -72,8 +72,18 @@ export class RichTextEditor extends HTMLElement {
 			<span class="editor-btn" tabindex="0" data-action="toggle-view" title="Show HTML code">
 				<div class="icon code"></div>
 			</span>
-		</div>
+		</div>`;
 
+		const tempTaskbar = `
+		<div class="toolbar" id="toolbar">
+		<span class="editor-btn" tabindex="0" data-action="toggle-view" title="Show HTML code">
+				<div class="icon code"></div>
+			</span>
+		</div>
+		`;
+
+		this.innerHTML = tempTaskbar;
+		this.innerHTML += `
 		<div class="content-area" id="content-area">
 			<div class="visual-view" id="visual-view" contentEditable="true" >${savedData}</div>
 			<textarea class="html-view" id="html-view" name="${nameToSave}"></textarea>
@@ -81,35 +91,35 @@ export class RichTextEditor extends HTMLElement {
 
 		`;
 
-		const editor = document.getElementById("editor");
-		const toolbar = document.getElementById("toolbar");
+		// const editor = document.getElementById("editor");
+		// const toolbar = document.getElementById("toolbar");
 		const buttons = document.querySelectorAll(".editor-btn:not(.has-submenu)");
 		const contentArea = document.getElementById("content-area");
 		const visualView = document.getElementById("visual-view");
 		const htmlView = document.getElementById("html-view");
 
-		const alignBtn = document.getElementById("align-button");
-		const alignBtnsWrapper = document.getElementById("align-buttons__wrapper");
+		// const alignBtn = document.getElementById("align-button");
+		// const alignBtnsWrapper = document.getElementById("align-buttons__wrapper");
 
-		alignBtn.onclick = () => alignBtnsWrapper.classList.toggle("open");
+		// alignBtn.onclick = () => alignBtnsWrapper.classList.toggle("open");
 
-		let selectedText, selectedRange;
-		const captureSelection = () => {
-			if (window.getSelection) {
-				const sel = window.getSelection();
-				selectedText = window.getSelection().toString();
+		// let selectedText, selectedRange;
+		// const captureSelection = () => {
+		// 	if (window.getSelection) {
+		// 		const sel = window.getSelection();
+		// 		selectedText = window.getSelection().toString();
 
-				if (sel.getRangeAt && sel.rangeCount) {
-					selectedRange = window.getSelection().getRangeAt(0).cloneRange();
-					return;
-				}
-			}
+		// 		if (sel.getRangeAt && sel.rangeCount) {
+		// 			selectedRange = window.getSelection().getRangeAt(0).cloneRange();
+		// 			return;
+		// 		}
+		// 	}
 
-			selectedRange = null;
-			selectedText = "";
-		};
+		// 	selectedRange = null;
+		// 	selectedText = "";
+		// };
 
-		visualView.addEventListener("mouseup", captureSelection);
+		// visualView.addEventListener("mouseup", captureSelection);
 
 		// const selectionChange = (e) => {
 		// 	for (const button of buttons) {
@@ -176,56 +186,56 @@ export class RichTextEditor extends HTMLElement {
 			});
 		}
 
-		const applyFormatting = (button, selection, range) => {
-			if (!selection || !range) return false;
-			console.log(button);
-			const tagName = button.dataset.tagName;
-			const style = button.dataset.style;
-			// formatting buttons eg bold, italic, underline etc
-			if (tagName) {
-				const el = document.createElement(tagName);
+		// const applyFormatting = (button, selection, range) => {
+		// 	if (!selection || !range) return false;
+		// 	console.log(button);
+		// 	const tagName = button.dataset.tagName;
+		// 	const style = button.dataset.style;
+		// 	// formatting buttons eg bold, italic, underline etc
+		// 	if (tagName) {
+		// 		const el = document.createElement(tagName);
 
-				el.innerHTML = selection;
-				const container = range.startContainer;
+		// 		el.innerHTML = selection;
+		// 		const container = range.startContainer;
 
-				const parentHasSameElWrapper = (el, wrapper) => {
-					const parentEl = el.parentElement;
+		// 		const parentHasSameElWrapper = (el, wrapper) => {
+		// 			const parentEl = el.parentElement;
 
-					if (parentEl.tagName.toLowerCase() === wrapper.toLowerCase()) {
-						if (parentEl.children.length > 0) {
-							// don't currently have a good method here @TODO
-							// so not currently removing a matched wrapper if it's
-							// not the nearest wrapper to the selected contents
-						} else {
-							const contents = parentEl.innerText;
-							parentEl.replaceWith(contents);
-						}
-						return true;
-					} else if (parentEl === visualView) {
-						return false;
-					} else {
-						return parentHasSameElWrapper(el.parentElement, wrapper);
-					}
-				};
+		// 			if (parentEl.tagName.toLowerCase() === wrapper.toLowerCase()) {
+		// 				if (parentEl.children.length > 0) {
+		// 					// don't currently have a good method here @TODO
+		// 					// so not currently removing a matched wrapper if it's
+		// 					// not the nearest wrapper to the selected contents
+		// 				} else {
+		// 					const contents = parentEl.innerText;
+		// 					parentEl.replaceWith(contents);
+		// 				}
+		// 				return true;
+		// 			} else if (parentEl === visualView) {
+		// 				return false;
+		// 			} else {
+		// 				return parentHasSameElWrapper(el.parentElement, wrapper);
+		// 			}
+		// 		};
 
-				// removes selected formatting if it exists already
-				if (parentHasSameElWrapper(container, tagName)) return;
+		// 		// removes selected formatting if it exists already
+		// 		if (parentHasSameElWrapper(container, tagName)) return;
 
-				// find nearest wrapping p
-				// check if p has text-align set, else set it
-				// if no nearest wrapping p, wrap content in p and add text align
+		// 		// find nearest wrapping p
+		// 		// check if p has text-align set, else set it
+		// 		// if no nearest wrapping p, wrap content in p and add text align
 
-				range.deleteContents();
-				range.insertNode(el);
-			}
+		// 		range.deleteContents();
+		// 		range.insertNode(el);
+		// 	}
 
-			if (style) {
-				const p = document.createElement("p");
-				if (parentHasSameElWrapper(container, "p")) return;
-			}
-			selectedRange = null;
-			selectedText = "";
-		};
+		// 	if (style) {
+		// 		const p = document.createElement("p");
+		// 		if (parentHasSameElWrapper(container, "p")) return;
+		// 	}
+		// 	selectedRange = null;
+		// 	selectedText = "";
+		// };
 
 		function execCodeAction(button, editor) {
 			if (button.classList.contains("active")) {
@@ -269,22 +279,22 @@ export class RichTextEditor extends HTMLElement {
 		// 	};
 		// }
 
-		const saveSelection = () => {
-			if (window.getSelection) {
-				const sel = window.getSelection();
-				console.log({ sel });
-				if (sel.getRangeAt && sel.rangeCount) {
-					let ranges = [];
-					for (let i = 0, n = sel.rangeCount; i < n; i++) {
-						ranges.push(sel.getRangeAt(i));
-					}
-					return ranges;
-				}
-			} else if (document.selection && document.selection.createRange) {
-				return document.selection.createRange();
-			}
-			return null;
-		};
+		// const saveSelection = () => {
+		// 	if (window.getSelection) {
+		// 		const sel = window.getSelection();
+		// 		console.log({ sel });
+		// 		if (sel.getRangeAt && sel.rangeCount) {
+		// 			let ranges = [];
+		// 			for (let i = 0, n = sel.rangeCount; i < n; i++) {
+		// 				ranges.push(sel.getRangeAt(i));
+		// 			}
+		// 			return ranges;
+		// 		}
+		// 	} else if (document.selection && document.selection.createRange) {
+		// 		return document.selection.createRange();
+		// 	}
+		// 	return null;
+		// };
 
 		// const restoreSelection = (savedSel) => {
 		// 	if (savedSel) {
@@ -308,36 +318,36 @@ export class RichTextEditor extends HTMLElement {
 		// 	document.execCommand("insertHTML", false, text);
 		// };
 
-		visualView.onfocus = function () {
-			if (window.getSelection && document.createRange) {
-				const range = document.createRange();
-				range.selectNodeContents(this);
-				range.collapse(false);
+		// visualView.onfocus = function () {
+		// 	if (window.getSelection && document.createRange) {
+		// 		const range = document.createRange();
+		// 		range.selectNodeContents(this);
+		// 		range.collapse(false);
 
-				const sel = window.getSelection();
-				sel.removeAllRanges();
-				sel.addRange(range);
-			}
-		};
+		// 		const sel = window.getSelection();
+		// 		sel.removeAllRanges();
+		// 		sel.addRange(range);
+		// 	}
+		// };
 
-		const addParagraphTag = (e) => {
-			console.log(e);
-			if (e.keyCode === 13) {
-				if (window.getSelection().anchorNode.parentNode.tagName === "LI")
-					return;
-				const sel = window.getSelection();
-				if (sel.getRangeAt && sel.rangeCount) {
-					const range = window.getSelection().getRangeAt(0);
-					const p = document.createElement("p");
-					p.innerHTML = "<br>";
-					range.insertNode(p);
-					return;
-				}
-			}
-		};
+		// const addParagraphTag = (e) => {
+		// 	console.log(e);
+		// 	if (e.keyCode === 13) {
+		// 		if (window.getSelection().anchorNode.parentNode.tagName === "LI")
+		// 			return;
+		// 		const sel = window.getSelection();
+		// 		if (sel.getRangeAt && sel.rangeCount) {
+		// 			const range = window.getSelection().getRangeAt(0);
+		// 			const p = document.createElement("p");
+		// 			p.innerHTML = "<br>";
+		// 			range.insertNode(p);
+		// 			return;
+		// 		}
+		// 	}
+		// };
 
 		// visualView.addEventListener("paste", pasteEvent);
-		visualView.addEventListener("keypress", addParagraphTag);
+		// visualView.addEventListener("keypress", addParagraphTag);
 
 		const saveBtn = document.querySelector('button[form="modal-form"]');
 		saveBtn.onclick = () => {

@@ -3,7 +3,7 @@ import {
 	getProjectIdFromURL,
 	taskFunctionsURL,
 	taskRequestURL,
-} from "../helpers__1661956004990__.js";
+} from "../helpers__1662731128046__.js";
 
 export class EditTaskDialog extends HTMLElement {
 	constructor() {
