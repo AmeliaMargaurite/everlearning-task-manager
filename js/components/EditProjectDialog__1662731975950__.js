@@ -3,7 +3,7 @@ import {
 	getProjectIdFromURL,
 	projectFunctionsURL,
 	projectRequestsURL,
-} from "../helpers__1662731128046__.js";
+} from "../helpers__1662731975950__.js";
 
 export class EditProjectDialog extends HTMLElement {
 	constructor() {
@@ -101,12 +101,12 @@ class ConfirmDeleteProjectOverlay extends HTMLElement {
 			"Are you sure you want to delete this project? This action cannot be undone.";
 
 		const cancelBtn = document.createElement("button");
-		cancelBtn.className = "cancel-btn";
+		cancelBtn.className = "btn cancel-btn";
 		cancelBtn.innerHTML = "Cancel";
 		cancelBtn.onclick = () => this.cancelDelete();
 		cancelBtn.autofocus = true;
 		const deleteBtn = document.createElement("button");
-		deleteBtn.className = "delete";
+		deleteBtn.className = "btn delete";
 		deleteBtn.innerHTML = "Delete";
 		deleteBtn.onclick = () => this.deleteProject(project_id);
 
