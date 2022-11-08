@@ -26,7 +26,7 @@ function get_dropdown_statuses()
   global $jsonArray;
   ['project_id' => $project_id, 'task_id' => $task_id] = $jsonArray;
   $statuses_results = $_SESSION['projects'][$project_id]->statuses;
-  $task_status_id = $_SESSION['projects'][$project_id]->tasks[$task_id]->status_id;
+  $task_status_id = isset($_SESSION['projects'][$project_id]->tasks[$task_id]->status_id) ? $_SESSION['projects'][$project_id]->tasks[$task_id]->status_id : null;
   $statuses = array();
   // echo $_SESSION['projects'][$project_id]->tasks[$task_id]->status_id;
 
@@ -34,7 +34,7 @@ function get_dropdown_statuses()
     foreach ($statuses_results as $status) {
       // print_r($status);
       $status->this_task = false;
-      if ($task_status_id === $status->status_id) {
+      if ($task_status_id && $task_status_id === $status->status_id) {
         $status->this_task = true;
       }
       $statuses[$status->status_id] = $status;

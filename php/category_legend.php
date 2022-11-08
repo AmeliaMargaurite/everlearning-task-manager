@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once '../config.php';
 include_once(DB_CONNECTION);
 include_once(TASK_REQUESTS);
@@ -6,23 +6,23 @@ include_once(TASK_REQUESTS);
 
 <section class="category_legend--wrapper">
 
-  <?php 
-    // $categoryData = get_category_legend_data($project_id);
-    $categoryData = $_SESSION['projects'][$project_id]->categories;
-    if ($categoryData) {
-      foreach ($categoryData as $category) { ?>
-        <div class="category--wrapper" >
-          <div class="category" category_id="<?=$category->category_id ?>">
-            <?= $category->name ?> 
-            <span class="category_color" color="<?= $category->color ?>"></span>
-          </div>
+  <?php
+
+  $categoryData = isset($_SESSION['projects'][$project_id]->categories) ? $_SESSION['projects'][$project_id]->categories : null;
+  if ($categoryData) {
+    foreach ($categoryData as $category) { ?>
+      <div class="category--wrapper">
+        <div class="category" category_id="<?= $category->category_id ?>">
+          <?= $category->name ?>
+          <span class="category_color" color="<?= $category->color ?>"></span>
         </div>
-     <?php }
-    }
+      </div>
+  <?php }
+  }
   ?>
   <script>
     const markers = document.querySelectorAll('.category_color');
-    
+
     function openCustomMenu(e, category, category_id) {
       // e.preventDefault();
       e.stopPropagation();
@@ -30,7 +30,7 @@ include_once(TASK_REQUESTS);
       const contextMenu = document.createElement('category-context-menu');
       contextMenu.setAttribute('category_id', category_id);
       category.parentElement.append(contextMenu);
-      
+
     }
 
     for (const marker of markers) {
@@ -38,9 +38,9 @@ include_once(TASK_REQUESTS);
       marker.style.background = color;
       const category = marker.parentElement;
       const category_id = category.getAttribute('category_id');
-      category.addEventListener('click', (e) => openCustomMenu(e, category,category_id))
+      category.addEventListener('click', (e) => openCustomMenu(e, category, category_id))
     }
 
     // const editCategory
-    </script>
+  </script>
 </section>

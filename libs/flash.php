@@ -71,7 +71,7 @@
    */
 
   function display_all_flash_messages(): void {
-    echo $_SESSION[FLASH];
+    
     if (!isset($_SESSION[FLASH])) {
       return;
     }
@@ -111,5 +111,3 @@
       display_all_flash_messages();
     }
   }
-
-?>

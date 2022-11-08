@@ -9,7 +9,7 @@ include_once(PROJECT_FUNCTIONS);
 include_once(RENDER_COMPONENTS);
 
 
-if ($_SESSION['projects'] == '' || !isset($_SESSION['projects'])) {
+if ((!isset($_SESSION['projects']) || $_SESSION['projects'] == '') && isset($_SESSION['users_id'])) {
   getUsersProjects($_SESSION['users_id']);
 }
 

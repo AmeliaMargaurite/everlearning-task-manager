@@ -56,10 +56,6 @@ h5 {
 	font-weight: 600;
 }
 
-ul {
-	padding-left: 2rem;
-}
-
 @include outerMostWrappers($element: ".login");
 @include outerMostWrappers($element: ".register");
 
@@ -105,4 +101,12 @@ form.register {
 	height: 1px;
 	background: var(--primary);
 	opacity: 0.1;
+}
+
+ul.withPadding {
+	padding-left: 3.2rem;
+}
+
+.action {
+	cursor: pointer;
 }

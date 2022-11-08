@@ -29,7 +29,7 @@ function get_all_priorities() {
   $priorities_stmt->execute();
   $priority_results = $priorities_stmt->get_result();
 
-  $this_task_priority_id;
+  $this_task_priority_id = null;
 
   if ($task_id) {
     $task_stmt = $conn->prepare("SELECT priority_id FROM tasks WHERE task_id = ?");
@@ -39,7 +39,6 @@ function get_all_priorities() {
 
     if ($task_results->num_rows > 0) {
       $this_task_priority_id = $task_results->fetch_assoc()['priority_id'];
-// echo $this_task_priority_id;
     }
     $task_stmt->close();
 
@@ -49,12 +48,10 @@ function get_all_priorities() {
   
   if ($priority_results->num_rows > 0) {
     while ($result = $priority_results->fetch_assoc()) {
-// echo $this_task_priority_id . '____';
       $priority = new Priority;
       $priority->name = $result['name'];
       $priority->priority_id =$result['priority_id'];
       $priority->value = $result['value'];
-      // echo $task_results_priority_id . '___' . $priority->priority_id;
       if ($this_task_priority_id 
         && $this_task_priority_id == $priority->priority_id 
         ) {
@@ -74,5 +71,3 @@ function get_priorities_dropdown() {
 
 
 }
-
-?>

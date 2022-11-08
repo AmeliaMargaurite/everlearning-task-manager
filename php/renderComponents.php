@@ -96,9 +96,9 @@ function getTaskCount($status, $project_id)
 function renderTaskTiles($status, $project_id)
 {
   global $currentTask_id;
-  $unsortedTasks = $_SESSION['projects'][$project_id]->tasks;
+  $unsortedTasks = isset($_SESSION['projects'][$project_id]->tasks) ? $_SESSION['projects'][$project_id]->tasks : null;
   $status_id = getStatusIdFromName($status);
-  $categories = $_SESSION['projects'][$project_id]->categories;
+  $categories = isset($_SESSION['projects'][$project_id]->categories) ? $_SESSION['projects'][$project_id]->categories : null;
   $sortOrder = $_SESSION['projects'][$project_id]->sortOrder;
   $sortParts = explode('-', $sortOrder);
 

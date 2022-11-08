@@ -8,10 +8,12 @@ include_once(DB_CONNECTION);
 include_once(PROJECT_FUNCTIONS);
 include_once(RENDER_COMPONENTS);
 
-if ($_SESSION['projects'] == '' || !isset($_SESSION['projects'])) {
+if ((!isset($_SESSION['projects']) || $_SESSION['projects'] == '') && isset($_SESSION['users_id'])) {
+
     getUsersProjects($_SESSION['users_id']);
 }
-$projects = $_SESSION['projects'];
+$projects = isset($_SESSION['projects']) ? $_SESSION['projects'] : [];
+
 ?>
 <div class="projects--page__wrapper">
     <!-- Header of Page, incl light/dark mode switch -->

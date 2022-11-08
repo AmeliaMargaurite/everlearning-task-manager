@@ -9,7 +9,8 @@ if (isset($_POST['save_new_project'])) {
     editProject();
 }
 
-function saveNewProject() {
+function saveNewProject()
+{
     $name = $_POST['name'];
     $description = $_POST['description'];
     $date_created = date('Y-m-d');
@@ -22,14 +23,15 @@ function saveNewProject() {
         getUsersProjects($user_id);
         error_log("New project added successfully", 0);
     } else {
-        error_log("Error: " . $request . "<br/>" . $conn->error, 0);
+        error_log("Error: <br/>" . $conn->error, 0);
     }
 
     CloseConn($conn);
-    header('Location: ../../index.php'); 
+    header('Location: ../../index.php');
 }
 
-function editProject() {
+function editProject()
+{
     $name = $_POST['name'];
     $description = $_POST['description'];
     $project_id = $_POST['edit_project'];
@@ -40,22 +42,16 @@ function editProject() {
     $stmt->bind_param('ssi', $name, $description, $project_id);
 
     if ($stmt->execute() === TRUE) {
-        $updates = array('name' => $name, 'description'=>$description);
-        foreach($updates as $key => $prop) {
+        $updates = array('name' => $name, 'description' => $description);
+        foreach ($updates as $key => $prop) {
             $_SESSION['projects'][$project_id]->$key = $prop;
         }
         error_log("New project added successfully", 0);
     } else {
-        error_log("Error: " . $request . "<br/>" . $conn->error, 0);
+        error_log("Error: <br/>" . $conn->error, 0);
     }
 
     CloseConn($conn);
 
-    header('Location: ../../project?project_id=' . $project_id); 
-
+    header('Location: ../../project?project_id=' . $project_id);
 }
-
-
-
-?>
-

@@ -39,12 +39,9 @@ function delete_project() {
     echo json_encode("success");
     error_log('Sucessfully deleted project',0);
   } else {
-    echo json_encode("Error: " . $request . "<br/>" . $conn->error);
-    error_log('Failed to delete project: '. $request . "<br/>" . $conn->error,0);
+    echo json_encode("Error: <br/>" . $conn->error);
+    error_log('Failed to delete project: <br/>' . $conn->error,0);
   }
   $stmt->close();
   CloseConn($conn);
 }
-
-
-?>

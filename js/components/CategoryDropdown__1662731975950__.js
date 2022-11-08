@@ -18,7 +18,7 @@ export class CategoryDropdown extends HTMLElement {
 			}),
 		});
 
-		const json = await response.json();
+		const json = (await response.json()) ?? [];
 		return json;
 	}
 
@@ -26,12 +26,13 @@ export class CategoryDropdown extends HTMLElement {
 		const project_id = this.getAttribute("project_id");
 		const task_id = this.getAttribute("task_id");
 		const categoryData = await this.getCategoriesData(project_id, task_id);
+		console.log({ categoryData });
 		const label = document.createElement("label");
 		label.innerText = "Category";
 		label.className = "category";
 
 		const i = document.createElement("div");
-		i.className = "icon plus";
+		i.className = "icon plus action";
 		i.onclick = () => {
 			const categoryInputPopup = document.createElement("category-input-popup");
 			document.body.appendChild(categoryInputPopup);

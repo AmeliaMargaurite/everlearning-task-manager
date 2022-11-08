@@ -110,22 +110,23 @@ class Calendar
 
 
     $content = "<li id='li-$this->currentDate' class='$weekMarkersClass $maskClass $todayClass $firstWeek'><span class='cell-number'>$cellContent</span>";
+    if (isset($_SESSION['projects'])) {
+      foreach ($_SESSION['projects'] as $project) {
+        if ($project->tasks) {
+          foreach ($project->tasks as $task) {
 
-    foreach ($_SESSION['projects'] as $project) {
-      if ($project->tasks) {
-        foreach ($project->tasks as $task) {
+            if ($task->days_allocated_to) {
+              $days_allocated_to_reformatted = date(
+                'd-m-Y',
+                strtotime($task->days_allocated_to)
+              );
 
-          if ($task->days_allocated_to) {
-            $days_allocated_to_reformatted = date(
-              'd-m-Y',
-              strtotime($task->days_allocated_to)
-            );
-
-            if ($this->currentDate == $days_allocated_to_reformatted) {
-              $className = $task->status_id === getStatusIdFromName('completed') || $task->status_id === getStatusIdFromName('archived') ? 'completed' : '';
-              $content .= "<span class='task $className' project_id='$project->project_id' task_id='$task->task_id' onclick='openDialog(\"edit-task-dialog\",{task_id:\"$task->task_id\", project_id: \"$project->project_id\"})'>
+              if ($this->currentDate == $days_allocated_to_reformatted) {
+                $className = $task->status_id === getStatusIdFromName('completed') || $task->status_id === getStatusIdFromName('archived') ? 'completed' : '';
+                $content .= "<span class='task $className' project_id='$project->project_id' task_id='$task->task_id' onclick='openDialog(\"edit-task-dialog\",{task_id:\"$task->task_id\", project_id: \"$project->project_id\"})'>
               $task->name
               </span> ";
+              }
             }
           }
         }
@@ -179,7 +180,7 @@ class Calendar
     $content = '';
 
     foreach ($this->dayLabels as $index => $label) {
-      $class = $label === 6 ? 'end title' : $label === 0 ? 'start title' : 'title';
+      $class = ($label === 6 ? 'end title' : $label) === 0 ? 'start title' : 'title';
       $content .= "<li class='$class'>$label</li>";
     }
 
