@@ -9,8 +9,8 @@ include_once(PROJECT_FUNCTIONS);
 include_once(RENDER_COMPONENTS);
 
 
-if ((!isset($_SESSION['projects']) || $_SESSION['projects'] == '') && isset($_SESSION['users_id'])) {
-  getUsersProjects($_SESSION['users_id']);
+if ((!isset($_SESSION['projects']) || $_SESSION['projects'] == '') && isset($_SESSION['user_id'])) {
+  getUsersProjects($_SESSION['user_id']);
 }
 
 include_once('./calendar.php');
